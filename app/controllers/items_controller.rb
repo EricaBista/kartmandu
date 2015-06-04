@@ -29,6 +29,7 @@ end
 
   # GET /items/1/edit
   def edit
+    @item = Item.find(params[:id])
   end
 
   # POST /items
@@ -85,6 +86,6 @@ def search
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def item_params
-      params.require(:item).permit(:name, :description, :category_id, :price, :order, :image, :slug)
+      params.require(:item).permit(:name, :description, :category_id, :brand_id, :price, :order, :image, :slug)
     end
 end

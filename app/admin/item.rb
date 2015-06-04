@@ -3,7 +3,7 @@ ActiveAdmin.register Item do
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
- permit_params :list, :of, :attributes, :on, :model, :name, :slug, :is_discounted, :description, :price, :order, :image
+ permit_params :list, :of, :attributes, :on, :model, :name, :slug, :is_discounted, :description, :price, :order, :image, :category_id, :brand_id
 #
 # or
 #
@@ -18,9 +18,12 @@ index do
      column :price
      column :order
      column :is_discounted
-     # column :category do |c|
-     #    c.category.name
-     #  end
+     column :category do |c|
+        c.category.name
+      end
+      column :brand do |b|
+        b.brand.name
+      end
     
      column "" do |resource|
       links = ''.html_safe
@@ -42,8 +45,8 @@ index do
       f.input :price
       f.input :description
       f.input :order
-       f.input :image, :as => :file, :hint => image_tag(f.object.image.url(:thumb))
-f.input :is_discounted
+      f.input :image, :as => :file, :hint => image_tag(f.object.image.url(:thumb))
+      f.input :is_discounted
      end 
       f.actions 
 end
@@ -55,6 +58,8 @@ end
     row :slug
     row :price
     row :order
+    row :category_id
+    row :brand_id
     end
   end
 end

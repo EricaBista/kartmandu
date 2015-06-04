@@ -26,9 +26,8 @@
                     <% item = Item.find_by_id(id) %>
         
                       <tr>
-                      <td><%= image_tag("cart-img.qjpg", :class => "img-responsive") %></td>
-                        <!-- <td><img src="images/cart-img.jpg" class="img-responsive"></td> -->
-                       
+                      <td><%= image_tag("cart-img.jpg", :class => "img-responsive") %></td>
+                        
                         <td><%= link_to item.name, item %> </td>
                         <td>Galaxy S4 i337 </td>
                          <td><%= quantity %></td>
