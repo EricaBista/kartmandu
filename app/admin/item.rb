@@ -40,7 +40,7 @@ index do
       # add your other inputs
       f.input :category, :collection => Category.all.map{ |category| [category.name, category.id] },:prompt => true
        f.input :brand, :collection => Brand.all.map{ |brand| [brand.name, brand.id] },:prompt => true
-      f.input :name
+      f.input :name 
       f.input :slug
       f.input :price
       f.input :description
