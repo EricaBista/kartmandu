@@ -18,12 +18,12 @@ index do
      column :price
      column :order
      column :is_discounted
-     column :category do |c|
-        c.category.name
-      end
-      column :brand do |b|
-        b.brand.name
-      end
+     # column :category do |c|
+     #    c.category.name
+     #  end
+     #  column :brand do |b|
+     #    b.brand.name
+     #  end
     
      column "" do |resource|
       links = ''.html_safe
