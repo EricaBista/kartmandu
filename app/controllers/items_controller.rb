@@ -16,6 +16,7 @@ end
   # GET /items/1.json
   def show
     @item = Item.find_by_slug!(params[:slug])
+    @items = Item.where(:category_id => @item.category_id).where.not(:id => @item.id).limit(4).order("RANDOM()")
   end
 
   # GET /items/new
