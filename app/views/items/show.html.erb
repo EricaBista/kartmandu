@@ -212,16 +212,16 @@
                      <div class="col-sm-3">
                      <div class="thumbnail">
            <div class="caption">
+           <% if other.name.present? %>
            <%= link_to image_tag(@item.image_url(:big), :class => "img-responsive"), slugged_path(other.slug) %>
-           <%#= image_tag("p-img-5.jpg", :class => "img-responsive") %>
-                     <!-- <img src="/assets/p-img-5.jpg" alt="" class="img-responsive" /> -->
+           
                      <p><b><%=other.name%> </b>
                      <span class="price"><%= number_to_currency(other.price)%></span></p>
                      </div>
                       </div></div>
                      <% end %>
                      
-                      
+                      <% end %>
                   
                      
                      </div>
@@ -239,7 +239,7 @@
                      <div class="thumbnail">
                      <div class="caption">
                       <%= image_tag("a-img1.jpg", :class => "img-responsive") %>
-                     <!-- <img src="/assets/a-img1.jpg" alt="" class="img-responsive" /> -->
+                    
                      <p><b>SONY</b>
                      <span class="price">USD 199</span></p>
                      </div>
