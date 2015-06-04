@@ -54,7 +54,7 @@
                       </tbody>
                         </table>
                       </div>
-                      <%= link_to "add to cart", cart_path(@item.id), :class => "btn btn-info" %>
+                      <%= link_to "add to cart", add_cart_path(@item.id), :class => "btn btn-info" %>
                       
                       <!-- <button type="submit" class="btn btn-info">add to cart</button> -->
                       <%= link_to "Buy It", buy_path(@item.id), :class => "btn btn-default" %>

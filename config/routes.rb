@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
 get '/cart' => 'cart#index'
 get '/cart/clear' => 'cart#clearCart'
-get '/cart/:id' => 'cart#add'
+get '/cart/:id' => 'cart#add', :as => "add_cart"
 # get '/brand/items/:id', :controller => "brands", :action => "list", :as => "brand_list"
 get '/item/buy', :controller => "items", :action => "buy", :as => 'buy'
  get 'item/:slug', :controller => "items", :action => "show", :as =>'slugged'
