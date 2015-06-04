@@ -1,0 +1,38 @@
+
+    <h2>Search Results for: <i><%= @q %></i></h2>
+   <% j = 0 %>
+                <div class="productsSinglePage">
+   <div class="container">
+   <div class="row">
+                <% @items.each do |i| %>
+                <%  j += 1 %>
+
+                <%   if i.image.present? %>
+                <%     image=i.image_url(:big) %>
+                <%  else %>
+                <%    image='nowall.jpg' %>
+                <%  end %>
+                
+                <span class="mainTitle"><%= i.name %></span></br>
+                <div class="col-sm-4 singleProduct"><%= link_to image_tag(image,:class =>"img-responsive showimagediv"),slugged_path(i.slug) %>
+                
+               
+                </div></div>
+                <% if j%3==0 %> 
+               
+                <div class="row">
+                <% end %>
+
+                <% end %>
+                
+                <% if j == 0 then %>
+                  <h3>No Results Found</h3>
+                  <br />
+                <% end %>
+                </div>
+                </div>
+                </div>
+              </div>
+                
+           
+        

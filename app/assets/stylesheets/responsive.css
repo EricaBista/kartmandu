@@ -1,0 +1,17 @@
+@media (min-width: 1280px) {
+  .search-col .form-control{ width: 190px;}
+}
+/* for 1024px or less */
+@media screen and (max-width:1024px) {
+	.search-col select{ display: none;}
+}
+/* for 980px or less */
+@media screen and (max-width: 800px) {}
+/* for 768px or less */
+@media screen and (max-width:  768px) {}
+/* for 640px or less */
+@media screen and (max-width:  640px) {}
+/* for 480px or less */
+@media screen and (max-width: 480px) {}
+/* for 320px or less */
+@media screen and (max-width: 320px){}

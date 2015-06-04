@@ -1,0 +1,352 @@
+   <div class="productsSinglePage">
+   <div class="container">
+   <div class="row">
+            
+                    <div class="col-sm-4 singleProduct">
+                   <%= image_tag(@item.image_url(:big),  :class =>"img-responsive showimagediv")  %>
+                    
+                    </div>
+                   
+                    
+                     <div class="col-sm-8">
+                     <div class="productDetails">
+                     <h3><%= @item.name%></h3>
+                     
+                     
+                     <div class="priceNshipping">
+                     <h1><%= number_to_currency(@item.price) %></h1>
+                     <p><%= image_tag("shipping.png") %> Free Shipping </p>
+                     <p><%= image_tag("cash.png") %> Cash On Delivery </p>
+                     </div>
+                     
+                     
+                     
+                     <div class="quentity">
+                     
+                     <form class="form-inline">
+                      <div class="form-group">
+                        Quantity:
+                        <input type="text" class= "quentityNumber" value="1" size="1">
+                        <span class="stockInfo"> 3 available /  <span class="redInfo">12 sold</span></span>
+                      </div>
+                      
+                      <div class="wishListNcompare">
+                      <ul>
+                      <li><a href="#">+ ADD TO WISHLIST</a></li>
+                      <li><a href="#">+ ADD TO COMPARE</a> </li>
+                      </ul>
+                      </div>
+                      
+                      
+                      
+                      
+                      <div class="sellerDetails">
+                      <table class="table">
+              <tbody>
+                        <tr>
+                        <td>Condition:</td>
+                        <td>New</td>
+                        </tr>
+                        <tr>
+                        <td>Seller:</td>
+                        <td>Mobile*</td>
+                        </tr>
+                      </tbody>
+                        </table>
+                      </div>
+                      <%= link_to "add to cart", cart_path(@item.id), :class => "btn btn-info" %>
+                      
+                      <!-- <button type="submit" class="btn btn-info">add to cart</button> -->
+                      <%= link_to "Buy It", buy_path(@item.id), :class => "btn btn-default" %>
+                    <!--   <button type="button" class="btn btn-default">Buy It</button> -->
+                      
+                      </form>
+                     </div>
+                    
+                    
+                    
+                    
+                    </div>
+             </div>
+   
+   
+   
+   
+   </div>
+   </div>
+   </div> 
+   
+  
+   
+   <div class="productDescription">
+   <div class="container">
+   
+  
+    <div id="parentHorizontalTab">
+            <ul class="resp-tabs-list hor_1">
+                <li>Product Description</li>
+                <li>Reviews</li>
+                
+            </ul>
+            <div class="resp-tabs-container hor_1">
+                
+                
+                <div>
+    <table class="table">
+   
+    <thead>
+      <tr>
+        <th>Product Identifiers</th>
+        <th></th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Brand</td>
+        <td>Samsung</td>
+      </tr>
+      
+      
+      <tr>
+        <td>Model</td>
+        <td>GT-I9500</td>
+    </td>
+      </tr>
+      
+      
+      <tr>
+        <td>Colour</td>
+        <td>White Frost</td>
+      </tr>
+   
+   
+
+
+
+   
+    <thead >
+      <tr>
+        <th>Key Features</th>
+        <th></th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Cellular Band</td>
+        <td>GSM 850/900/1800/1900 (Quadband), GSM/GPRS/EDGE 850/900/1800/1900 (Quadband) HSPA+ 850/900/1900/2100</td>
+      </tr>
+      
+      
+      <tr>
+        <td>Style</td>
+        <td>Bar, Smartphone, Touch</td>
+    </td>
+      </tr>
+      
+      
+      <tr>
+        <td>Display Technology</td>
+        <td>HD Super AMOLED</td>
+      </tr>
+      
+      <tr>
+        <td>Operating System</td>
+        <td>Android</td>
+      </tr>
+
+
+      <tr>
+        <td>Screen Size</td>
+        <td>5" in</td>
+      </tr>
+
+
+
+
+
+      <thead >
+      <tr>
+        <th>Connectivity</th>
+        <th></th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Wireless Interface</td>
+        <td>Bluetooth, WLAN 802.11a, WLAN 802.11b, WLAN 802.11g, WLAN 802.11n</td>
+      </tr>
+      
+      
+      <tr>
+        <td>Connectivity</td>
+        <td>Bluetooth, USB, WLAN, WiFi</td>
+    </td>
+      </tr>
+
+   
+   
+     </table> 
+    </div>  
+     <div>
+                 Hello   
+                </div>
+           
+        </div>
+        </div>
+   
+ 
+</div>  
+</div>
+    
+    
+ <div class="productsListTab">
+<div class="container">
+
+<div class="relatedProducts">
+                     <h2>Related Products</h2>
+                     <div class="row">
+                     
+                     <div class="col-sm-3">
+                     <div class="thumbnail">
+           <div class="caption">
+           <%= image_tag("p-img-5.jpg", :class => "img-responsive") %>
+                     <!-- <img src="/assets/p-img-5.jpg" alt="" class="img-responsive" /> -->
+                     <p><b>MICROMAX CORE 2 DEO </b>
+                     <span class="price">US $216.00</span></p>
+                     </div>
+                      </div></div>
+                     
+                     <div class="col-sm-3">
+                     <div class="thumbnail">
+           <div class="caption">
+            <%= image_tag("p-img-1.jpg", :class => "img-responsive") %>
+                     <!-- <img src="/assets/p-img-1.jpg" alt="" class="img-responsive" /> -->
+                     <p><b>MICROMAX CORE 2 DEO </b>
+                     <span class="price">US $216.00</span></p>
+                     </div>
+                     </div></div>
+                      
+                  
+                     
+                     <div class="col-sm-3">
+                     
+                     <div class="thumbnail">
+           <div class="caption">
+            <%= image_tag("p-img-2.jpg", :class => "img-responsive") %>
+                     <!-- <img src="/assets/p-img-2.jpg" alt="" class="img-responsive" /> -->
+                     <p><b>MICROMAX CORE 2 DEO </b>
+                     <span class="price">US $216.00</span></p>
+                     </div>
+                     </div></div>
+                     
+                     
+                     
+                     <div class="col-sm-3">
+                     <div class="thumbnail">
+                     <div class="caption">
+                      <%= image_tag("p-img-5.jpg", :class => "img-responsive") %>
+                    <!--  <img src="/assets/p-img-5.jpg" alt="" class="img-responsive" /> -->
+                     <p><b>MICROMAX CORE 2 DEO </b>
+                     <span class="price">US $216.00</span></p>
+                     </div>
+                      </div></div>
+                     
+                     </div>
+                     
+                     
+                     </div>    
+   
+   
+ 
+                     <div class="relatedAccessories">
+                     <h2>Related Products ACCESSORIES</h2>
+                     <div class="row">
+                     
+                     <div class="col-sm-3">
+                     <div class="thumbnail">
+                     <div class="caption">
+                      <%= image_tag("a-img1.jpg", :class => "img-responsive") %>
+                     <!-- <img src="/assets/a-img1.jpg" alt="" class="img-responsive" /> -->
+                     <p><b>sumsung galaxy s5 head set</b>
+                     <span class="price">US $8.95 </span></p>
+                     </div>
+                      </div></div>
+                     
+                     <div class="col-sm-3">
+                     <div class="thumbnail">
+                   <div class="caption">
+                    <%= image_tag("a-img2.jpg", :class => "img-responsive") %>
+                    <!--  <img src="/assets/a-img2.jpg" alt="" class="img-responsive" /> -->
+                     <p><b>Tempered Glass Screen Protector </b>
+                     <span class="price">US $2.99</span></p>
+                     </div>
+                     </div></div>
+                      
+                  
+                     
+                     <div class="col-sm-3">
+                     
+                     <div class="thumbnail">
+                     <div class="caption">
+                      <%= image_tag("a-img3.jpg", :class => "img-responsive") %>
+                     <!-- <img src="/assets/a-img3.jpg" alt="" class="img-responsive" /> -->
+                     <p><b>Luxury Back Case With Bumper</b>
+                     <span class="price">US $5.95</span></p>
+                     </div>
+                     </div></div>
+                     
+                     
+                     
+                     <div class="col-sm-3">
+                     <div class="thumbnail">
+                     <div class="caption">
+                      <%= image_tag("a-img4.jpg", :class => "img-responsive") %>
+                    <!--  <img src="/assets/a-img4.jpg" alt="" class="img-responsive" /> -->
+                     <p><b>GOLDEN BACK PANEL SHELL COVER </b>
+                     <span class="price">US $10</span></p>
+                     </div>
+                      </div></div>
+                     
+                     </div>
+                     
+                     
+                     </div> 
+ 
+</div>   
+</div>  
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/assets/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="/assets/ie10-viewport-bug-workaround.js"></script>
+    
+  
+   
+    <script src="/assets/easyResponsiveTabs.js"></script>
+    
+    <script type="text/javascript">
+   $(document).ready(function() {
+        //Horizontal Tab
+        $('#parentHorizontalTab').easyResponsiveTabs({
+            type: 'default', //Types: default, vertical, accordion
+            width: 'auto', //auto or any width like 600px
+            fit: true, // 100% fit in a container
+            tabidentify: 'hor_1', // The tab groups identifier
+            activate: function(event) { // Callback function if tab is switched
+             
+                // $name.text($tab.text());
+                // $info.show();
+            }
+        });
+
+    });
+        </script>
+
+    
+  </body>
+
