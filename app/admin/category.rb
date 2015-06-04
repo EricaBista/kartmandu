@@ -3,7 +3,7 @@ ActiveAdmin.register Category do
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
- permit_params :list, :of, :attributes, :on, :model, :name, :description
+ permit_params :list, :of, :attributes, :on, :model, :name, :description, :slug
 #
 # or
 #
@@ -14,6 +14,7 @@ ActiveAdmin.register Category do
 # end
 index do    
      column :name 
+     column :slug
     
      # column :category do |c|
      #    c.category.name
@@ -33,7 +34,7 @@ index do
       # add your other inputs
       
       f.input :name
-    
+    f.input :slug
       
       f.input :description
      
@@ -46,6 +47,7 @@ show do |category|
   attributes_table do
 
     row :name
+    row :slug
     row :description
    end
     end

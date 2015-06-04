@@ -15,10 +15,12 @@ Rails.application.routes.draw do
 get '/cart' => 'cart#index'
 get '/cart/clear' => 'cart#clearCart'
 get '/cart/:id' => 'cart#add'
-get '/brand/items/:id', :controller => "brands", :action => "list", :as => "brand_list"
+# get '/brand/items/:id', :controller => "brands", :action => "list", :as => "brand_list"
 get '/item/buy', :controller => "items", :action => "buy", :as => 'buy'
  get 'item/:slug', :controller => "items", :action => "show", :as =>'slugged'
  post '/search' => 'items#search'
+ get 'details/:slug', :controller => "categories", :action => "list_items", :as =>'list_items_show'
+ get 'list/:slug', :controller => "brands", :action => "list_brand_items", :as =>'list_brand_items_show'
   # You can have the root of your site routed with "root"
    root 'home#index'
 

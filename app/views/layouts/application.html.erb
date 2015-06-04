@@ -61,7 +61,7 @@
 
          <% @menus.limit(6).each do |cat| %>
          <%#= link_to categories_show_path %>
-        <li ><a><%= cat.name %></a></li><% end %>
+        <li ><%=link_to cat.name, list_items_show_path(cat.slug) %></li><% end %>
       </ul>
       <ul id="top-links" class="nav navbar-nav navbar-right">
         <li class="dropdown">

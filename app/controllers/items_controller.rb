@@ -11,10 +11,6 @@ def buy
   @items = Item.all
 end
 
-# def billing 
-#   @items = Item.all
-#   end
-
 
   # GET /items/1
   # GET /items/1.json
@@ -39,7 +35,7 @@ end
 
     respond_to do |format|
       if @item.save
-        format.html { redirect_to @item, notice: 'Item was successfully created.' }
+        format.html { redirect_to slugged_path(@item.slug), notice: 'Item was successfully created.' }
         format.json { render :show, status: :created, location: @item }
       else
         format.html { render :new }
@@ -53,7 +49,7 @@ end
   def update
     respond_to do |format|
       if @item.update(item_params)
-        format.html { redirect_to @item, notice: 'Item was successfully updated.' }
+        format.html { redirect_to slugged_path(@item.slug), notice: 'Item was successfully updated.' }
         format.json { render :show, status: :ok, location: @item }
       else
         format.html { render :edit }
