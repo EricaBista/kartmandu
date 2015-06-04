@@ -29,7 +29,7 @@ h3 {font-size: 18px; font-weight: bold; color:#569e02; margin-top:-1px;}
 
 
 
-.productsListTab .thumbnail{ border-radius: 0px; height: 293px;}
+.productsListTab .thumbnail{ border-radius: 0px;}
 .productsListTab .thumbnail img{  display: block; margin: 0 auto;}
 .productsListTab p{ text-align: center; margin-top: 20px;}
 .productsListTab p span{ display: block;}
