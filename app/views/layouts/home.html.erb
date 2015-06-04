@@ -240,36 +240,19 @@
                      <div class="hotDeals">
                      <h2>Hot Deals</h2>
                      <div class="row">
-                     
+                     <% @hotdeal.limit(3).order("RANDOM()").each do |hot| %>
                      <div class="col-sm-4">
                      <div class="thumbnail">
            <div class="caption">
-                     <img src="assets/p-img-2.jpg" alt="" class="img-responsive" />
-                     <p><b>MICROMAX CORE 2 DEO </b>
-                     <span class="price">US $216.00</span></p>
+           <%= link_to image_tag(hot.image_url(:thumb), :class => "img-responsive"), slugged_path(hot.slug)%>
+                     
+                     <p><b><%= hot.name %> </b>
+                     <span class="price"><%= hot.price %></span></p>
                      </div>
                       </div></div>
-                     
-                     <div class="col-sm-4">
-                     <div class="thumbnail">
-           <div class="caption">
-                     <img src="assets/p-img-4.jpg" alt="" class="img-responsive" />
-                     <p><b>MICROMAX CORE 2 DEO </b>
-                     <span class="price">US $216.00</span></p>
-                     </div>
-                     </div></div>
-                      
-                  
-                     
-                     <div class="col-sm-4">
-                     
-                     <div class="thumbnail">
-           <div class="caption">
-                     <img src="assets/p-img-3.jpg" alt="" class="img-responsive" />
-                     <p><b>MICROMAX CORE 2 DEO </b>
-                     <span class="price">US $216.00</span></p>
-                     </div>
-                     </div></div>
+                      <% end %>
+                    
+             
                      
                      </div>
                      

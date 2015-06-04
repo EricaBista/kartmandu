@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150604065721) do
+ActiveRecord::Schema.define(version: 20150604115039) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -76,6 +76,7 @@ ActiveRecord::Schema.define(version: 20150604065721) do
     t.integer  "category_id"
     t.boolean  "is_discounted"
     t.string   "brand_id"
+    t.boolean  "is_hot_deal"
   end
 
   create_table "users", force: :cascade do |t|
