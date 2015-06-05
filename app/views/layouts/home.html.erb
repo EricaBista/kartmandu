@@ -78,11 +78,11 @@
             </div>
             <div class="col-sm-6 search-col">
                   <!-- Search Start -->
-                  <div class="form-control">
+                  
     <%= collection_select( :home, :category_id, Category.all, :id, :name, {:prompt => 'select category'}, {:class => "form-control"} ) %>
    
     
-       </div>
+     
                   <div id="imaginary_container"> 
                    <%= form_tag('/search') do %>
                       <div class="input-group stylish-input-group">
