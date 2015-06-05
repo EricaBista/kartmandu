@@ -11,11 +11,11 @@ Rails.application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
-get '/cart' => 'cart#index'
-get '/cart/clear' => 'cart#clearCart'
-get '/cart/:id' => 'cart#add', :as => "add_cart"
+  get '/cart' => 'cart#index'
+  get '/cart/clear' => 'cart#clearCart'
+  get '/cart/:id' => 'cart#add', :as => "add_cart"
 # get '/brand/items/:id', :controller => "brands", :action => "list", :as => "brand_list"
-get '/item/buy', :controller => "items", :action => "buy", :as => 'buy'
+ get '/item/buy', :controller => "items", :action => "buy", :as => 'buy'
  get 'item/:slug', :controller => "items", :action => "show", :as =>'slugged'
  post '/search' => 'items#search'
  get 'details/:slug', :controller => "categories", :action => "list_items", :as =>'list_items_show'

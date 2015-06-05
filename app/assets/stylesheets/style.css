@@ -734,9 +734,12 @@ h2.resp-tab-title:last-child {
 
 /*-----------------------------------buy now Form-------------------------------------------------------------------*/ 
 
-
-
-
+/*======================= search tab extra code ================*/
+#home_category_id {
+    margin-left: -13px;
+    margin-top: -7px;
+}
+/*======================= search tab extra code ================*/
 
 
 

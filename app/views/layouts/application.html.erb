@@ -99,7 +99,7 @@
             <div class="col-sm-6 search-col">
                   <!-- Search Start -->
                   <div class="form-control">
-    <%= collection_select( :home, :category_id, Category.all, :id, :name, {}, { :multiple => false } ) %>
+    <%= collection_select( :home, :category_id, Category.all, :id, :name, {:prompt => 'select category'}, { :multiple => false } ) %>
        </div>
                 <div id="imaginary_container"> 
                    <%= form_tag('/search') do %>
