@@ -1,10 +1,7 @@
 class BrandsController < InheritedResources::Base
-def index
-	@brands = Brand.all
-end
 
 def list_brand_items
-
+@brands = Brand.all
       @brand = Brand.find_by_slug!(params[:slug])
       @items = Item.where :brand_id => @brand.id 
     end
