@@ -26,8 +26,12 @@
                      <form class="form-inline">
                       <div class="form-group">
                         Quantity:
-                        <input type="text" class= "quentityNumber" value="1" size="1">
-                        <span class="stockInfo"> 3 available /  <span class="redInfo">12 sold</span></span>
+                        <input type="text" class= "quentityNumber" value="" size="1">
+                        <% if @item.available >= @item.sold_out %>
+                        <span class="stockInfo"><%= @item.available %> available / <span class="redInfo"><%= @item.sold_out %> sold</span></span>
+                        <% else %>
+                        <span class="redInfo">out of stock</span>
+                         <% end -%>
                       </div>
                       
                       <div class="wishListNcompare">
@@ -100,7 +104,7 @@
     <tbody>
       <tr>
         <td>Brand</td>
-        <td>Samsung</td>
+        <td><%=@item.brand.name%></td>
       </tr>
       
       
@@ -112,8 +116,8 @@
       
       
       <tr>
-        <td>Colour</td>
-        <td>White Frost</td>
+        <td>Color</td>
+        <td><%=@item.color%></td>
       </tr>
    
    
@@ -137,7 +141,7 @@
       
       <tr>
         <td>Style</td>
-        <td>Bar, Smartphone, Touch</td>
+        <td><%=@item.form%></td>
     </td>
       </tr>
       
@@ -149,13 +153,13 @@
       
       <tr>
         <td>Operating System</td>
-        <td>Android</td>
+        <td><%=@item.operating_system%></td>
       </tr>
 
 
       <tr>
         <td>Screen Size</td>
-        <td>5" in</td>
+        <td><%=@item.screen_size%></td>
       </tr>
 
 
@@ -230,29 +234,21 @@
                      <div class="relatedAccessories">
                      <h2>Related Products ACCESSORIES</h2>
                      <div class="row">
-                     
+                     <% @items.where(:category => "Accessories").each do |ass| %>
                      <div class="col-sm-3">
                      <div class="thumbnail">
                      <div class="caption">
-                      <%= image_tag("a-img1.jpg", :class => "img-responsive") %>
+                      <% if ass.name.present? %>
+                      <%= link_to image_tag(@item.image_url(:big), :class => "img-responsive"), slugged_path(ass.slug) %>
                     
                      <p><b>SONY</b>
                      <span class="price">USD 199</span></p>
                      </div>
                       </div></div>
+                      <% end %>
                      
-                     <div class="col-sm-3">
-                     <div class="thumbnail">
-                   <div class="caption">
-                    <%= image_tag("a-img2.jpg", :class => "img-responsive") %>
-                    <!--  <img src="/assets/a-img2.jpg" alt="" class="img-responsive" /> -->
-                     <p><b>Tempered Glass Screen Protector </b>
-                     <span class="price">US $2.99</span></p>
-                     </div>
-                     </div></div>
-                      
-                  
-                     
+                      <% end %>
+                    
                      <div class="col-sm-3">
                      
                      <div class="thumbnail">

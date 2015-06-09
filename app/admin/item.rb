@@ -3,7 +3,7 @@ ActiveAdmin.register Item do
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
- permit_params :list, :of, :attributes, :on, :model, :name, :slug, :is_discounted, :is_hot_deal, :description, :price, :order, :image, :category_id, :brand_id
+ permit_params :list, :of, :attributes, :on, :model, :name, :model_name, :slug, :form, :operating_system, :screen_size, :SIM, :color, :title, :available, :sold_out, :is_discounted, :is_hot_deal, :is_featured, :description, :price, :order, :image, :category_id, :brand_id
 #
 # or
 #
@@ -12,13 +12,24 @@ ActiveAdmin.register Item do
 #   permitted << :other if resource.something?
 #   permitted
 # end
-index do    
+index do   
+     column :title 
      column :name 
+     
      column :slug
+     column :form
+     column :operating_system 
+     column :color 
+     column :SIM
+      column :screen_size
+      
+     column :available
+     column :sold_out
      column :price
      column :order
      column :is_discounted
      column :is_hot_deal
+     column :is_featured
      # column :category do |c|
      #    c.category.name
      #  end
@@ -40,24 +51,43 @@ index do
       f.inputs "Item" do
       # add your other inputs
       f.input :category, :collection => Category.all.map{ |category| [category.name, category.id] },:prompt => true
-       f.input :brand, :collection => Brand.all.map{ |brand| [brand.name, brand.id] },:prompt => true
+      f.input :brand, :collection => Brand.all.map{ |brand| [brand.name, brand.id] },:prompt => true
+      f.input :title 
       f.input :name 
+      
       f.input :slug
+       f.input :form
+        f.input :operating_system
+         f.input :screen_size
+          f.input :color
+           f.input :SIM
+      f.input :available
+      f.input :sold_out
       f.input :price
       f.input :description
       f.input :order
       f.input :image, :as => :file, :hint => image_tag(f.object.image.url(:thumb))
       f.input :is_discounted
       f.input :is_hot_deal
+       f.input :is_featured
      end 
       f.actions 
 end
 
  show do |item|
   attributes_table do
-
+    row :title
     row :name
+
     row :slug
+    row :SIM
+    row :screen_size
+    row :operating_system
+    row :form
+    row :color
+
+    row :available
+    row :sold_out
     row :price
     row :order
     row :category_id

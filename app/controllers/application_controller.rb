@@ -8,6 +8,8 @@ class ApplicationController < ActionController::Base
   	@headers ||= Category.where(:is_menu => true)
      @budget ||=Item.where(:is_discounted => true)
      @hotdeal ||=Item.where(:is_hot_deal => true)
-    
+      @featured ||=Item.where(:is_featured => true)
+
+     
   end
 end

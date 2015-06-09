@@ -1,4 +1,7 @@
 class BrandsController < InheritedResources::Base
+def index
+	@brands = Brand.all
+end
 
 def list_brand_items
 
@@ -9,7 +12,7 @@ def list_brand_items
   private
 
     def brand_params
-      params.require(:brand).permit(:name, :icon, :description, :slug)
+      params.require(:brand).permit(:name, :icon, :description, :slug, :brand_id)
     end
 end
 

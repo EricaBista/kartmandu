@@ -115,140 +115,208 @@
           </div>
           </div>
           </div>
-        </div>      
-
-
-
-
-
-
- <div class="banner">
-        <div class="container">
-          <div class="col-xs-12">
-          <div class="row">
-            <div class="col-md-9 col-sm-13">
-              <img src="assets/banner-left.jpg" class="img-responsive" alt="" />
-            </div>
-            <div class="col-md-3 col-sm-4">
-                <div class="banner-r">
-                        <div class="banner-s-l-t">
-                          <img src="assets/banner-right-t.jpg" alt="" class="img-responsive">
-                        </div>
-                        <div class="banner-s-l-d">
-                          <img src="assets/banner-right-d.jpg" alt="" class="img-responsive">
-                        </div>
-                </div>
-            </div>
-            </div>
-          </div>
-          </div>
-        </div>
-      </header>
-      
-      
-      
-        <section class="main-container">
-        <!-- Hot Deal Start -->
-          <div class="hot-deal">
-          <div class="container">
-            <div class="col-xs-12"><h2>Hot deals</h2></div>
-          <div class="col-xs-12">
-            <div class="row">
-              <div class="col-sm-4">
-                <div class="post post1">
-                  <img src="assets/post-1.jpg" alt="" class="img-responsive" />
-                  <p>NEW HTC One (M7) - 32GB 
-                  <span class="price">US $216.00</span> <span class="line-through">$370.00</span> (41% off)</p>
-                </div>
-              </div>
-              <div class="col-sm-4">
-                <div class="post post2">
-                  <img src="assets/post-2-img.jpg" alt="" />
-                  <div class="price-detail"><p>Apple iPad 4 Retina (4th Gen) 16GB</p>
-                  <p><span class="price">US $216.00</span> <span class="line-through">$370.00</span> (41% off)</p>
-                  </div>
-                </div>
-                <div class="post post2 post3">
-                  <img src="assets/post-2-img.jpg" alt="" />
-                  <div class="price-detail"><p>Apple iPad 4 Retina (4th Gen) 16GB</p>
-                  <p><span class="price">US $216.00</span> <span class="line-through">$370.00</span> (41% off)</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-4">                
-                <div class="post post2">
-                  <img src="assets/post-2-img.jpg" alt="" />
-                  <div class="price-detail"><p>Apple iPad 4 Retina (4th Gen) 16GB</p>
-                  <p><span class="price">US $216.00</span> <span class="line-through">$370.00</span> (41% off)</p>
-                  </div>
-                </div>
-                <div class="post post2 post3">
-                  <img src="assets/post-2-img.jpg" alt="" />
-                  <div class="price-detail"><p>Apple iPad 4 Retina (4th Gen) 16GB</p>
-                  <p><span class="price">US $216.00</span> <span class="line-through">$370.00</span> (41% off)</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          </div>
-          </div>
-        <!-- Hot Deal End-->        
-
-        <!-- Highlight Product Start-->
-        <div class="highlight-product">
-          <div class="container">
-            <div class="col-xs-12">
-              <div class="row">
-                <div class="col-sm-3 box1">      
-                        <div class="box1-t">
-                          <img src="assets/highlight-product1.jpg" alt="" class="img-responsive">
-                        </div>
-                        <div class="box1-d">
-                          <img src="assets/highlight-product2.jpg" alt="" class="img-responsive">
-                        </div>
-                </div>
-                <div class="col-sm-6 box2"><img src="assets/highlight-product3.jpg" alt="" class="img-responsive"></div>
-                <div class="col-sm-3 box3"><img src="assets/highlight-product4.jpg" alt="" class="img-responsive"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- Highlight Product End-->
-
-        <!-- FEATURED Products start-->
-        <div class="featured-product">
-              <div class="container">
-                        <div class="col-xs-12"><h2>FEATURED Products</h2></div>
-                        <div class="col-xs-12">
-                <div class="row">
-                <% j = 0 %>
-                <% @featured.each do |feat| %>
-                <%  j += 1 %>
-                    <div class="col-sm-3 col-md-3">
-                      <div class="thumbnail">
-
-                        <div class="caption">
-                             <%= link_to image_tag(feat.image_url(:thumb), :class => "img-responsive"), slugged_path(feat.slug)%>
-                              <p>
-                              <b><%= feat.name %> </b>
-                              <span class="price"><%= number_to_currency(feat.price )%></span></p>
-                        </div>
-                        
-                      </div>
-
-                    </div>
-                    <% if j%4==0 %>
-                    <div class="row">
-                    <% end %>
-                    <% end%>
+        </div>        
+        
+    
+   <div class="productsPage">
+   <div class="container">
+   <div class="row">
+            
+                    <div class="col-sm-3">
+                    <div class="filterLeft"> <!---- filterLeft start ---->
+                    <h5>Filter by</h5>
+                    <div class="filterTitle">top brands</div>
                     
-                   
-                   </div>
-                </div>
-                </div>
+                    
+                    <div class="filterCategory"><!---- filterCategory start ---->
+                    <% @brands.each do |brand| %>
+                    <div class="form-group">
+                    
+                    <div class="checkbox">
+          
+                    <input type="checkbox"> <%= brand.name %>
                     </div>
-            </div>
+                  </div>
+                   
+              <% end %> 
+                    
+                    </div><!---- filterCategory colse ---->
+                    
+                
+                    
+                    <div class="filterTitle">Operating System</div>
+                    <div class="filterCategory"><!---- filterCategory start ---->
+                    
+                    <div class="form-group">
+            <div class="checkbox">
+                    <input type="checkbox"> Android
+                    </div>
+                  </div>
+                    
+                    
+                    <div class="form-group">
+            <div class="checkbox">
+                    <input type="checkbox"> iOS
+                    </div>
+                  </div>
+                    
+                    <div class="form-group">
+            <div class="checkbox">
+                    <input type="checkbox"> Windows
+                    </div>
+                  </div>
+                    
+                    <div class="form-group">
+            <div class="checkbox">
+                    <input type="checkbox"> Blackberry
+                    </div>
+                  </div>
+                    
+                    </div><!---- filterCategory colse ---->
+                    
+                    
+                    
+                    
+                    
+                    
+                    <div class="filterTitle">Display</div>
+                    <div class="filterCategory"><!---- filterCategory start ---->
+                    
+                    <div class="form-group">
+            <div class="checkbox">
+                    <input type="checkbox"> 3" - 4"
+                    </div>
+                  </div>
+                    
+                    
+                    <div class="form-group">
+            <div class="checkbox">
+                    <input type="checkbox"> 4"- 5"
+                    </div>
+                  </div>
+                    
+                    <div class="form-group">
+            <div class="checkbox">
+                    <input type="checkbox"> 5" - above
+                    </div>
+                  </div>
+                    </div><!---- filterCategory colse ---->
+                    
+                    
+                    
+                    <div class="filterTitle">Price</div>
+                    <div class="filterCategory"><!---- filterCategory start ---->
+                    
+                    <div class="form-group">
+            <div class="checkbox">
+                    <input type="checkbox"> $30 - $50
+                    </div>
+                  </div>
+                    
+                    
+                    <div class="form-group">
+            <div class="checkbox">
+                    <input type="checkbox"> $50 - $100
+                    </div>
+                  </div>
+                    
+                    <div class="form-group">
+            <div class="checkbox">
+                    <input type="checkbox"> $100 - above
+                    </div>
+                  </div>
+                    </div><!---- filterCategory colse ---->
+                    
+                    
+                    
+                    </div> <!---- filterLeft end ---->
+                    </div>
+                    
+                
+                    
+                     <div class="col-sm-9">
+                     <div class="productsListTab">
+                     
+                     
+                     <div class="hotDeals">
+                     <h2>Hot Deals</h2>
+                     <div class="row">
+                     <% @hotdeal.limit(3).order("RANDOM()").each do |hot| %>
+                     <div class="col-sm-4">
+                     <div class="thumbnail">
+           <div class="caption">
+           <%= link_to image_tag(hot.image_url(:thumb), :class => "img-responsive"), slugged_path(hot.slug)%>
+                     
+                     <p><b><%= hot.name %> </b>
+                     <span class="price"><%= hot.price %></span></p>
+                     </div>
+                      </div></div>
+                      <% end %>
+                    
+             
+                     
+                     </div>
+                     
+                     <button type="button" class="btn btn-success">View all deals</button>
+                     </div>
+              
+                     
+                     
+                     <div class="budgetMobiles">
+                     <h2>Budget Mobiles</h2>
+                     <div class="row">
+                      <% @budget.limit(3).order("RANDOM()").each do |bud| %>
+                     <div class="col-sm-4">
+                     <div class="thumbnail">
+           <div class="caption">
+                    <%= link_to image_tag(bud.image_url(:thumb), :class => "img-responsive"), slugged_path(bud.slug)%>
+                     <p><b><%= bud.name %></b>
+                     <span class="price"><%= bud.price %></span></p>
+                     </div>
+                     </div></div>
+                     
+                    
+                      
+                  <% end %>
+                     
+                     
+                     
+                     </div>
+                     
+                     <button type="button" class="btn btn-success">View all </button>
+                     </div>
+                     
+                 
+                       
+                     <div class="bestSellingMobiles">
+                     <h2>Best Selling Mobiles</h2>
+                     <div class="row">
+                                <% @items.limit(3).order("RANDOM()").each do |it| %>
+                     <div class="col-sm-4">
+                     <div class="thumbnail">
+           <div class="caption">
+
+                      <%= link_to image_tag(it.image_url(:thumb), :class => "img-responsive"), slugged_path(it.slug)%>
+                      <p>
+                  <b><%= it.name %> </b> 
+                      <span class="price"><%= it.price %></span></p>
+                     </div>
+                      </div>
+                      </div>
+                      <% end %>
+                  
+                     </div>
+                      <%#= link_to "View all", list_items_show_path(category.slug), :class => "btn btn-info" %>
+                     <button type="button" class="btn btn-success">View all </button>
+                     </div>
+                     
+                     </div>
+             </div>
+   
+   </div>
+   </div>
+   </div>   
+
         <!-- FEATURED Products End-->
 
         <!-- Our Brands Start-->
