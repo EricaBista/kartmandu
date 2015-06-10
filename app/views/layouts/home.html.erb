@@ -161,41 +161,56 @@
           <div class="container">
             <div class="col-xs-12"><h2>Hot deals</h2></div>
           <div class="col-xs-12">
-            <div class="row">
+            <div class="row"><% if @hotdeal[0].present? %>
               <div class="col-sm-4">
                 <div class="post post1">
 
                   <%= link_to image_tag(@hotdeal[0].image_url(:thumb), :class => "img-responsive"), slugged_path(@hotdeal[0].slug)%>
                   <p><%=@hotdeal[0].name %>
                   <span class="price"><%=number_to_currency(@hotdeal[0].price) %></span> <span class="line-through">$370.00</span> (41% off)</p>
-                </div>
+             
+               </div>
+                
               </div>
+              <% end %> 
+              <% if @hotdeal[1].present? %>
               <div class="col-sm-4">
                 <div class="post post2">
+                
                   <%= link_to image_tag(@hotdeal[1].image_url(:thumb), :class => "img-responsive"), slugged_path(@hotdeal[1].slug)%>
                   <div class="price-detail"><p><%=@hotdeal[1].name %></p>
                   <p><span class="price"><%=number_to_currency(@hotdeal[1].price) %></span> <span class="line-through">$370.00</span> (41% off)</p>
+                  
                   </div>
-                </div>
+                </div><% end %>
+                <% if @hotdeal[2].present? %>
                 <div class="post post2 post3">
+                
                   <%= link_to image_tag(@hotdeal[2].image_url(:thumb), :class => "img-responsive"), slugged_path(@hotdeal[2].slug)%>
                   <div class="price-detail"><p><%=@hotdeal[2].name %></p>
                   <p><span class="price"><%=number_to_currency(@hotdeal[2].price) %></span> <span class="line-through">$370.00</span> (41% off)</p>
                   </div>
+                  <% end %>
                 </div>
               </div>
+              <% if @hotdeal[3].present? %>
               <div class="col-sm-4">                
                 <div class="post post2">
+                
                   <%= link_to image_tag(@hotdeal[3].image_url(:thumb), :class => "img-responsive"), slugged_path(@hotdeal[3].slug)%>
                   <div class="price-detail"><p><%=@hotdeal[3].name %></p>
                   <p><span class="price"><%=number_to_currency(@hotdeal[3].price) %></span> <span class="line-through">$370.00</span> (41% off)</p>
                   </div>
                 </div>
+                <% end %>
+                <% if @hotdeal[4].present? %>
                 <div class="post post2 post3">
+                
                    <%= link_to image_tag(@hotdeal[4].image_url(:thumb), :class => "img-responsive"), slugged_path(@hotdeal[4].slug)%>
                   <div class="price-detail"><p><%=@hotdeal[4].name %></p>
                   <p><span class="price"><%=number_to_currency(@hotdeal[4].price) %></span> <span class="line-through">$370.00</span> (41% off)</p>
                   </div>
+                  <% end %>
                 </div>
               </div>
             </div>
