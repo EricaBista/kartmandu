@@ -18,7 +18,7 @@ end
   def show
   
     @item = Item.find_by_slug!(params[:slug])
-@item_ass = Item.where(:category_id => "Accessories").where.not(:id => @item.id).limit(4).order("RANDOM()")
+@item_ass = Item.joins(:category).where('categories.name' => "Accessories").limit(4).order("RANDOM()")
 
     @items = Item.where(:category_id => @item.category_id).where.not(:id => @item.id).limit(4).order("RANDOM()")
   
@@ -76,8 +76,11 @@ end
 
 def search
       @q=params[:q]
-      @items = Item.item_search(params[:q])
-       # @categories = Category.category_search(params[:q])
+
+      @category_id = params[:home]
+      puts @category_id.inspect
+      @items = Item.item_search(params[:q]).where(:category_id => @category_id[:category_id])
+        # @categories = Category.category_search(params[:q])
   end
 
   private
