@@ -39,7 +39,7 @@
       <ul class="nav navbar-nav">
         <li class="active"><a href="#">Electronics <span class="sr-only">(current)</span></a></li>
 
-         <% @menus.limit(6).each do |cat| %>
+         <% @menus.limit(7).each do |cat| %>
          <%#= link_to categories_show_path %>
         <li ><%=link_to cat.name, list_items_show_path(cat.slug) if present? %></li><% end %>
       </ul>
@@ -126,16 +126,24 @@
         <div class="container">
           <div class="col-xs-12">
           <div class="row">
+
+
+
+         
             <div class="col-md-9 col-sm-13">
-              <img src="assets/banner-left.jpg" class="img-responsive" alt="" />
+              <%= link_to image_tag(@categories[0].banner_image_url(:big), :class => "img-responsive"), list_items_show_path(@categories[0].slug)%>
             </div>
             <div class="col-md-3 col-sm-4">
                 <div class="banner-r">
+                       
                         <div class="banner-s-l-t">
-                          <img src="assets/banner-right-t.jpg" alt="" class="img-responsive">
+                         <%= link_to image_tag(@categories[1].banner_image_url(:thumb), :class => "img-responsive"), list_items_show_path(@categories[1].slug)%>
+                          <!-- <img src="assets/banner-right-d.jpg" alt="" class="img-responsive"> -->
                         </div>
+                         
                         <div class="banner-s-l-d">
-                          <img src="assets/banner-right-d.jpg" alt="" class="img-responsive">
+                         <%= link_to image_tag(@categories[2].banner_image_url(:medium), :class => "img-responsive"), slugged_path(@categories[2].slug)%>
+                          <!-- <img src="assets/banner-right-d.jpg" alt="" class="img-responsive"> -->
                         </div>
                 </div>
             </div>
@@ -156,37 +164,37 @@
             <div class="row">
               <div class="col-sm-4">
                 <div class="post post1">
-                
-                  <img src="assets/post-1.jpg" alt="" class="img-responsive" />
-                  <p>NEW HTC One (M7) - 32GB 
-                  <span class="price">US $216.00</span> <span class="line-through">$370.00</span> (41% off)</p>
+
+                  <%= link_to image_tag(@hotdeal[0].image_url(:thumb), :class => "img-responsive"), slugged_path(@hotdeal[0].slug)%>
+                  <p><%=@hotdeal[0].name %>
+                  <span class="price"><%=number_to_currency(@hotdeal[0].price) %></span> <span class="line-through">$370.00</span> (41% off)</p>
                 </div>
               </div>
               <div class="col-sm-4">
                 <div class="post post2">
-                  <img src="assets/post-2-img.jpg" alt="" />
-                  <div class="price-detail"><p>Apple iPad 4 Retina (4th Gen) 16GB</p>
-                  <p><span class="price">US $216.00</span> <span class="line-through">$370.00</span> (41% off)</p>
+                  <%= link_to image_tag(@hotdeal[1].image_url(:thumb), :class => "img-responsive"), slugged_path(@hotdeal[1].slug)%>
+                  <div class="price-detail"><p><%=@hotdeal[1].name %></p>
+                  <p><span class="price"><%=number_to_currency(@hotdeal[1].price) %></span> <span class="line-through">$370.00</span> (41% off)</p>
                   </div>
                 </div>
                 <div class="post post2 post3">
-                  <img src="assets/post-2-img.jpg" alt="" />
-                  <div class="price-detail"><p>Apple iPad 4 Retina (4th Gen) 16GB</p>
-                  <p><span class="price">US $216.00</span> <span class="line-through">$370.00</span> (41% off)</p>
+                  <%= link_to image_tag(@hotdeal[2].image_url(:thumb), :class => "img-responsive"), slugged_path(@hotdeal[2].slug)%>
+                  <div class="price-detail"><p><%=@hotdeal[2].name %></p>
+                  <p><span class="price"><%=number_to_currency(@hotdeal[2].price) %></span> <span class="line-through">$370.00</span> (41% off)</p>
                   </div>
                 </div>
               </div>
               <div class="col-sm-4">                
                 <div class="post post2">
-                  <img src="assets/post-2-img.jpg" alt="" />
-                  <div class="price-detail"><p>Apple iPad 4 Retina (4th Gen) 16GB</p>
-                  <p><span class="price">US $216.00</span> <span class="line-through">$370.00</span> (41% off)</p>
+                  <%= link_to image_tag(@hotdeal[3].image_url(:thumb), :class => "img-responsive"), slugged_path(@hotdeal[3].slug)%>
+                  <div class="price-detail"><p><%=@hotdeal[3].name %></p>
+                  <p><span class="price"><%=number_to_currency(@hotdeal[3].price) %></span> <span class="line-through">$370.00</span> (41% off)</p>
                   </div>
                 </div>
                 <div class="post post2 post3">
-                  <img src="assets/post-2-img.jpg" alt="" />
-                  <div class="price-detail"><p>Apple iPad 4 Retina (4th Gen) 16GB</p>
-                  <p><span class="price">US $216.00</span> <span class="line-through">$370.00</span> (41% off)</p>
+                   <%= link_to image_tag(@hotdeal[4].image_url(:thumb), :class => "img-responsive"), slugged_path(@hotdeal[4].slug)%>
+                  <div class="price-detail"><p><%=@hotdeal[4].name %></p>
+                  <p><span class="price"><%=number_to_currency(@hotdeal[4].price) %></span> <span class="line-through">$370.00</span> (41% off)</p>
                   </div>
                 </div>
               </div>
@@ -203,15 +211,15 @@
               <div class="row">
                 <div class="col-sm-3 box1">      
                         <div class="box1-t">
-                          <img src="assets/highlight-product1.jpg" alt="" class="img-responsive">
+                          <%= link_to image_tag(@categories[1].banner_image_url(:smaller), :class => "img-responsive"), list_items_show_path(@categories[1].slug)%>
                         </div>
                         <div class="box1-d">
-                          <img src="assets/highlight-product2.jpg" alt="" class="img-responsive">
+                          <%= link_to image_tag(@categories[0].banner_image_url(:smallest), :class => "img-responsive"), list_items_show_path(@categories[0].slug)%>
                         </div>
                 </div>
-                <div class="col-sm-6 box2"><img src="assets/highlight-product3.jpg" alt="" class="img-responsive"></div>
-                <div class="col-sm-3 box3"><img src="assets/highlight-product4.jpg" alt="" class="img-responsive"></div>
-              </div>
+                <div class="col-sm-6 box2"> <%= link_to image_tag(@categories[2].banner_image_url(:biggest), :class => "img-responsive"), list_items_show_path(@categories[2].slug)%></div>
+                <div class="col-sm-3 box3"> <%= link_to image_tag(@categories[3].banner_image_url(:bigger), :class => "img-responsive"), list_items_show_path(@categories[3].slug)%>
+              
             </div>
           </div>
         </div>

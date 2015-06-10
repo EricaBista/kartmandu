@@ -3,7 +3,7 @@ ActiveAdmin.register Category do
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
- permit_params :list, :of, :attributes, :on, :model, :name, :description, :slug
+ permit_params :list, :of, :attributes, :on, :model, :name, :description, :slug, :banner_image
 #
 # or
 #
@@ -15,6 +15,9 @@ ActiveAdmin.register Category do
 index do    
      column :name 
      column :slug
+          column "banner_image" do |category|
+      image_tag category.banner_image_url(:small)
+     end
     
      # column :category do |c|
      #    c.category.name
@@ -37,7 +40,7 @@ index do
     f.input :slug
       
       f.input :description
-     
+      f.input :banner_image, :as => :file, :hint => image_tag(f.object.banner_image.url(:thumb))
 
      end 
       f.actions 

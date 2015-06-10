@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   	@menus ||= Category.all
   	@headers ||= Category.where(:is_menu => true)
      @budget ||=Item.where(:is_discounted => true)
-     @hotdeal ||=Item.where(:is_hot_deal => true)
+     @hotdeal ||=Item.where(:is_hot_deal => true).order("RANDOM()") 
       @featured ||=Item.where(:is_featured => true)
 
      

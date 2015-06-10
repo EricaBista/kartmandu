@@ -1,11 +1,11 @@
 class CartController < ApplicationController
-before_action :authenticate_user!, except: [:index]
+# before_action :authenticate_user!, except: [:index]
 	def add 
 		id =  params[:id]
 		if session[:cart] then
 			cart = session[:cart]
 		else
-			session[:cart] = {}
+			session[:cart] = {} 
 			cart = session[:cart]
 	    end
 	    if cart[id] then

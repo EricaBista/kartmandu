@@ -16,9 +16,12 @@ end
   # GET /items/1
   # GET /items/1.json
   def show
-    # @brands = Brand.all
+  
     @item = Item.find_by_slug!(params[:slug])
+@item_ass = Item.where(:category_id => "Accessories").where.not(:id => @item.id).limit(4).order("RANDOM()")
+
     @items = Item.where(:category_id => @item.category_id).where.not(:id => @item.id).limit(4).order("RANDOM()")
+  
   end
 
   # GET /items/new

@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
   def index
-  	@items = Item.all 
+  	@items = Item.all
     @brands = Brand.all
-	 # @categories = Category.all
+	  @categories = Category.all.order("RANDOM()")
   end
 end
