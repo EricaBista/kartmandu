@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150609102051) do
+ActiveRecord::Schema.define(version: 20150610062703) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -71,8 +71,8 @@ ActiveRecord::Schema.define(version: 20150609102051) do
     t.integer  "price"
     t.integer  "order"
     t.string   "image"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
     t.string   "slug"
     t.integer  "category_id"
     t.boolean  "is_discounted"
@@ -87,6 +87,19 @@ ActiveRecord::Schema.define(version: 20150609102051) do
     t.string   "form"
     t.string   "SIM"
     t.boolean  "is_featured"
+    t.string   "model_number"
+    t.string   "box_content"
+    t.string   "dimension"
+    t.string   "multitouch"
+    t.string   "display_resolution"
+    t.string   "bluetooth"
+    t.string   "audio_jack"
+    t.string   "gsm"
+    t.string   "battery_capacity"
+    t.string   "battery_type"
+    t.string   "rear_camera"
+    t.string   "front_camera"
+    t.string   "flash"
   end
 
   create_table "users", force: :cascade do |t|

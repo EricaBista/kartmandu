@@ -3,7 +3,7 @@ ActiveAdmin.register Item do
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
- permit_params :list, :of, :attributes, :on, :model, :name, :model_name, :slug, :form, :operating_system, :screen_size, :SIM, :color, :title, :available, :sold_out, :is_discounted, :is_hot_deal, :is_featured, :description, :price, :order, :image, :category_id, :brand_id
+ permit_params :list, :of, :attributes, :on, :model, :name, :model_number, :slug, :form, :operating_system, :screen_size, :SIM, :color, :title, :available, :sold_out, :box_content, :dimension, :display_resolution, :multitouch, :rear_camera, :front_camera, :flash, :bluetooth, :audio_jack, :gsm, :battery_capacity, :battery_type, :is_discounted, :is_hot_deal, :is_featured, :description, :price, :order, :image, :category_id, :brand_id
 #
 # or
 #
@@ -15,9 +15,24 @@ ActiveAdmin.register Item do
 index do   
      column :title 
      column :name 
-     
+     column :model_number 
      column :slug
      column :form
+
+column :box_content
+column :dimension
+column :display_resolution
+column :rear_camera
+column :front_camera
+column :flash
+column :bluetooth
+column :audio_jack
+column :gsm
+column :battery_type
+column :battery_capacity
+column :multitouch
+
+
      column :operating_system 
      column :color 
      column :SIM
@@ -54,12 +69,23 @@ index do
       f.input :brand, :collection => Brand.all.map{ |brand| [brand.name, brand.id] },:prompt => true
       f.input :title 
       f.input :name 
-      
+      f.input :model_number 
       f.input :slug
        f.input :form
         f.input :operating_system
          f.input :screen_size
-          f.input :color
+          f.input :box_content
+           f.input :dimension
+            f.input :display_resolution
+             f.input :multitouch
+              f.input :rear_camera
+               f.input :front_camera
+                f.input :flash
+                 f.input :bluetooth
+                  f.input :audio_jack
+                   f.input :gsm
+                    f.input :battery_capacity
+                     f.input :battery_type
            f.input :SIM
       f.input :available
       f.input :sold_out
@@ -78,13 +104,25 @@ end
   attributes_table do
     row :title
     row :name
-
+ row :model_number
     row :slug
     row :SIM
     row :screen_size
     row :operating_system
     row :form
     row :color
+ row :box_content
+  row :dimension
+   row :display_resolution
+    row :multitouch
+     row :rear_camera
+      row :front_camera
+       row :flash
+        row :bluetooth
+         row :audio_jack
+          row :gsm
+           row :battery_type
+            row :battery_capacity
 
     row :available
     row :sold_out

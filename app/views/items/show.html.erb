@@ -93,10 +93,24 @@
                 
                 <div>
     <table class="table">
-   
     <thead>
       <tr>
-        <th>Product Identifiers</th>
+        <th>In The Box</th>
+        <th></th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Box Content</td>
+        <td><%=@item.box_content%></td>
+      </tr>
+
+
+
+    <thead>
+      <tr>
+        <th>Genaral</th>
         <th></th>
         
       </tr>
@@ -110,7 +124,7 @@
       
       <tr>
         <td>Model</td>
-        <td>GT-I9500</td>
+        <td><%=@item.model_number%></td>
     </td>
       </tr>
       
@@ -121,50 +135,40 @@
       </tr>
    
    
-
+ <tr>
+        <td>Dimension</td>
+        <td><%=@item.dimension%></td>
+      </tr>
 
 
    
     <thead >
       <tr>
-        <th>Key Features</th>
+        <th>Display</th>
         <th></th>
         
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td>Cellular Band</td>
-        <td>GSM 850/900/1800/1900 (Quadband), GSM/GPRS/EDGE 850/900/1800/1900 (Quadband) HSPA+ 850/900/1900/2100</td>
+        <td>Screen</td>
+        <td><%=@item.form%></td>
       </tr>
       
       
       <tr>
-        <td>Style</td>
-        <td><%=@item.form%></td>
+        <td>Display Resolution</td>
+        <td><%=@item.display_resolution%></td>
     </td>
       </tr>
       
       
       <tr>
-        <td>Display Technology</td>
-        <td>HD Super AMOLED</td>
+        <td>Multi touch</td>
+        <td><%=@item.multitouch%></td>
       </tr>
       
-      <tr>
-        <td>Operating System</td>
-        <td><%=@item.operating_system%></td>
-      </tr>
-
-
-      <tr>
-        <td>Screen Size</td>
-        <td><%=@item.screen_size%></td>
-      </tr>
-
-
-
-
+     
 
       <thead >
       <tr>
@@ -175,19 +179,88 @@
     </thead>
     <tbody>
       <tr>
-        <td>Wireless Interface</td>
-        <td>Bluetooth, WLAN 802.11a, WLAN 802.11b, WLAN 802.11g, WLAN 802.11n</td>
+        <td>Bluetooth</td>
+        <td><%=@item.bluetooth%></td>
       </tr>
       
       
       <tr>
-        <td>Connectivity</td>
-        <td>Bluetooth, USB, WLAN, WiFi</td>
-    </td>
+        <td>Audio Jack</td>
+        <td><%=@item.audio_jack%></td>
+    
       </tr>
 
-   
-   
+  <tr>
+        <td>CDMA/GSM</td>
+        <td><%=@item.gsm%></td>
+    
+      </tr>
+
+ <thead >
+      <tr>
+        <th>Software</th>
+        <th></th>
+        
+      </tr>
+    </thead>
+   <tbody>
+      <tr>
+        <td>OS Version</td>
+        <td><%=@item.operating_system%></td>
+      </tr>
+
+
+ <thead >
+      <tr>
+        <th>Batter and Power</th>
+        <th></th>
+        
+      </tr>
+    </thead>
+   <tbody>
+      <tr>
+        <td>Battery Capacity</td>
+        <td><%=@item.battery_capacity%></td>
+      </tr>
+<tr>
+        <td>Battery Type</td>
+        <td><%=@item.battery_type%></td>
+      </tr>
+
+ <thead >
+      <tr>
+        <th>Camera</th>
+        <th></th>
+        
+      </tr>
+    </thead>
+   <tbody>
+      <tr>
+        <td>Rear Camera</td>
+        <td><%=@item.rear_camera%></td>
+      </tr>
+ <tr>
+        <td>Front Camera</td>
+        <td><%=@item.front_camera%></td>
+      </tr>
+
+ <tr>
+        <td>Flash</td>
+        <td><%=@item.flash%></td>
+      </tr>
+
+    <thead >
+      <tr>
+        <th>Description</th>
+        <th></th>
+        
+      </tr>
+    </thead>
+   <tbody>
+      <tr>
+        <td>Genaral Description</td>
+        <td><%=@item.description.html_safe%></td>
+      </tr>
      </table> 
     </div>  
      <div>
