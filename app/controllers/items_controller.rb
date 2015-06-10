@@ -78,7 +78,7 @@ def search
       @q=params[:q]
 
       @category_id = params[:home]
-      puts @category_id.inspect
+     
       @items = Item.item_search(params[:q]).where(:category_id => @category_id[:category_id])
         # @categories = Category.category_search(params[:q])
   end
