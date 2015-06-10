@@ -27,8 +27,9 @@
                       <div class="form-group">
                         Quantity:
                         <input type="text" class= "quentityNumber" value="" size="1">
+                        <% if @item.available.present? %>
                         <% if @item.available > @item.sold_out %>
-                        <span class="stockInfo"><%= @item.available %> available / <span class="redInfo"><%= @item.sold_out %> sold</span></span>
+                        <span class="stockInfo"><%= @item.available %> available / <span class="redInfo"><%= @item.sold_out %> sold</span></span><% end%>
                         <% else %>
                         <span class="redInfo">out of stock</span>
                          <% end -%>
