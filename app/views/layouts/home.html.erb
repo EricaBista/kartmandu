@@ -60,7 +60,12 @@
           </ul>
         </li>
         <li><a href="#">Wish List (0)</a></li>
-        <li><a href="#">Checkout</a></li>
+        <li><% if signed_in? %>
+                    <%= link_to "Checkout", buy_path %>
+                 
+                    <% else %>
+                    <%= link_to "Checkout",new_user_session_path %>
+                    <% end %></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
