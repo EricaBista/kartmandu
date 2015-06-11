@@ -287,7 +287,7 @@
                      <div class="thumbnail">
            <div class="caption">
            <% if real.name.present? %>
-           <%= link_to image_tag(@item.image_url(:big), :class => "img-responsive"), slugged_path(real.slug) %>
+           <%= link_to image_tag(real.image_url(:big), :class => "img-responsive"), slugged_path(real.slug) %>
            
                      <p><b><%=real.name%> </b>
                      <span class="price"><%= number_to_currency(real.price)%></span></p>
@@ -313,7 +313,7 @@
                      <div class="thumbnail">
                      <div class="caption">
                       <% if ass.name.present? %>
-                      <%= link_to image_tag(@item.image_url(:big), :class => "img-responsive"), slugged_path(ass.slug) %>
+                      <%= link_to image_tag(ass.image_url(:big), :class => "img-responsive"), slugged_path(ass.slug) %>
                     
                      <p><b><%=ass.name %></b>
                      <span class="price">USD 199</span></p>

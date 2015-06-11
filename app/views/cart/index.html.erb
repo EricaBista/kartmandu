@@ -25,13 +25,13 @@
                     <% item = Item.find_by_id(id) %>
         
                       <tr>
-                      <td><%= image_tag("cart-img.jpg", :class => "img-responsive") %></td>
+                      <td><%= image_tag(item.image_url(:thumb),  :class =>"img-responsive") %></td>
                         
-                        <td><%= link_to item.name, item %> </td>
-                        <td>Galaxy S4 i337 </td>
+                        <td><%= item.name %> </td>
+                        <td><%= item.model_number %> </td>
                          <td><%= quantity %></td>
                         <td><%= number_to_currency(item.price, :unit => '$')%></td>
-                        <td>$ 199  <a href=""><i class="fa fa-times"></i></a></td>
+                        <td><%=number_to_currency(quantity*item.price) %> <a href=""><i class="fa fa-times"></i></a></td>
                       </tr>
                        <% end -%>
                       </tbody>
@@ -51,10 +51,7 @@
             <div class="totalPrice">
                     <table class="table table-bordered">
               <tbody>
-                      <tr>
-                        <td>Sub Total:</td>
-                        <td>$ 199</td>
-                      </tr>
+                      
                       
                       <tr>
                         <td>Total:</td>
