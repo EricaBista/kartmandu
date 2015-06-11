@@ -125,13 +125,19 @@
             <div class="col-sm-3">
               <div class="nav navbar-right cart pull-right">
               <a id="cart" href="" class="dropdown-toggle" data-toggle="dropdown" role="button">
-              <span><b>0</b>
+            <% if @cart.present? %>
+              <span><b><%= @cart.count %></b>
               <span> item(s)<br>$0.00</span>
+              <% else %>
+              <span> item(s)<br>$0.00</span>
+              <div class="empty">cart is empty!</div>
+              <% end %>
               </span>
             </a>
             <div class="cart-info dropdown-menu pull-right" role="menu" style="visibility: visible;">
-                        <div class="empty">Your shopping cart is empty!</div>
+          
                         
+                      
               </div>
             </div>
             </div>

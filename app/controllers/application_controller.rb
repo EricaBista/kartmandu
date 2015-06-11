@@ -9,7 +9,8 @@ class ApplicationController < ActionController::Base
      @budget ||=Item.where(:is_discounted => true)
      @hotdeal ||=Item.where(:is_hot_deal => true).order("RANDOM()") 
       @featured ||=Item.where(:is_featured => true)
-
+      @cart = session[:cart]
+ 
      
   end
 end

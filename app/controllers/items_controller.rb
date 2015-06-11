@@ -19,7 +19,7 @@ end
    @item = Item.find_by_slug!(params[:slug])
 @item_ass = Item.joins(:category).where('categories.name' => "Accessories").limit(4).order("RANDOM()")
 @items = Item.where(:category_id => @item.category_id).where.not(:id => @item.id).limit(4).order("RANDOM()")
-  # @cart_count = Cart.where(:item_id => @item).count
+  
   end
 
   # GET /items/new
