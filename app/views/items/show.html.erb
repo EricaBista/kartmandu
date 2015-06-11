@@ -117,11 +117,12 @@
       </tr>
     </thead>
     <tbody>
+    <% if @item.brand.name.present?%>
       <tr>
         <td>Brand</td>
         <td><%=@item.brand.name%></td>
       </tr>
-      
+      <% end %>
       
       <tr>
         <td>Model</td>
