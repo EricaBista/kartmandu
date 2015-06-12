@@ -5,7 +5,7 @@ class ItemsController < ApplicationController
   # GET /items.json
   def index
     @items = Item.all
-
+ @brands = Brands.all
   end
   
 def buy
@@ -19,7 +19,7 @@ end
    @item = Item.find_by_slug!(params[:slug])
 @item_ass = Item.joins(:category).where('categories.name' => "Accessories").limit(4).order("RANDOM()")
 @items = Item.where(:category_id => @item.category_id).where.not(:id => @item.id).limit(4).order("RANDOM()")
-  
+ 
   end
 
   # GET /items/new

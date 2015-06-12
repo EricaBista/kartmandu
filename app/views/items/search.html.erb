@@ -1,10 +1,13 @@
+<body>
 
-    <h2>Search Results for: <i><%= @q %></i></h2>
-   
-                <div class="productsSinglePage">
+   <div class="productsPage">
    <div class="container">
    <div class="row">
-   <% j = 0 %>
+            
+              
+                    
+                     <div class="row">
+                       <% j = 0 %>
                 <% @items.each do |i| %>
                 <%  j += 1 %>
 
@@ -13,27 +16,32 @@
                 <%  else %>
                 <%    image='nowall.jpg' %>
                 <%  end %>
-                
-                <span class="mainTitle"><%= i.name %></span></br>
-                <div class="col-sm-4 singleProduct"><%= link_to image_tag(image,:class =>"img-responsive showimagediv"),slugged_path(i.slug) %>
-                
-               
-                </div>
-                <% if j%3==0 %> 
+                     <div class="col-sm-4">
+                     <div class="thumbnail">
+           <div class="caption">
+                      <%= link_to image_tag(image,:class =>"img-responsive"),slugged_path(i.slug) %>
+                 <p>
+                 <b><%= i.name %></b>
+                <span class="price"><%= number_to_currency(i.price )%></span>
+                </p>
+                     </div>
+                      </div></div>
+                      <% if j%3==0 %> 
                </div>
                 <div class="row">
                 <% end %>
 
                 <% end %>
-                
-                <% if j == 0 then %>
-                  <h3>No Results Found</h3>
-                  <br />
-                <% end %>
-                </div>
-                </div>
-                </div>
-              </div>
-                
-           
-        
+               </div>
+
+                     
+            
+   
+   
+   
+ 
+   </div>   
+    </div></div></body>
+    
+    
+    
