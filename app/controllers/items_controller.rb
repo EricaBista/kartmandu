@@ -5,7 +5,7 @@ class ItemsController < ApplicationController
   # GET /items.json
   def index
     @items = Item.all
- @brands = Brands.all
+
   end
   
 def buy
