@@ -127,24 +127,29 @@
                 <%    image='man.png' %>
                 <%  end %>
                 
+               <div class="col-sm-4">
+                     
+                     <div class="thumbnail">
+                     <div class="caption">
                 
-                <div class="col-sm-4 singleProduct">
-                <%= link_to image_tag(image,:class =>"img-responsive showimagediv"),slugged_path(i.slug) %>
-                <span class="mainTitle"><%= i.name %></span></br>
-                <span class="price"><%= number_to_currency(i.price )%></span></p>
-                </div>
+                <%= link_to image_tag(image,:class =>"img-responsive"),slugged_path(i.slug) %>
+                 <p>
+                 <b><%= i.name %></b>
+                <span class="price"><%= number_to_currency(i.price )%></span>
+                </p>
+                </div> 
+               </div>
+            
+            </div>
                 <% if j%3==0 %> 
-               
+               </div>
                 <div class="row">
                 <% end %>
 
                 <% end %>
-                
+                    </div>
                 
                 </div>
                 </div>
                </div>
-               </div>
-                </div>
-           
-        
+ 

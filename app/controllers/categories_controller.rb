@@ -5,7 +5,7 @@ class CategoriesController < ApplicationController
  def list_items
 @brands = Brand.all
       @category = Category.find_by_slug!(params[:slug])
-      @items = Item.where :category_id => @category.id 
+      @items = Item.where(:category_id => @category.id) 
     end
 
 
