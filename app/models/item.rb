@@ -2,6 +2,7 @@ class Item < ActiveRecord::Base
 	mount_uploader :image, AvatarUploader
 	belongs_to :category
 	belongs_to :brand
+	belongs_to :wishlist
 	before_save :create_slug
 
 	  def create_slug
