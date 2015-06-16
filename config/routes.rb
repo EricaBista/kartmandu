@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
   resources :wishlists
+  resources :wishlists
   devise_for :users
  
    devise_for :admin_users
@@ -21,6 +22,9 @@ Rails.application.routes.draw do
  post '/search' => 'items#search'
  get 'details/:slug', :controller => "categories", :action => "list_items", :as =>'list_items_show'
  get 'list/:slug', :controller => "brands", :action => "list_brand_items", :as =>'list_brand_items_show'
+  # get 'wish/:item_id', :controller => "wishlists", :action => "add", :as =>'wishes_show'
+  
+
   # You can have the root of your site routed with "root"
    root 'home#index'
 
