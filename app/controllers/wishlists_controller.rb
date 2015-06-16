@@ -1,5 +1,5 @@
 class WishlistsController < InheritedResources::Base
-
+	
   private
 
     def wishlist_params
