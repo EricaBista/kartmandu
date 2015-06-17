@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
      @hotdeal ||=Item.where(:is_hot_deal => true).order("RANDOM()") 
       @featured ||=Item.where(:is_featured => true)
       @cart = session[:cart]
- 
+ @wishlists_count = Wishlist.all.count
      
   end
 end

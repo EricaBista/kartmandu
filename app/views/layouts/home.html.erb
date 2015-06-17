@@ -62,8 +62,8 @@
         </li>
 
 
-        <% if @wishlists.present?%>
-                 <li><a href="#">Wish List (<%= @wishlists.count %>)</a></li>
+        <% if @wishlists_count.present?%>
+                 <li><a href="#">Wish List (<%= @wishlists_count %>)</a></li>
         <% else %>
                  <li><a href="#">Wish List (0)</a></li>
         <% end %>
