@@ -18,7 +18,7 @@ class WishlistsControllerTest < ActionController::TestCase
 
   test "should create wishlist" do
     assert_difference('Wishlist.count') do
-      post :create, wishlist: { item_id_id: @wishlist.item_id_id, user_id_id: @wishlist.user_id_id }
+      post :create, wishlist: { item_id: @wishlist.item_id, user_id: @wishlist.user_id }
     end
 
     assert_redirected_to wishlist_path(assigns(:wishlist))
@@ -35,7 +35,7 @@ class WishlistsControllerTest < ActionController::TestCase
   end
 
   test "should update wishlist" do
-    patch :update, id: @wishlist, wishlist: { item_id_id: @wishlist.item_id_id, user_id_id: @wishlist.user_id_id }
+    patch :update, id: @wishlist, wishlist: { item_id: @wishlist.item_id, user_id: @wishlist.user_id }
     assert_redirected_to wishlist_path(assigns(:wishlist))
   end
 

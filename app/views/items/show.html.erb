@@ -39,7 +39,7 @@
                       <ul>
                       <li>
 
-                      <li><a href="#">+ ADD TO WISHLIST</a></li> 
+                      <li><%= link_to "ADD TO WISHLIST", wishlists_path(:wishlist => { :item_id => @item.id }), :method => :post %></li> 
                       <li><a href="#">+ ADD TO COMPARE</a> </li>
                       </ul>
                       </div>
@@ -320,7 +320,7 @@
                       <%= link_to image_tag(ass.image_url(:big), :class => "img-responsive"), slugged_path(ass.slug) %>
                     
                      <p><b><%=ass.name %></b>
-                     <span class="price">USD 199</span></p>
+                     <span class="price"><%= number_to_currency(ass.price)%></span></p>
                      </div>
                       </div></div>
                       <% end %>

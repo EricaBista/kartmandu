@@ -51,15 +51,25 @@
           <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
           <% else %>
           <li><%= link_to 'Log In', new_user_session_path %></li>
-            <li><%#= link_to 'Log In', admin_root_path %></li>
+            
             <li><%= link_to 'Sign Up', new_user_registration_path %></li>
             <% end %>
             
             <li class="divider"></li>
             <li><%= link_to 'Setting', new_user_registration_path %></li>
           </ul>
+
         </li>
-        <li><a href="#">Wish List (0)</a></li>
+
+
+        <% if @wishlists.present?%>
+                 <li><a href="#">Wish List (<%= @wishlists.count %>)</a></li>
+        <% else %>
+                 <li><a href="#">Wish List (0)</a></li>
+        <% end %>
+
+
+
         <li><% if signed_in? %>
                     <%= link_to "Checkout", buy_path %>
                  
@@ -139,19 +149,19 @@
 
 
          
-            <div class="col-md-9 col-sm-13">
-              <%= link_to image_tag(@categories[0].banner_image_url(:big), :class => "img-responsive"), list_items_show_path(@categories[0].slug)%>
+            <div class="col-md-9 col-sm-13"><% if @categories[0].present? %>
+              <%= link_to image_tag(@categories[0].banner_image_url(:big), :class => "img-responsive"), list_items_show_path(@categories[0].slug)%><% end %>
             </div>
             <div class="col-md-3 col-sm-4">
                 <div class="banner-r">
                        
-                        <div class="banner-s-l-t">
-                         <%= link_to image_tag(@categories[1].banner_image_url(:thumb), :class => "img-responsive"), list_items_show_path(@categories[1].slug)%>
+                        <div class="banner-s-l-t"><% if @categories[1].present? %>
+                         <%= link_to image_tag(@categories[1].banner_image_url(:thumb), :class => "img-responsive"), list_items_show_path(@categories[1].slug)%><% end %>
                           <!-- <img src="assets/banner-right-d.jpg" alt="" class="img-responsive"> -->
                         </div>
                          
-                        <div class="banner-s-l-d">
-                         <%= link_to image_tag(@categories[2].banner_image_url(:medium), :class => "img-responsive"), list_items_show_path(@categories[2].slug)%>
+                        <div class="banner-s-l-d"><% if @categories[2].present? %>
+                         <%= link_to image_tag(@categories[2].banner_image_url(:medium), :class => "img-responsive"), list_items_show_path(@categories[2].slug)%><% end %>
                           <!-- <img src="assets/banner-right-d.jpg" alt="" class="img-responsive"> -->
                         </div>
                 </div>
@@ -170,7 +180,8 @@
           <div class="container">
             <div class="col-xs-12"><h2>Hot deals</h2></div>
           <div class="col-xs-12">
-            <div class="row"><% if @hotdeal[0].present? %>
+            <div class="row">
+            <% if @hotdeal[0].present? %>
               <div class="col-sm-4">
                 <div class="post post1">
 
@@ -235,14 +246,21 @@
               <div class="row">
                 <div class="col-sm-3 box1">      
                         <div class="box1-t">
-                          <%= link_to image_tag(@categories[1].banner_image_url(:smaller), :class => "img-responsive"), list_items_show_path(@categories[1].slug)%>
+                        <% if @categories[1].present? %>
+                          <%= link_to image_tag(@categories[1].banner_image_url(:smaller), :class => "img-responsive"), list_items_show_path(@categories[1].slug)%><% end %>
                         </div>
                         <div class="box1-d">
-                          <%= link_to image_tag(@categories[0].banner_image_url(:smallest), :class => "img-responsive"), list_items_show_path(@categories[0].slug)%>
+                         <% if @categories[0].present? %>
+                          <%= link_to image_tag(@categories[0].banner_image_url(:smallest), :class => "img-responsive"), list_items_show_path(@categories[0].slug)%><% end %>
                         </div>
                 </div>
-                <div class="col-sm-6 box2"> <%= link_to image_tag(@categories[2].banner_image_url(:biggest), :class => "img-responsive"), list_items_show_path(@categories[2].slug)%></div>
-                <div class="col-sm-3 box3"> <%= link_to image_tag(@categories[3].banner_image_url(:bigger), :class => "img-responsive"), list_items_show_path(@categories[3].slug)%>
+                <div class="col-sm-6 box2"> 
+                 <% if @categories[2].present? %>
+                <%= link_to image_tag(@categories[2].banner_image_url(:biggest), :class => "img-responsive"), list_items_show_path(@categories[2].slug)%><% end %>
+                </div>
+                <div class="col-sm-3 box3"> 
+                <% if @categories[3].present? %> 
+                <%= link_to image_tag(@categories[3].banner_image_url(:bigger), :class => "img-responsive"), list_items_show_path(@categories[3].slug)%><% end %>
               </div>
             </div>
           </div>

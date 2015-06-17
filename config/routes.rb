@@ -1,13 +1,12 @@
 Rails.application.routes.draw do
   
-  resources :wishlists
+  
+  
   resources :wishlists
   devise_for :users
- 
-   devise_for :admin_users
+  devise_for :admin_users
   ActiveAdmin.routes(self)
   resources :brands
-
   resources :items
   resources :categories
   # The priority is based upon order of creation: first created -> highest priority.

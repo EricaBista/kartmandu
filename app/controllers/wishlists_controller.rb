@@ -1,9 +1,34 @@
 class WishlistsController < InheritedResources::Base
+def index
+    @wishlists = Wishlist.all
+  end
+  
+  def create
 
+@wishlist = Wishlist.new(wishlist_params)
+    respond_to do |format|
+      @wishlist.user_id = current_user.id if current_user
+      if @wishlist.save 
+        format.html { redirect_to slugged_path(Item.find_by_id(@wishlist.item_id).slug), notice: 'Added to Wishlist' }
+        format.json { render :show, status: :created, location: @wishlist }
+      else
+        format.html { redirect_to item_path(@wishlist.item_id) }
+        format.json { render json: @wishlist.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+  def destroy
+  	@wishlist = Wishlist.find(params[:id])
+    @wishlist.destroy
+    respond_to do |format|
+      format.html { redirect_to slugged_path(Item.find_by_id(@wishlist.item_id).slug), notice: 'wishlist was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+end
   private
 
     def wishlist_params
-      params.require(:wishlist).permit(:item_id_id, :user_id_id)
+      params.require(:wishlist).permit(:item_id, :user_id)
     end
 end
 

@@ -14,8 +14,8 @@
   <tbody>
     <% @wishlists.each do |wishlist| %>
       <tr>
-        <td><%= wishlist.item_id %></td>
-        <td><%= wishlist.user_id %></td>
+        <td><%= wishlist.item %></td>
+        <td><%= wishlist.user %></td>
         <td><%= link_to 'Show', wishlist %></td>
         <td><%= link_to 'Edit', edit_wishlist_path(wishlist) %></td>
         <td><%= link_to 'Destroy', wishlist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
