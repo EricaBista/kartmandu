@@ -1,4 +1,5 @@
 class WishlistsController < InheritedResources::Base
+	 before_filter :authorize, only: [:update, :create]
 def index
     @wishlists = Wishlist.all
   end
@@ -30,5 +31,12 @@ end
     def wishlist_params
       params.require(:wishlist).permit(:item_id, :user_id)
     end
+
+     def authorize
+    unless current_user
+      flash[:notice] = "Login to add wishlist !!"
+      redirect_to new_user_session_path
+    end
+  end
 end
 

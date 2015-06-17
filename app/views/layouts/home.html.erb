@@ -61,13 +61,15 @@
 
         </li>
 
-
+<% if signed_in? %>
         <% if @wishlists_count.present?%>
                  <li><a href="#">Wish List (<%= @wishlists_count %>)</a></li>
         <% else %>
                  <li><a href="#">Wish List (0)</a></li>
         <% end %>
-
+        <% else %>
+        <li><a href="#">Wish List (0)</a></li>
+<% end %>
 
 
         <li><% if signed_in? %>
