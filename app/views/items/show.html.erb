@@ -29,10 +29,10 @@
                         <input type="text" class= "quentityNumber" value="" size="1">
                         <% if @item.available.present? %>
                         <% if @item.available > @item.sold_out %>
-                        <span class="stockInfo"><%= @item.available %> available / <span class="redInfo"><%= @item.sold_out %> sold</span></span>
+                        <span class="stockInfo"><%= @item.available %> available / <span class="redInfo"><%= @item.sold_out %> sold</span></span><% end%>
                         <% else %>
                         <span class="redInfo">out of stock</span>
-                         <% end -%><% end%>
+                         <% end -%>
                       </div>
                       
                       <div class="wishListNcompare">
@@ -62,14 +62,9 @@
                         </table>
                       </div>
                       <% if signed_in? %>
-                      <% if @item.available > @item.sold_out %>
+                      
                       <%= link_to "add to cart", add_cart_path(@item.id), :class => "btn btn-info" %>
                         <%= link_to "Buy It", buy_path(@item.id), :class => "btn btn-default" %>
-                        <% else %>
-                       <button type="submit" class="btn btn-info">add to cart</button>
-                      
-                       <button type="button" class="btn btn-default">Buy It</button>
-                       <% end %>
                        <% else %>
                         <%= link_to "add to cart", new_user_session_path, :class => "btn btn-info" %>
                     <%= link_to "Buy It",new_user_session_path, :class => "btn btn-default"  %>

@@ -31,7 +31,7 @@ end
     @hotdeal ||=Item.where(:is_hot_deal => true).order("RANDOM()") 
     @featured ||=Item.where(:is_featured => true)
     @cart = session[:cart]
-    @wishlists_count = Wishlist.all.count
+    @wishlists_count = Wishlist.where(session[:user_id]).count
      
   end
 end
