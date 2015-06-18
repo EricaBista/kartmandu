@@ -1,7 +1,7 @@
 .search-col{ margin-top: 1%;}
 .search-col .form-control{ display: inline-block; float: left;  height: 50px;}
 .search-col .form-control{ border-radius: 0; border-right: 0px;}
-.search-col select{ background: rgba(0, 0, 0, 0) url("/assets/select-dropdown.jpg") no-repeat scroll 175px center;
+.search-col select{ background: rgba(0, 0, 0, 0) image-url("select-dropdown.jpg") no-repeat scroll 175px center;
 width: 100%;
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -21,7 +21,7 @@ width: 100%;
 
 .cart { display: inline-block; margin-right: 0px; margin-top: 12px; margin-left: 15px; vertical-align: top;}
 #cart {}
-.nav.cart > a, #cart > button { background-image: url("/assets/cart2.png"); background-repeat: no-repeat; background-position: 0px 2px; background-color: #fff;
+.nav.cart > a, #cart > button { background: image-url("cart2.png"); background-repeat: no-repeat; background-position: 0px 2px; background-color: #fff;
   border: none; display: inline; padding: 0 15px; font-weight: 400; padding-left: 0px; margin-right: 10px; padding: 2px 0 0 10px; text-transform: none;
   text-align: left; line-height: 22px; z-index: 1; color: #999; min-width: 35px; height: 40px; display: block;}
 .nav.cart > a > span { background: none repeat scroll 0 0 #ffffff; border-radius: 3px; color: #777777; display: block; font-family: 'Open Sans'; font-size: 12px; line-height: 12px;
