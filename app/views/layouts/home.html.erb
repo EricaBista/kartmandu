@@ -41,7 +41,8 @@
 
          <% @menus.limit(7).each do |cat| %>
          <%#= link_to categories_show_path %>
-        <li ><%=link_to cat.name, list_items_show_path(cat.slug) if present? %></li><% end %>
+        <li ><%=link_to cat.name, list_items_show_path(cat.slug) if present? %></li>
+        <% end %>
       </ul>
       <ul id="top-links" class="nav navbar-nav navbar-right">
         <li class="dropdown">
@@ -151,18 +152,21 @@
 
 
          
-            <div class="col-md-9 col-sm-13"><% if @categories[0].present? %>
+            <div class="col-md-9 col-sm-13">
+            <% if @categories[0].present? %>
               <%= link_to image_tag(@categories[0].banner_image_url(:big), :class => "img-responsive"), list_items_show_path(@categories[0].slug)%><% end %>
             </div>
             <div class="col-md-3 col-sm-4">
                 <div class="banner-r">
                        
-                        <div class="banner-s-l-t"><% if @categories[1].present? %>
+                        <div class="banner-s-l-t">
+                        <% if @categories[1].present? %>
                          <%= link_to image_tag(@categories[1].banner_image_url(:thumb), :class => "img-responsive"), list_items_show_path(@categories[1].slug)%><% end %>
                           <!-- <img src="assets/banner-right-d.jpg" alt="" class="img-responsive"> -->
                         </div>
                          
-                        <div class="banner-s-l-d"><% if @categories[2].present? %>
+                        <div class="banner-s-l-d">
+                        <% if @categories[2].present? %>
                          <%= link_to image_tag(@categories[2].banner_image_url(:medium), :class => "img-responsive"), list_items_show_path(@categories[2].slug)%><% end %>
                           <!-- <img src="assets/banner-right-d.jpg" alt="" class="img-responsive"> -->
                         </div>

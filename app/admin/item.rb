@@ -77,10 +77,10 @@ column :multitouch
           f.input :box_content
            f.input :dimension
             f.input :display_resolution
-             f.input :multitouch
+             f.input :multitouch, as: :select, collection: ['YES', 'NO'], :prompt => true
               f.input :rear_camera
                f.input :front_camera
-                f.input :flash
+                f.input :flash, as: :select, collection: ['YES', 'NO'], :prompt => true
                  f.input :bluetooth
                   f.input :audio_jack
                    f.input :gsm

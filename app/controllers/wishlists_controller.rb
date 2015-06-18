@@ -5,8 +5,8 @@ def index
   end
   
   def create
-
-@wishlist = Wishlist.new(wishlist_params)
+ @wishlist = Wishlist.new(wishlist_params)
+ puts @wishlist.inspect
     respond_to do |format|
       @wishlist.user_id = current_user.id if current_user
       if @wishlist.save 
