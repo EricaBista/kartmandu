@@ -1,0 +1,53 @@
+<%= form_for(@cm) do |f| %>
+  <% if @cm.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@cm.errors.count, "error") %> prohibited this cm from being saved:</h2>
+
+      <ul>
+      <% @cm.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :terms_of_use %><br>
+    <%= f.text_field :terms_of_use %>
+  </div>
+  <div class="field">
+    <%= f.label :contact_us %><br>
+    <%= f.text_field :contact_us %>
+  </div>
+  <div class="field">
+    <%= f.label :cash_on_delivery %><br>
+    <%= f.text_field :cash_on_delivery %>
+  </div>
+  <div class="field">
+    <%= f.label :free_shipping %><br>
+    <%= f.text_field :free_shipping %>
+  </div>
+  <div class="field">
+    <%= f.label :privacy %><br>
+    <%= f.text_field :privacy %>
+  </div>
+  <div class="field">
+    <%= f.label :policy %><br>
+    <%= f.text_field :policy %>
+  </div>
+  <div class="field">
+    <%= f.label :blog %><br>
+    <%= f.text_field :blog %>
+  </div>
+  <div class="field">
+    <%= f.label :need_ %><br>
+    <%= f.text_field :need_ %>
+  </div>
+  <div class="field">
+    <%= f.label :help %><br>
+    <%= f.text_field :help %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  terms_of_use: MyString
+  contact_us: MyString
+  cash_on_delivery: MyString
+  free_shipping: MyString
+  privacy: MyString
+  policy: MyString
+  blog: MyString
+  need_: MyString
+  help: MyString
+
+two:
+  terms_of_use: MyString
+  contact_us: MyString
+  cash_on_delivery: MyString
+  free_shipping: MyString
+  privacy: MyString
+  policy: MyString
+  blog: MyString
+  need_: MyString
+  help: MyString

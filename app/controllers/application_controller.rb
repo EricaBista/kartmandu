@@ -25,6 +25,7 @@ end
 end
 
   def set_menu
+    # @contact ||= Cms.all
   	@menus ||= Category.all
   	@headers ||= Category.where(:is_menu => true)
     @budget ||=Item.where(:is_discounted => true)
