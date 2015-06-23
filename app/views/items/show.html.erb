@@ -61,6 +61,10 @@
                       </tbody>
                         </table>
                       </div>
+
+                          <% if @item.available.present? %>
+                        <% if @item.available > @item.sold_out %>
+
                       <% if signed_in? %>
                       
                       <%= link_to "add to cart", add_cart_path(@item.id), :class => "btn btn-info" %>
@@ -69,6 +73,8 @@
                         <%= link_to "add to cart", new_user_session_path, :class => "btn btn-info" %>
                     <%= link_to "Buy It",new_user_session_path, :class => "btn btn-default"  %>
                     <% end %>
+                    <% end -%>
+                    <% end -%>
                       <!-- <button type="submit" class="btn btn-info">add to cart</button> -->
                     
                     <!--   <button type="button" class="btn btn-default">Buy It</button> -->
