@@ -3,7 +3,7 @@ ActiveAdmin.register Cm do
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
- permit_params :list, :of, :attributes, :on, :model, :terms_of_use, :slug, :title, :contact_us, :cash_on_delivery, :free_shipping, :privacy, :policy, :blog, :need, :help
+ permit_params :list, :of, :attributes, :on, :model, :terms_of_use, :slug, :title, :contact_us, :cash_on_delivery, :free_shipping, :privacy, :policy, :blog, :need_, :help
 #
 # or
 #
@@ -22,7 +22,7 @@ index do
      column :privacy
      column :policy
      column :help
-     column :need
+     column :need_
      column :blog
 column "" do |resource|
       links = ''.html_safe
@@ -32,4 +32,27 @@ column "" do |resource|
       links
     end
   end
+
+  form do |f|
+      f.inputs "Cm" do
+      # add your other inputs
+      
+  f.input :title
+  f.input :slug
+  f.input :terms_of_use
+  f.input :contact_us
+  f.input :cash_on_delivery
+  f.input :free_shipping
+  f.input :privacy
+  f.input :policy
+  f.input :help
+  f.input :need_
+  f.input :blog
+
+end
+ 
+ f.actions 
+
+end
+      
 end

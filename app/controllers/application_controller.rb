@@ -3,7 +3,6 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   before_filter :set_menu
-
   before_filter :store_location
 
 def store_location
@@ -25,14 +24,13 @@ end
 end
 
   def set_menu
-    # @contact ||= Cms.all
+    
   	@menus ||= Category.all
   	@headers ||= Category.where(:is_menu => true)
     @budget ||=Item.where(:is_discounted => true)
     @hotdeal ||=Item.where(:is_hot_deal => true).order("RANDOM()") 
     @featured ||=Item.where(:is_featured => true)
-    @cart = session[:cart]
-    @wishlists_count = Wishlist.where(session[:user_id]).count
-     
+    @cart ||= session[:cart]
+    @wishlist_count ||= Wishlist.where(session[:user_id]).count
   end
 end
