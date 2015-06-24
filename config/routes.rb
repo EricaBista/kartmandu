@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   
   
   
+  resources :contacts
   resources :wishlists
   devise_for :users
   devise_for :admin_users
