@@ -394,11 +394,10 @@
                           
                     <div class="module-body">
                         <ul class="list-unstyled">
-                        <% if @footer_menus.present? %>
-                     <% @footer_menus.each do |f| %>
-                     
+                     <% @footer_menus.limit(3).offset(0).each do |f| %>
+
         <li><%= link_to f.title, contact_show_path(f.slug) %></li>
-        <% end %><% end %>
+        <% end %>
                         </ul>
                     </div><!-- /.module-body -->
                 </div><!-- /.col -->
@@ -410,11 +409,10 @@
 
                     <div class="module-body">
                         <ul class="list-unstyled">
-                            <li><a href="#">My Account</a></li>
-                            <li><a href="#">Customer Service</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Site Map</a></li>
-                            <li><a href="#">Search Terms</a></li>
+                            <% @footer_menus.limit(3).offset(4).each do |f| %>
+
+        <li><%= link_to f.title, contact_show_path(f.slug) %></li>
+        <% end %>
                         </ul>
                     </div><!-- /.module-body -->
                 </div><!-- /.col -->
@@ -426,11 +424,10 @@
 
                     <div class="module-body">
                         <ul class="list-unstyled">
-                            <li><a href="#">Order History</a></li>
-                            <li><a href="#">Returns</a></li>
-                            <li><a href="#">Libero Sed rhoncus</a></li>
-                            <li><a href="#">Venenatis augue tellus</a></li>
-                            <li><a href="#">My Vouchers</a></li>
+                             <% @footer_menus.limit(3).offset(0).each do |f| %>
+
+        <li><%= link_to f.title, contact_show_path(f.slug) %></li>
+        <% end %>
                         </ul>
                     </div><!-- /.module-body -->
                 </div><!-- /.col -->
@@ -442,11 +439,10 @@
 
                     <div class="module-body">
                         <ul class="list-unstyled">
-                            <li><a href="#">Knowledgebase</a></li>
-                            <li><a href="#">Terms of Use</a></li>
-                            <li><a href="#">Contact Support</a></li>
-                            <li><a href="#">Marketplace Blog</a></li>
-                            <li><a href="#">About online store</a></li>
+                            <% @footer_menus.limit(3).offset(0).each do |f| %>
+
+        <li><%= link_to f.title, contact_show_path(f.slug) %></li>
+        <% end %>
                         </ul>
                     </div><!-- /.module-body -->
                 </div>
