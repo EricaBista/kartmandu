@@ -24,13 +24,13 @@ end
 end
 
   def set_menu
-    
+    @footer_menus ||= Contact.where(:home_page => true).order(:order)
   	@menus ||= Category.all
   	@headers ||= Category.where(:is_menu => true)
     @budget ||=Item.where(:is_discounted => true)
     @hotdeal ||=Item.where(:is_hot_deal => true).order("RANDOM()") 
     @featured ||=Item.where(:is_featured => true)
     @cart ||= session[:cart]
-    @wishlist_count ||= Wishlist.where(session[:user_id]).count
+    @wishlist_count ||= ::Wishlist.where(session[:user_id]).count
   end
 end

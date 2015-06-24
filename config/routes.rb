@@ -23,7 +23,7 @@ Rails.application.routes.draw do
  get 'details/:slug', :controller => "categories", :action => "list_items", :as =>'list_items_show'
  get 'list/:slug', :controller => "brands", :action => "list_brand_items", :as =>'list_brand_items_show'
   # get 'wish/:item_id', :controller => "wishlists", :action => "add", :as =>'wishes_show'
-  
+   get 'cms/:slug', :controller => "contacts", :action => "cms", :as => 'contact_show'
 
   # You can have the root of your site routed with "root"
    root 'home#index'

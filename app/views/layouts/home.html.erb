@@ -390,14 +390,14 @@
                     <div class="module-heading outer-bottom-xs">
                         <h4 class="module-title">category</h4>
                     </div><!-- /.module-heading -->
-
+ 
+                          
                     <div class="module-body">
                         <ul class="list-unstyled">
-                            <li><a href="#">Order History</a></li>
-                            <li><a href="#">Returns</a></li>
-                            <li><a href="#">Libero Sed rhoncus</a></li>
-                            <li><a href="#">Venenatis augue tellus</a></li>
-                            <li><a href="#">My Vouchers</a></li>
+                     <% @footer_menus.each do |f| %>
+                     <% if count==0 %>
+        <li><%= link_to f.title, contact_show_path(f.slug) %></li>
+        <% end %>
                         </ul>
                     </div><!-- /.module-body -->
                 </div><!-- /.col -->
