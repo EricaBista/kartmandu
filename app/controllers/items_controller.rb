@@ -76,8 +76,14 @@ def search
       @q=params[:q]
 
       @category_id = params[:home]
+
      
-      @items = Item.item_search(params[:q]).where(:category_id => @category_id[:category_id])
+     if @category_id[:category_id].present?
+      @items = Item.item_search(params[:q]).where("category_id =?", @category_id[:category_id])
+        
+        else
+           @items = Item.item_search(params[:q])
+         end
         # @categories = Category.category_search(params[:q])
   end
 

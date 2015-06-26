@@ -14,7 +14,7 @@
 }*/
 /*--Main Page CSS Start--*/
 body{
-  font-family: Calibri, Candara, Segoe, 'Segoe UI', Optima, Arial, sans-serif;
+  font-family: Arial;
   font-weight: normal;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -167,9 +167,10 @@ footer{ margin-top: 20px;}
 }
 .footer .footer-bottom .module-body ul li {
   border-bottom: 1px solid #292929;
+  font-size: 14px;
 }
 .footer .footer-bottom .module-body ul li a {
-  font-size: 14px;
+  
   line-height: 36px;
   color: #666666;
   position: relative;
