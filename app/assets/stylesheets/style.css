@@ -61,14 +61,6 @@ h3 {font-size: 18px; font-weight: bold; color:#569e02; margin-top:-1px;}
 
 
 
-
-
-
-
-
-
-
-
 .productsSinglePage { margin-top:50px;}
 .singleProduct img { border:1px solid #d1d1d1;}
 .productDetails { border:1px solid #d1d1d1; padding:19px 30px;}
@@ -742,18 +734,9 @@ h2.resp-tab-title:last-child {
 /*======================= search tab extra code ================*/
 
 
-
-
-
-
-
-
-
-
-
-
-
- 
+.module-title{
+   border-bottom: none;
+}
  
  
  @media screen and (max-width: 490px) {
