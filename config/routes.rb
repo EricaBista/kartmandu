@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :contacts
   resources :wishlists
   devise_for :users
-  devise_for :admin_users
+  devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   resources :brands
   resources :items
@@ -36,6 +36,12 @@ Rails.application.routes.draw do
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
+
+
+devise_scope :admin_user do
+    get '/admin/logout', :to => 'active_admin/devise/sessions#destroy'
+end
+
 
   # Example resource route with options:
   #   resources :products do

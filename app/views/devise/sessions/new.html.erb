@@ -1,8 +1,4 @@
 
-  <body>
-
-  
-    
  
   <div class="container">
   <div class="row">
@@ -24,7 +20,9 @@
                 <div class="RegisterSignup">
                 <p>Create your personal account </p>
                 <h2>Register</h2>
-                
+                <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+                  <%= devise_error_messages! %>
+
                 <form>
                 
                 <div class="form-group">
@@ -43,31 +41,31 @@
                   </div>
                 
                 
-                <div class="form-group">
-                    Email or user ID
-                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                  </div>
-                  <div class="form-group">
-                    Password
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                  </div>
-                  
-                  <div class="form-group">
-                    Confirm password
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                  </div>
-                  
-                  <div class="checkbox">
-                    <label>
-                      <input type="checkbox">I have read and agree to the Privacy Policy</br>
-                  </label>
-                  </div>
-                  
-                  
-                
-                 <button type="submit" class="btn btn-info">Register</button>
-                 
+               <div class="field">
+                      <%= f.label :email %><br />
+                      <%= f.email_field :email, autofocus: true ,:class=>'form-control'%>
+                    </div>
+
+                    <div class="field">
+                      <%= f.label :password %>
+                      <% if @validatable %>
+                      <em>(<%= @minimum_password_length %> characters minimum)</em>
+                      <% end %><br />
+                      <%= f.password_field :password, autocomplete: "off",:class=>'form-control' %>
+                    </div>
+
+                    <div class="field">
+                      <%= f.label :password_confirmation %><br />
+                      <%= f.password_field :password_confirmation, autocomplete: "off",:class=>'form-control' %>
+                    </div>
+
+                    <div class="actions">
+                      <%= f.submit "Sign up" %>
+                    </div>
+
                  </form>
+
+                 <% end %>
                 </div>
                 
                 </div>
@@ -79,7 +77,8 @@
                 <div class="col-sm-5 RegisterLogin">
                 
                 <p>Already have an account?</p>
-                 <%= form_for(:user, :url => user_session_path) do |f| %>
+                <%= form_for(:user, :url => user_session_path) do |f| %>
+                 <%= devise_error_messages! %>
                 <form>
                
            
@@ -94,9 +93,7 @@
             <%= f.password_field :password ,:class=>'form-control'%>
           </div>
          
-         
-          
-          
+        
          
           <div class="form-group">
           <%= label_tag :remember_me %>
@@ -106,7 +103,7 @@
           <div class="form-group">
           <%= link_to "Forgot your password?", new_password_path(:user) %>
            </div>
-          
+
           <%= render "devise/shared/links" %>
           <div class="form-group">
             <%=submit_tag "Log In", :class => "btn btn-success" %>
@@ -115,62 +112,30 @@
         </form> 
         <% end %>
                 
-                
-                
-                
-
                
                 
                 </div>
                 
                 </div>
-                
-                
-                
-                
-                
-                </div>
-                
-                
      
-                
-                
+                </div>
+       
                 <div class="col-sm-2"></div>
   
   
-    
-   
     
     </div>
     
   </div>    
    </div> 
     
-    
-    
  
-   
-   
-   
-   
-   
-   
-
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="assets/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="assets/ie10-viewport-bug-workaround.js"></script>
-  </body>
-
-
-
-
-
-
-
-
-
+ 
 
 
