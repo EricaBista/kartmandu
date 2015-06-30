@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   
   
   
+  resources :orders
   resources :contacts
   resources :wishlists
   devise_for :users
@@ -24,7 +25,7 @@ Rails.application.routes.draw do
  get 'list/:slug', :controller => "brands", :action => "list_brand_items", :as =>'list_brand_items_show'
   # get 'wish/:item_id', :controller => "wishlists", :action => "add", :as =>'wishes_show'
    get 'cms/:slug', :controller => "contacts", :action => "cms", :as => 'contact_show'
-
+get '/order/checkout', :controller => "orders", :action => "express_checkout", :as => 'express_checkout'
   # You can have the root of your site routed with "root"
    root 'home#index'
 

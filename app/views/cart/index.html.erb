@@ -67,8 +67,10 @@
               </div>
                     <%= link_to "Continue Shopping", root_path, :class => "btn btn-default" %>
                   <% if signed_in? %>
-                    <%= link_to "Checkout", buy_path, :class => "btn btn-info" %>
-                   <!--  <button type="submit" class="btn btn-info">Checkout</button>  -->
+                  <%#= link_to(image_tag("https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif"), express_checkout_path)%>
+
+                    <%= link_to "Checkout", express_checkout_path, :class => "btn btn-info" %>
+                   
                     <% else %>
                     <%= link_to "Checkout",new_user_session_path, :class => "btn btn-info" %>
                     <% end %>

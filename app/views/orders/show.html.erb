@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Express token:</strong>
+  <%= @order.express_token %>
+</p>
+
+<p>
+  <strong>Express payer:</strong>
+  <%= @order.express_payer_id %>
+</p>
+
+<p>
+  <strong>Cart:</strong>
+  <%= @order.cart %>
+</p>
+
+<%= link_to 'Edit', edit_order_path(@order) %> |
+<%= link_to 'Back', orders_path %>
