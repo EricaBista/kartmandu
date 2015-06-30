@@ -3,8 +3,8 @@ class OrdersController < InheritedResources::Base
 def express_checkout
   response = EXPRESS_GATEWAY.setup_purchase(0,
     # ip: request.remote_ip,
-    return_url: root_path,
-    cancel_return_url: root_path,
+    return_url: new_order_url,
+    cancel_return_url: orders_url,
     currency: "USD",
     allow_guest_checkout: true,
     items: [{name: "Order", description: "Order description", quantity: "1", amount: 0}]

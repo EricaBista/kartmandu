@@ -4,9 +4,9 @@ Rails.application.configure do
 config.after_initialize do
   ActiveMerchant::Billing::Base.mode = :test
   paypal_options = {
-    login: "erica_api1.nepaldigital.com",
-    password: "FPH7TVPX37Q6V67U",
-    signature: "AFcWxV21C7fd0v3bYYYRCpSSRl31Alzh-m-f5N1BxWIQV9nwuV6apRjk"
+    login: "",
+    password: "",
+    signature: ""
   }
   ::EXPRESS_GATEWAY = ActiveMerchant::Billing::PaypalExpressGateway.new(paypal_options)
 end
