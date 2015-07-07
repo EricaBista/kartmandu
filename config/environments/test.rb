@@ -1,10 +1,6 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
-config.after_initialize do
-  ActiveMerchant::Billing::Base.mode = :test
-  ::EXPRESS_GATEWAY = ActiveMerchant::Billing::BogusGateway.new
-end
 
 
   # The test environment is used exclusively to run your application's

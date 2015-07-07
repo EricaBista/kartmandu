@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Lines Items</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Item</th>
+      <th>Cart</th>
+      <th>Unit price</th>
+      <th>Quantity</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @lines_items.each do |lines_item| %>
+      <tr>
+        <td><%= lines_item.item_id %></td>
+        <td><%= lines_item.cart_id %></td>
+        <td><%= lines_item.unit_price %></td>
+        <td><%= lines_item.quantity %></td>
+        <td><%= link_to 'Show', lines_item %></td>
+        <td><%= link_to 'Edit', edit_lines_item_path(lines_item) %></td>
+        <td><%= link_to 'Destroy', lines_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Lines item', new_lines_item_path %>

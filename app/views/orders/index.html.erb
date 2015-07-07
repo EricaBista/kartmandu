@@ -1,3 +1,353 @@
+
+  <div class="container">
+  <div class="row">
+    
+        <div class="col-sm-2"></div>
+                
+                
+                
+                <div class="col-sm-8"><!-- col-sm-8  -->
+               
+                
+                
+                
+                <div class="paymentNshipping"><!--------
+                paymentNshipping-->
+                
+                <div id="paymentNshippingTab"><!-- paymentNshippingTab -->
+              <ul class="resp-tabs-list hor_1">
+                <li><%= image_tag("step1.png") %> Review Order</li>
+                <li><%= image_tag("step2.png") %> Secure Payment</li>
+                
+                </ul>
+                
+                
+              <div class="resp-tabs-container hor_1">  <!-- resp-tabs-container hor_1 -->
+                
+                
+                 <!--- tab One -->
+                <div class="reviewOrder">
+                
+                <form>
+                
+                    <h4>Your item(s) will be delivered to this address</h4>
+                    <br>
+                    
+                    <div class="deliveredAddress"><!--- deliveredAddress -->
+                    <ul>
+                    <li>Hari Bahadur</li>
+                    <li>+977-9849096994</li>
+                    <li>New Baneshwor -  10,</li>
+                    <li>Kathmandu, Nepal</li>
+                    </ul>
+                    
+                    <p data-toggle="modal" data-target="#myModal"><a><i class="fa fa-exchange"></i> Change delivery address</a></p>
+                    
+                    
+                    
+                    
+                    
+                       <!-- Modal -->
+                        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"><br>
+                        <div class="modal-dialog">
+                        <div class="modal-content">
+                        
+                        
+                              <div class="modal-header"><!-- Modal header -->
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h2>Change delivery address</h2>
+                              </div><!-- Modal header -->
+                              
+                              
+                              <div class="modal-body"><!-- modal-body -->
+                               
+                               <form>
+                               
+                                <div class="defaultAddress"><!-- defaultAddress -->
+                                
+                                <div class="checkbox">
+                                <label>
+                                <input type="checkbox"> Default shipping address
+                                </label>
+                                </div>
+                                
+                                <ul>
+                                <li>Hari Bahadur</li>
+                                <li>+977-9849096994</li>
+                                <li>New Baneshwor -  10,</li>
+                                <li>Kathmandu, Nepal</li>
+                                </ul>
+                              
+                                </div><!-- defaultAddress --> 
+                              
+                              
+                                <div class="newShippingAddress"><!-- newShippingAddress -->
+                                <h2> Add new delivery address </h2>
+                                <br>
+                              
+                              
+                              
+                          <div class="form-group">
+                                Country
+                                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter your name">
+                                </div>
+                            
+                              <div class="form-group">
+                                Contact Name
+                                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter your contact name">
+                                </div>
+                              
+                                <div class="form-group">
+                                Adderess
+                                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter your address">
+                                </div>
+                            
+                                <div class="form-group">
+                                City
+                                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter city">
+                                </div>
+                              
+                                <div class="form-group">
+                                State / Region
+                                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="State / Region">
+                                </div>
+                              
+                                <div class="form-group">
+                                Mobile Number
+                                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter mobile number">
+                                </div>
+                              
+                                <div class="checkbox">
+                                <label>
+                                <input type="checkbox">Make this my default shipping address</br>
+                                </label>
+                                </div>
+                             
+                              <button type="submit" class="btn btn-info">Ship to this address</button>
+                              </div><!-- newShippingAddress -->
+                              
+                              </form>
+                               
+                              </div><!-- modal-body -->
+                        
+                        
+                        
+                              
+                              
+                              
+                        
+                        
+                        </div>
+            </div>                        
+                        </div>
+                        <!-- Modal -->
+              
+                  
+                    </div><!---deliveredAddress-->
+                    
+                    <% total = 0 %>
+                    
+                    
+                    
+                    <div class="orderDetails"><!--- orderDetails ---->
+                    <h4>Your order details</h4>
+                     <% @cart.each do |li| %>
+
+                    <% item = Item.find_by_id(li.item_id) %>
+                    <table class="table">
+                      
+                        <tbody>
+                        <tr>
+                        <td><span class="productName">  <%= item.name %>  </span></td>
+                        <td><div class="form-group">
+                        Quantity:
+                        <%= li.quantity %>
+                     
+                        </div></td>
+                        
+                        
+                        
+                        <td><%= number_to_currency(item.price, :unit => '$')%></td>
+
+                        <td><a href="#"><i class="fa fa-times"></i></a></td>
+                      
+                        </tr>
+                        <% total += li.quantity * item.price %>
+                        <tr>
+                        <td>Estimated delivery date: Sat, 30-May</td>
+                        <td>Shipping: National Courier</td>
+                        <td>$ 5</td>
+                        </tr>
+                      
+                        </tbody>
+
+                    <% end %> 
+
+                    <tbody>
+                    <tr>
+                        <td></td>
+                        <td><span class="productName">Grand Total:</span></td>
+                        <td><span class="productName"><%= number_to_currency(total, :unit => '$')%></span></td>
+                        <td></td>
+                        </tr>
+                      
+                        </tbody>
+                
+                
+                </table>
+                
+                </div><!--- orderDetails -->
+                <% 
+@cartmodel = Cart.find_by_id(@cart_session)
+                %>
+                 <%= link_to "proceed to Pay", @cartmodel.paypal_url(items_url), :class => "btn btn-info" %>
+
+                
+                
+                </form>    
+                </div>
+                 <!-- tab One -->
+                
+                
+                
+                
+                
+                
+                <!---- tab Two -->
+                <div class="securePayment">
+                     <h4>Payment Method</h4>
+                    <br>
+                    <br>
+                    
+                    <form>
+                          
+                                <div class="paypalBox">
+                          <label class="radio-inline">
+                                  <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" checked> Select Debit Card Type/Bank
+                                </label>
+                                <div class="cardDetails">
+                                <p>Enter Debit Card Details</p>
+                <small>Your card details will be safe and secure and will not be shared with the seller(s).</small>
+                                
+                                
+                                <div class="form-group">
+                                Card Number
+                                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter card number">
+                                </div>
+                                
+                                <div class="form-group">
+                                Card Holder Name
+                                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter card holder name">
+                                </div>
+                                
+                                
+                                <div class="form-group">
+                                Valid Till
+                                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="MM/DD/YYYY">
+                                </div>
+                                
+                                
+                                <div class="form-group">
+                                CVV (Enter 3-digits on back of card. AmEx uses front 4-digit code.)
+                                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="3-digit card verification number">
+                               <%= image_tag("bank1.png") %>
+                                </div>
+                                
+                                
+                                
+                                </div>
+                                </div>
+                                
+                          
+                             
+                                <div class="cashOnDelivery">
+                                <label class="radio-inline">
+                                <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> Cash on delivery
+                                </label>
+                              </div>
+                              
+                              
+                              
+                               
+                              
+                
+                
+                <button type="submit" class="btn btn-info">Done</button>
+                
+                </form>             
+                </div>
+                
+                 <!--- tab Two ---->
+             
+                
+              </div> <!-- resp-tabs-container hor_1 --->
+            
+            
+                
+                
+                </div><!-- paymentNshippingTab -->
+                </div><!-- paymentNshipping ---->
+                </div> <!--- col-sm-8 ---->
+                
+                
+          
+                
+                
+                
+                <div class="col-sm-2"></div>
+  
+    
+  </div>    
+   </div> 
+    
+   
+   <script src="/assets/jquery-1.9.1.min.js"></script>
+   <script src="/assets/easyResponsiveTabs.js"></script>
+   <script type="text/javascript">
+   $(document).ready(function() {
+        //Horizontal Tab
+        $('#paymentNshippingTab').easyResponsiveTabs({
+            type: 'default', //Types: default, vertical, accordion
+            width: 'auto', //auto or any width like 600px
+            fit: true, // 100% fit in a container
+            tabidentify: 'hor_1', // The tab groups identifier
+            activate: function(event) { // Callback function if tab is switched
+                
+                var $name = $('span', $info);
+                $name.text($tab.text());
+                $info.show();
+            }
+        });
+   
+   
+       });
+   </script>
+   
+   
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/assets/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="/assets/ie10-viewport-bug-workaround.js"></script>
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <p id="notice"><%= notice %></p>
 
 <h1>Listing Orders</h1>

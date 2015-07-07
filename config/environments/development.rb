@@ -1,16 +1,6 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
-config.after_initialize do
-  ActiveMerchant::Billing::Base.mode = :test
-  paypal_options = {
-    login: "",
-    password: "",
-    signature: ""
-  }
-  ::EXPRESS_GATEWAY = ActiveMerchant::Billing::PaypalExpressGateway.new(paypal_options)
-end
-
 
 
   # In the development environment your application's code is reloaded on

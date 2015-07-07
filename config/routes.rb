@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   
   
   
+  resources :lines_items
   resources :orders
   resources :contacts
   resources :wishlists
@@ -11,23 +12,24 @@ Rails.application.routes.draw do
   resources :brands
   resources :items
   resources :categories
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   get '/cart' => 'cart#index'
   get '/cart/clear' => 'cart#clearCart'
   get '/cart/:id' => 'cart#add', :as => "add_cart"
-# get '/brand/items/:id', :controller => "brands", :action => "list", :as => "brand_list"
- get '/item/buy', :controller => "items", :action => "buy", :as => 'buy'
- get 'item/:slug', :controller => "items", :action => "show", :as =>'slugged'
- post '/search' => 'items#search'
- get 'details/:slug', :controller => "categories", :action => "list_items", :as =>'list_items_show'
- get 'list/:slug', :controller => "brands", :action => "list_brand_items", :as =>'list_brand_items_show'
-  # get 'wish/:item_id', :controller => "wishlists", :action => "add", :as =>'wishes_show'
-   get 'cms/:slug', :controller => "contacts", :action => "cms", :as => 'contact_show'
-get '/order/checkout', :controller => "orders", :action => "express_checkout", :as => 'express_checkout'
+  get '/item/buy', :controller => "items", :action => "buy", :as => 'buy'
+  get 'item/:slug', :controller => "items", :action => "show", :as =>'slugged'
+  post '/search' => 'items#search'
+  get 'details/:slug', :controller => "categories", :action => "list_items", :as =>'list_items_show'
+  get 'list/:slug', :controller => "brands", :action => "list_brand_items", :as =>'list_brand_items_show'
+  get 'cms/:slug', :controller => "contacts", :action => "cms", :as => 'contact_show'
+  get '/order/checkout', :controller => "orders", :action => "express_checkout", :as => 'express_checkout'
+  
   # You can have the root of your site routed with "root"
-   root 'home#index'
+
+  root 'home#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

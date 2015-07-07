@@ -33,7 +33,7 @@ gem 'mini_magick'
 # gem 'unicorn'
  gem 'activeadmin', github: 'activeadmin'
  gem 'devise'
-gem 'activemerchant'
+
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

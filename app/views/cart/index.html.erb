@@ -19,20 +19,23 @@
                         
                       </tr>
                     </thead>
+                    <% total = 0 %>
                     <tbody> 
 
-                    <% @cart.each do |id, quantity| %>
-                    <% item = Item.find_by_id(id) %>
-        
+                    <% @cart.each do |li|%>
+
+                    <% item = Item.find_by_id(li.item_id) %>
+      
                       <tr>
                       <td><%= image_tag(item.image_url(:thumb),  :class =>"img-responsive") %></td>
                         
                         <td><%= item.name %> </td>
                         <td><%= item.model_number %> </td>
-                         <td><%= quantity %></td>
+                         <td><%= li.quantity %></td>
                         <td><%= number_to_currency(item.price, :unit => '$')%></td>
-                        <td><%=number_to_currency(quantity*item.price) %> <a href=""><i class="fa fa-times"></i></a></td>
+                        <td><%=number_to_currency(li.quantity*item.price) %> <a href=""><i class="fa fa-times"></i></a></td>
                       </tr>
+                      <% total += li.quantity * item.price %>
                        <% end -%>
                       </tbody>
                       
@@ -55,7 +58,7 @@
                       
                       <tr>
                         <td>Grand Total:</td>
-                        <td>$ 199</td>
+                        <td><b><%= number_to_currency(total, :unit => '$')%></b></td>
                       </tr>
                       </tbody>
                 
@@ -69,7 +72,7 @@
                   <% if signed_in? %>
                   <%#= link_to(image_tag("https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif"), express_checkout_path)%>
 
-                    <%= link_to "Checkout", express_checkout_path, :class => "btn btn-info" %>
+                    <%= link_to "Checkout", orders_path, :class => "btn btn-info" %>
                    
                     <% else %>
                     <%= link_to "Checkout",new_user_session_path, :class => "btn btn-info" %>
