@@ -14,12 +14,24 @@ class CartController < ApplicationController
 	 #    else
 	 #    	cart[id] = 1
 	 #    end
+	 
+if params[:quantity]
+	 quantity = params[:quantity].to_i
+	else quantity = 1
+	end
 @item = Item.find(params[:id])
-	if session[:cart] then
- 	
-    @line_item = LinesItem.create!(:cart_id => @cart_session, :item_id => @item.id, :quantity => 1, :unit_price => @item.price)
-redirect_to :action => :index
-	else
+	if session[:cart] 
+ 	 exists = LinesItem.where(:cart_id => @cart_session, :item_id => @item.id).first
+ 	 puts exists.inspect
+ 	 if exists.id
+ 	 	exists.quantity = exists.quantity + quantity
+ 	 	exists.save
+ 	 else
+    @line_item = LinesItem.create!(:cart_id => @cart_session, :item_id => @item.id, :quantity => quantity, :unit_price => @item.price)
+
+end
+redirect_to :action => :index	
+else
     @cart = Cart.new()
 
     respond_to do |format|

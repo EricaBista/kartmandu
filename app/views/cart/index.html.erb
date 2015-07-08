@@ -24,7 +24,7 @@
 
                     <% @cart.each do |li|%>
 
-                    <% item = Item.find_by_id(li.item_id) %>
+                    <% item = Item.find_by_id(li.item_id) if present? %>
       
                       <tr>
                       <td><%= image_tag(item.image_url(:thumb),  :class =>"img-responsive") %></td>

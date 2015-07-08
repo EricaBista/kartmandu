@@ -35,7 +35,7 @@ end
     @featured ||=Item.where(:is_featured => true)
     @cart_session ||= session[:cart]
     @cart ||= LinesItem.where(cart_id: @cart_session)
-    puts @cart.inspect
+    # puts @cart.inspect
     @wishlist_count ||= ::Wishlist.where(session[:user_id]).count
   end
 end

@@ -10,4 +10,3 @@ end
       params.require(:lines_item).permit(:item_id, :cart_id, :unit_price, :quantity)
     end
 end
-
