@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   before_filter :set_menu
-  before_filter :store_location
+  before_filter :store_location, :current_cart
 
 
 def current_cart
@@ -36,11 +36,12 @@ end
   def after_sign_in_path_for(resource)
   session[:previous_url] || root_path
 end
+
 # def after_sign_out_path_for(resource_or_scope)
 #   root_path
 # end
+
   def set_menu
-   
     @footer_menus ||= Contact.where(:home_page => true).order(:order)
   	@menus ||= Category.all
   	@headers ||= Category.where(:is_menu => true)
@@ -49,7 +50,6 @@ end
     @featured ||=Item.where(:is_featured => true)
     @cart_session ||= session[:cart]
     @cart ||= LinesItem.where(cart_id: @cart_session)
-   
     @wishlist_count ||= ::Wishlist.where(session[:user_id]).count
   end
 end
