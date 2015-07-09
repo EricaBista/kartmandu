@@ -14,16 +14,15 @@ class CartController < ApplicationController
 	 #    else
 	 #    	cart[id] = 1
 	 #    end
-	 
-if params[:quantity]
-	 quantity = params[:quantity].to_i
-	else quantity = 1
+quantity = params[:quantity].to_i
+if quantity <= 0
+	 quantity = 1
 	end
 @item = Item.find(params[:id])
 	if session[:cart] 
  	 exists = LinesItem.where(:cart_id => @cart_session, :item_id => @item.id).first
  	 puts exists.inspect
- 	 if exists.id
+ 	 if exists.present?
  	 	exists.quantity = exists.quantity + quantity
  	 	exists.save
  	 else

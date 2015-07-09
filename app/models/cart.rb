@@ -1,13 +1,15 @@
 class Cart < ActiveRecord::Base
   has_many :orders
    has_many :lines_items
-def paypal_url(return_url)
+
+def paypal_url(return_url, notify_url)
   values = {
     :business => 'erica@nepaldigital.com',
     :cmd => '_cart',
     :upload => 1,
     :return => return_url,
-    :invoice => id
+    :invoice => id,
+    :notify_url => notify_url
   }
   lines_items.each_with_index do |i, index|
 

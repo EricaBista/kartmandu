@@ -5,6 +5,20 @@ class ApplicationController < ActionController::Base
   before_filter :set_menu
   before_filter :store_location
 
+
+def current_cart
+  if session[:cart_id]
+    @current_cart ||= Cart.find(session[:cart_id])
+    session[:cart_id] = nil if @current_cart.purchased_at
+  end
+  if session[:cart_id].nil?
+    @current_cart = Cart.create!
+    session[:cart_id] = @current_cart.id
+  end
+  @current_cart
+end
+
+
 def store_location
   # store last url - this is needed for post-login redirect to whatever the user last visited.
   return unless request.get? 
@@ -35,7 +49,7 @@ end
     @featured ||=Item.where(:is_featured => true)
     @cart_session ||= session[:cart]
     @cart ||= LinesItem.where(cart_id: @cart_session)
-    # puts @cart.inspect
+   
     @wishlist_count ||= ::Wishlist.where(session[:user_id]).count
   end
 end

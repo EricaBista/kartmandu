@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150707050014) do
+ActiveRecord::Schema.define(version: 20150708080427) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -135,6 +135,15 @@ ActiveRecord::Schema.define(version: 20150707050014) do
   end
 
   add_index "orders", ["cart_id"], name: "index_orders_on_cart_id"
+
+  create_table "payment_notifications", force: :cascade do |t|
+    t.text     "params"
+    t.integer  "cart_id"
+    t.string   "status"
+    t.string   "transaction_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
