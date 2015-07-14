@@ -36,7 +36,7 @@ else
     respond_to do |format|
       if @cart.save
       	session[:cart] = @cart.id
-      	  @line_item = LinesItem.create!(:cart_id => session[:cart], :item_id => @item.id, :quantity => 1, :unit_price => @item.price)
+      	  @line_item = LinesItem.create!(:cart_id => session[:cart], :item_id => @item.id, :quantity => quantity, :unit_price => @item.price)
 
         format.html { redirect_to slugged_path(@item.slug), notice: 'cart was successfully created.' }
         format.json { render :show, status: :created, location: @cart }

@@ -102,7 +102,6 @@
     <%= collection_select( :home, :category_id, Category.all, :id, :name, {:prompt => 'select category'}, {:class => "form-control"} ) %>
    
     
-     
                   <div id="imaginary_container"> 
                   
                       <div class="input-group stylish-input-group">
@@ -186,7 +185,9 @@
         <!-- Hot Deal Start -->
           <div class="hot-deal">
           <div class="container">
-            <div class="col-xs-12"><h2>Hot deals</h2></div>
+            <div class="col-xs-12">
+            <h2>Hot deals</h2>
+            </div>
           <div class="col-xs-12">
             <div class="row">
             <% if @hotdeal[0].present? %>

@@ -69,8 +69,12 @@
 
                      
                       <input type ="submit" value="add to cart" class = "btn btn-info" >
+                      <% if signed_in? %>
                       <%#= link_to "add to cart", add_cart_path(@item.id), :class => "btn btn-info", :method => :post %>
                         <%= link_to "Buy It", buy_path(@item.id), :class => "btn btn-default" %>
+                        <% else %>
+                          <%= link_to "Buy It",new_user_session_path, :class => "btn btn-default" %>
+                          <% end %>
                      
                   
                     <% end -%>

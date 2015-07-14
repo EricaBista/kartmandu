@@ -9,7 +9,8 @@ class ItemsController < ApplicationController
   end
   
 def buy
-  @items = Item.all
+  
+  @item_buy = Item.where(:item_id => @item.id)
 end
 
 
