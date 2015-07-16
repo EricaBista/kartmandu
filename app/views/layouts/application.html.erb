@@ -79,13 +79,24 @@
             <li><%= link_to 'Setting', new_user_registration_path %></li>
           </ul>
         </li>
+
+       <% if signed_in? %>
+        <% if @wishlist_count.present?%>
+                 <li><a href="#">Wish List (<%= @wishlist_count %>)</a></li>
+        <% else %>
+                 <li><a href="#">Wish List (0)</a></li>
+        <% end %>
+        <% else %>
         <li><a href="#">Wish List (0)</a></li>
-        <li> <% if signed_in? %>
-                    <%= link_to "Checkout", buy_path %>
-                 
+       <% end %>
+
+        <li> 
+                  <% if signed_in? %>
+                    <%= link_to "Checkout", buy_path(@item.id) %>
                     <% else %>
-                    <%= link_to "Checkout",new_user_session_path %>
-                    <% end %></li>
+                    <%= link_to "Checkout", new_user_session_path %>
+                  <% end %>
+        </li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

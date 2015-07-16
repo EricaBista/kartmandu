@@ -52,4 +52,9 @@ end
     @cart ||= LinesItem.where(cart_id: @cart_session)
     @wishlist_count ||= ::Wishlist.where(session[:user_id]).count
   end
+
+def configure_permitted_parameters
+    devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:email, :password, :password_confirmation, :name, :phone_number, :address) }
+  end
+
 end

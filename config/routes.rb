@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   get '/cart' => 'cart#index'
   get '/cart/clear' => 'cart#clearCart'
   post 'item/addtocart' => 'cart#add', :as => "add_cart"
-  get '/item/buy', :controller => "items", :action => "buy", :as => 'buy'
+  get '/item/buy/:id', :controller => "items", :action => "buy", :as => 'buy'
   get 'item/:slug', :controller => "items", :action => "show", :as =>'slugged'
   post '/search' => 'items#search'
   get 'details/:slug', :controller => "categories", :action => "list_items", :as =>'list_items_show'

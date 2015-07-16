@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:edit, :update, :destroy]
+  before_action :set_item, only: [:edit, :update, :destroy, :buy]
 
   # GET /items
   # GET /items.json
@@ -9,10 +9,10 @@ class ItemsController < ApplicationController
   end
   
 def buy
-  
+  # @item = Item.find(params[:id])
   @item_buy = Item.where(:item_id => @item.id)
 end
-
+   
 
   # GET /items/1
   # GET /items/1.json
@@ -75,10 +75,7 @@ end
 
 def search
       @q=params[:q]
-
       @category_id = params[:home]
-
-     
      if @category_id[:category_id].present?
       @items = Item.item_search(params[:q]).where("category_id =?", @category_id[:category_id])
         
