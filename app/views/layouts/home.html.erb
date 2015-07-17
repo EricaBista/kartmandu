@@ -73,7 +73,13 @@
         <% else %>
         <li><a href="#">Wish List (0)</a></li>
 <% end %>
- <li><a href="#">Checkout</a></li>
+    <li> 
+                  <% if signed_in? %>
+                  <%= link_to "Checkout", orders_path %>
+                    <% else %>
+                    <%= link_to "Checkout", new_user_session_path %>
+                  <% end %>
+        </li>
 
        
       </ul>

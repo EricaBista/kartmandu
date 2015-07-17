@@ -52,8 +52,6 @@
                            </div>
                             
                             
-                            
-                            
                             <div class="col-sm-6">
                             
                             <div class="form-group">
@@ -71,9 +69,6 @@
                             <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter your city">
                           	</div>
                         
-                        
-                        	
-                            
                             
                             <div class="form-group">
                             Country
@@ -83,19 +78,21 @@
                           	</div>
                             
                            </div>
-                
                
                 </div>
                 
-                
                 <div class="staySignText"><p>Your privacy is important to us onlinestore does not rent or sell your personal information to third parties without your consent.To learn more, read our privacy policy</p></div>
-                
-                <button type="submit" class="btn btn-info">Proceed</button>
+
+               <% 
+                    @cartmodel = Cart.find_by_id(@cart_session)
+                %>
+                 <%= link_to "Proceed", @cartmodel.paypal_url(items_url,payment_notifications_url), :class => "btn btn-info" %>
+
+                <!-- <button type="submit" class="btn btn-info">Proceed</button>  -->
                 </form>
                 </div>
                 </div>
                 
-              
                 
                 <div class="col-sm-2"></div>
 	
@@ -105,8 +102,6 @@
    </div> 
     
  
-   
-
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
