@@ -4,7 +4,7 @@ class Brand < ActiveRecord::Base
 	mount_uploader :icon, IconUploader
 	before_save :create_slug
 
-	  def create_slug
-	    self.slug = self.name.parameterize
-	  end
+  def create_slug
+    self.slug = self.name.parameterize
+  end
 end
