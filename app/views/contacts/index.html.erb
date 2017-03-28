@@ -3,31 +3,31 @@
 <h1>Listing Contacts</h1>
 
 <table>
-  <thead>
-    <tr>
-      <th>Slug</th>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Order</th>
-      <th>Home page</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<thead>
+<tr>
+<th>Slug</th>
+<th>Title</th>
+<th>Description</th>
+<th>Order</th>
+<th>Home page</th>
+<th colspan="3"></th>
+</tr>
+</thead>
 
-  <tbody>
-    <% @contacts.each do |contact| %>
-      <tr>
-        <td><%= contact.slug %></td>
-        <td><%= contact.title %></td>
-        <td><%= contact.description %></td>
-        <td><%= contact.order %></td>
-        <td><%= contact.home_page %></td>
-        <td><%= link_to 'Show', contact %></td>
-        <td><%= link_to 'Edit', edit_contact_path(contact) %></td>
-        <td><%= link_to 'Destroy', contact, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
+<tbody>
+<% @contacts.each do |contact| %>
+<tr>
+<td><%= contact.slug %></td>
+<td><%= contact.title %></td>
+<td><%= contact.description %></td>
+<td><%= contact.order %></td>
+<td><%= contact.home_page %></td>
+<td><%= link_to 'Show', contact %></td>
+<td><%= link_to 'Edit', edit_contact_path(contact) %></td>
+<td><%= link_to 'Destroy', contact, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+</tr>
+<% end %>
+</tbody>
 </table>
 
 <br>

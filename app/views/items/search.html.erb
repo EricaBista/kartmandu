@@ -1,51 +1,41 @@
 <body>
 
-   <div class="productsPage">
-   <div class="container">
-   <div class="row">       
-              
-                    
-                    
-                     <div class="productsListTab">
-                     
-                     
-                     <div class="row">
-                       <% j = 0 %>
-                <% @items.each do |i| %>
-                <%  j += 1 %>
+<div class="productsPage">
+<div class="container">
+<div class="row"> 
+<div class="productsListTab">
+<div class="row">
+<% j = 0 %>
+<% @items.each do |i| %>
+<%  j += 1 %>
 
-                <%   if i.image.present? %>
-                <%     image=i.image_url(:thumb) %>
-                <%  else %>
-                <%    image='nowall.jpg' %>
-                <%  end %>
-                     <div class="col-sm-4">
-                     <div class="thumbnail">
-           <div class="caption">
-                      <%= link_to image_tag(image,:class =>"img-responsive"),slugged_path(i.slug) %>
-                 <p>
-                 <b><%= i.name %></b>
-                <span class="price"><%= number_to_currency(i.price )%></span>
-                </p>
-                     </div>
-                      </div></div>
-                      <% if j%3==0 %> 
-               </div>
-                <div class="row">
-                <% end %>
+<%   if i.image.present? %>
+<%     image=i.image_url(:thumb) %>
+<%  else %>
+<%    image='nowall.jpg' %>
+<%  end %>
+<div class="col-sm-4">
+<div class="thumbnail">
+<div class="caption">
+<%= link_to image_tag(image,:class =>"img-responsive"),slugged_path(i.slug) %>
+<p>
+<b><%= i.name %></b>
+<span class="price"><%= number_to_currency(i.price )%></span>
+</p>
+</div>
+</div></div>
+<% if j%3==0 %> 
+</div>
+<div class="row">
+<% end %>
 
-                <% end %>
-                <% if j==0 then %>
-                  <h3>No Results Found</h3>
-                <% end %>
-               </div>
-
-                     
-            
-   
-   </div>
-  
- 
-   </div></div></div></body>
-    
-    
+<% end %>
+<% if j==0 then %>
+<h3>No Results Found</h3>
+<% end %>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>

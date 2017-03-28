@@ -1,18 +1,18 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
-  <%= @brand.name %>
+<strong>Name:</strong>
+<%= @brand.name %>
 </p>
 
 <p>
-  <strong>Icon:</strong>
-  <%= image_tag(@brand.icon_url(:icon)) %>
+<strong>Icon:</strong>
+<%= image_tag(@brand.icon_url(:icon)) %>
 </p>
 
 <p>
-  <strong>Description:</strong>
-  <%= @brand.description %>
+<strong>Description:</strong>
+<%= @brand.description %>
 </p>
 
 <%= link_to 'Edit', edit_brand_path(@brand) %> |

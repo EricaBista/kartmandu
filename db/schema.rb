@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150709090459) do
+ActiveRecord::Schema.define(version: 20170328035149) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 20150709090459) do
   create_table "carts", force: :cascade do |t|
     t.integer  "total_amount_of_cent"
     t.datetime "purchased_at"
+    t.integer  "currency"
   end
 
   create_table "categories", force: :cascade do |t|

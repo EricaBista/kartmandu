@@ -1,384 +1,384 @@
-   <div class="productsSinglePage">
-   <div class="container">
-   <div class="row">
-            
-                    <div class="col-sm-4 singleProduct">
-                   <%= image_tag(@item.image_url(:big),  :class =>"img-responsive showimagediv")  %>
-                    
-                    </div>
-                   
-                    
-                     <div class="col-sm-8">
-                     <div class="productDetails">
-                     <h3><%= @item.name%></h3>
-                     
-                     
-                     <div class="priceNshipping">
-                     <h1><%= number_to_currency(@item.price) %></h1>
-                     <p><%= image_tag("shipping.png") %> Free Shipping </p>
-                     <p><%= image_tag("cash.png") %> Cash On Delivery </p>
-                     </div>
-                     
-                     
-                     
-                     <div class="quentity">
-                     
-                     <form action="<%=add_cart_path%>" class="form-inline" method = "post">
-                    <%= tag(:input, :type => "hidden", :name => request_forgery_protection_token.to_s, :value => form_authenticity_token) %>
-                     <input type="hidden" name="id" class= "quentityNumber" value="<%=@item.id%>" size="1">
-                      <div class="form-group">
-                        Quantity:
-                        <input type="text" name="quantity" class= "quentityNumber" value="" size="1">
-                        <% if @item.available.present? %>
-                        <% if @item.available > @item.sold_out %>
-                        <span class="stockInfo"><%= @item.available %> available / <span class="redInfo"><%= @item.sold_out %> sold</span></span>
-                        <% else %>
-                        <span class="redInfo">out of stock</span>
-                         <% end -%><% end%>
-                      </div>
-                      
-                      <div class="wishListNcompare">
-                      <ul>
-                      <li>
+<div class="productsSinglePage">
+<div class="container">
+<div class="row">
 
-                      <li><%= link_to "ADD TO WISHLIST", wishlists_path(:wishlist => { :item_id => @item.id }), :method => :post %></li> 
-                      <li><a href="#">+ ADD TO COMPARE</a> </li>
-                      </ul>
-                      </div>
-                      
-                      
-                      
-                      
-                      <div class="sellerDetails">
-                      <table class="table">
-              <tbody>
-                        <tr>
-                        <td>Condition:</td>
-                        <td>New</td>
-                        </tr>
-                        <tr>
-                        <td>Seller:</td>
-                        <td>Mobile*</td>
-                        </tr>
-                      </tbody>
-                        </table>
-                      </div>
+<div class="col-sm-4 singleProduct">
+<%= image_tag(@item.image_url(:big),  :class =>"img-responsive showimagediv")  %>
 
-                          <% if @item.available.present? %>
-                        <% if @item.available > @item.sold_out %>
+</div>
 
-                     
-                      <input type ="submit" value="add to cart" class = "btn btn-info" >
-                      <% if signed_in? %>
-                      <%#= link_to "add to cart", add_cart_path(@item.id), :class => "btn btn-info", :method => :post %>
-                        <%= link_to "Buy It", buy_path(@item.id), :class => "btn btn-default" %>
-                        <% else %>
-                          <%= link_to "Buy It",new_user_session_path, :class => "btn btn-default" %>
-                          <% end %>
-                     
-                  
-                    <% end -%>
-                    <% end -%>
-                   
-                      
-                      </form>
-                     </div>
-                    
-                   
-                    </div>
-             </div>
-   
-   
-   </div>
-   </div>
-   </div> 
-   
-  
-   
-   <div class="productDescription">
-   <div class="container">
-   
-  
-    <div id="parentHorizontalTab">
-            <ul class="resp-tabs-list hor_1">
-                <li>Product Description</li>
-                <li>Reviews</li>
-                
-            </ul>
-            <div class="resp-tabs-container hor_1">
-                
-                
-                <div>
-    <table class="table">
-    <thead>
-      <tr>
-        <th>In The Box</th>
-        <th></th>
-        
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Box Content</td>
-        <td><%=@item.box_content%></td>
-      </tr>
+
+<div class="col-sm-8">
+<div class="productDetails">
+<h3><%= @item.name%></h3>
+
+
+<div class="priceNshipping">
+<h1><%= number_to_currency(@item.price) %></h1>
+<p><%= image_tag("shipping.png") %> Free Shipping </p>
+<p><%= image_tag("cash.png") %> Cash On Delivery </p>
+</div>
 
 
 
-    <thead>
-      <tr>
-        <th>Genaral</th>
-        <th></th>
-        
-      </tr>
-    </thead>
-    <tbody>
-   
-      <tr>
-        <td>Brand</td>
-        <td><%=@item.brand.name%></td>
-      </tr>
-   
-      
-      <tr>
-        <td>Model</td>
-        <td><%=@item.model_number%></td>
-    </td>
-      </tr>
-      
-      
-      <tr>
-        <td>Color</td>
-        <td><%=@item.color%></td>
-      </tr>
-   
-   
- <tr>
-        <td>Dimension</td>
-        <td><%=@item.dimension%></td>
-      </tr>
+<div class="quentity">
+
+<form action="<%=add_cart_path%>" class="form-inline" method = "post">
+<%= tag(:input, :type => "hidden", :name => request_forgery_protection_token.to_s, :value => form_authenticity_token) %>
+<input type="hidden" name="id" class= "quentityNumber" value="<%=@item.id%>" size="1">
+<div class="form-group">
+Quantity:
+<input type="text" name="quantity" class= "quentityNumber" value="" size="1">
+<% if @item.available.present? %>
+<% if @item.available > @item.sold_out %>
+<span class="stockInfo"><%= @item.available %> available / <span class="redInfo"><%= @item.sold_out %> sold</span></span>
+<% else %>
+<span class="redInfo">out of stock</span>
+<% end -%><% end%>
+</div>
+
+<div class="wishListNcompare">
+<ul>
+<li>
+
+<li><%= link_to "ADD TO WISHLIST", wishlists_path(:wishlist => { :item_id => @item.id }), :method => :post %></li> 
+<li><a href="#">+ ADD TO COMPARE</a> </li>
+</ul>
+</div>
 
 
-   
-    <thead >
-      <tr>
-        <th>Display</th>
-        <th></th>
-        
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Screen</td>
-        <td><%=@item.form%></td>
-      </tr>
-      
-      
-      <tr>
-        <td>Display Resolution</td>
-        <td><%=@item.display_resolution%></td>
-    </td>
-      </tr>
-      
-      
-      <tr>
-        <td>Multi touch</td>
-        <td><%=@item.multitouch%></td>
-      </tr>
-      
-     
-
-      <thead >
-      <tr>
-        <th>Connectivity</th>
-        <th></th>
-        
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Bluetooth</td>
-        <td><%=@item.bluetooth%></td>
-      </tr>
-      
-      
-      <tr>
-        <td>Audio Jack</td>
-        <td><%=@item.audio_jack%></td>
-    
-      </tr>
-
-  <tr>
-        <td>CDMA/GSM</td>
-        <td><%=@item.gsm%></td>
-    
-      </tr>
-
- <thead >
-      <tr>
-        <th>Software</th>
-        <th></th>
-        
-      </tr>
-    </thead>
-   <tbody>
-      <tr>
-        <td>OS Version</td>
-        <td><%=@item.operating_system%></td>
-      </tr>
 
 
- <thead >
-      <tr>
-        <th>Batter and Power</th>
-        <th></th>
-        
-      </tr>
-    </thead>
-   <tbody>
-      <tr>
-        <td>Battery Capacity</td>
-        <td><%=@item.battery_capacity%></td>
-      </tr>
+<div class="sellerDetails">
+<table class="table">
+<tbody>
 <tr>
-        <td>Battery Type</td>
-        <td><%=@item.battery_type%></td>
-      </tr>
+<td>Condition:</td>
+<td>New</td>
+</tr>
+<tr>
+<td>Seller:</td>
+<td>Mobile*</td>
+</tr>
+</tbody>
+</table>
+</div>
 
- <thead >
-      <tr>
-        <th>Camera</th>
-        <th></th>
-        
-      </tr>
-    </thead>
-   <tbody>
-      <tr>
-        <td>Rear Camera</td>
-        <td><%=@item.rear_camera%></td>
-      </tr>
- <tr>
-        <td>Front Camera</td>
-        <td><%=@item.front_camera%></td>
-      </tr>
+<% if @item.available.present? %>
+<% if @item.available > @item.sold_out %>
 
- <tr>
-        <td>Flash</td>
-        <td><%=@item.flash%></td>
-      </tr>
 
-    <thead >
-      <tr>
-        <th>Description</th>
-        <th></th>
-        
-      </tr>
-    </thead>
-   <tbody>
-      <tr>
-        <td>Genaral Description</td>
-        <td><%= @item.description.html_safe %></td>
-      </tr>
-     </table> 
-    </div>  
-     <div>
-                 Hello   
-                </div>
-           
-        </div>
-        </div>
-   
- 
+<input type ="submit" value="add to cart" class = "btn btn-info" >
+<% if signed_in? %>
+<%#= link_to "add to cart", add_cart_path(@item.id), :class => "btn btn-info", :method => :post %>
+<%= link_to "Buy It", buy_path(@item.id), :class => "btn btn-default" %>
+<% else %>
+<%= link_to "Buy It",new_user_session_path, :class => "btn btn-default" %>
+<% end %>
+
+
+<% end -%>
+<% end -%>
+
+
+</form>
+</div>
+
+
+</div>
+</div>
+
+
+</div>
+</div>
+</div> 
+
+
+
+<div class="productDescription">
+<div class="container">
+
+
+<div id="parentHorizontalTab">
+<ul class="resp-tabs-list hor_1">
+<li>Product Description</li>
+<li>Reviews</li>
+
+</ul>
+<div class="resp-tabs-container hor_1">
+
+
+<div>
+<table class="table">
+<thead>
+<tr>
+<th>In The Box</th>
+<th></th>
+
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Box Content</td>
+<td><%=@item.box_content%></td>
+</tr>
+
+
+
+<thead>
+<tr>
+<th>Genaral</th>
+<th></th>
+
+</tr>
+</thead>
+<tbody>
+
+<tr>
+<td>Brand</td>
+<td><%=@item.brand.name%></td>
+</tr>
+
+
+<tr>
+<td>Model</td>
+<td><%=@item.model_number%></td>
+</td>
+</tr>
+
+
+<tr>
+<td>Color</td>
+<td><%=@item.color%></td>
+</tr>
+
+
+<tr>
+<td>Dimension</td>
+<td><%=@item.dimension%></td>
+</tr>
+
+
+
+<thead >
+<tr>
+<th>Display</th>
+<th></th>
+
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Screen</td>
+<td><%=@item.form%></td>
+</tr>
+
+
+<tr>
+<td>Display Resolution</td>
+<td><%=@item.display_resolution%></td>
+</td>
+</tr>
+
+
+<tr>
+<td>Multi touch</td>
+<td><%=@item.multitouch%></td>
+</tr>
+
+
+
+<thead >
+<tr>
+<th>Connectivity</th>
+<th></th>
+
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bluetooth</td>
+<td><%=@item.bluetooth%></td>
+</tr>
+
+
+<tr>
+<td>Audio Jack</td>
+<td><%=@item.audio_jack%></td>
+
+</tr>
+
+<tr>
+<td>CDMA/GSM</td>
+<td><%=@item.gsm%></td>
+
+</tr>
+
+<thead >
+<tr>
+<th>Software</th>
+<th></th>
+
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OS Version</td>
+<td><%=@item.operating_system%></td>
+</tr>
+
+
+<thead >
+<tr>
+<th>Batter and Power</th>
+<th></th>
+
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Battery Capacity</td>
+<td><%=@item.battery_capacity%></td>
+</tr>
+<tr>
+<td>Battery Type</td>
+<td><%=@item.battery_type%></td>
+</tr>
+
+<thead >
+<tr>
+<th>Camera</th>
+<th></th>
+
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Rear Camera</td>
+<td><%=@item.rear_camera%></td>
+</tr>
+<tr>
+<td>Front Camera</td>
+<td><%=@item.front_camera%></td>
+</tr>
+
+<tr>
+<td>Flash</td>
+<td><%=@item.flash%></td>
+</tr>
+
+<thead >
+<tr>
+<th>Description</th>
+<th></th>
+
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Genaral Description</td>
+<td><%= @item.description.html_safe %></td>
+</tr>
+</table> 
+</div>  
+<div>
+Hello   
+</div>
+
+</div>
+</div>
+
+
 </div>  
 </div>
-    
-    
- <div class="productsListTab">
+
+
+<div class="productsListTab">
 <div class="container">
 
 <div class="relatedProducts">
-                     <h2>Related Products</h2>
-                     <div class="row">
-                     <% @items.each do |real| %>
-                     <div class="col-sm-3">
-                     <div class="thumbnail">
-           <div class="caption">
-           <% if real.name.present? %>
-           <%= link_to image_tag(real.image_url(:big), :class => "img-responsive"), slugged_path(real.slug) %>
-           
-                     <p><b><%=real.name%> </b>
-                     <span class="price"><%= number_to_currency(real.price)%></span></p>
-                     </div>
-                      </div></div>
-                     <% end %>
-                     
-                      <% end %>
-                  
-                     
-                     </div>
-                     
-                     
-                     </div>    
-   
-   
- 
-                     <div class="relatedAccessories">
-                     <h2>Related Products ACCESSORIES</h2>
-                     <div class="row">
-                     <% @item_ass.each do |ass| %>
-                     <div class="col-sm-3">
-                     <div class="thumbnail">
-                     <div class="caption">
-                      <% if ass.name.present? %>
-                      <%= link_to image_tag(ass.image_url(:big), :class => "img-responsive"), slugged_path(ass.slug) %>
-                    
-                     <p><b><%=ass.name %></b>
-                     <span class="price"><%= number_to_currency(ass.price)%></span></p>
-                     </div>
-                      </div></div>
-                      <% end %>
-                     
-                      <% end %>
-                    
-                   
-                     
-                     </div>
-                     
-                     
-                     </div> 
- 
+<h2>Related Products</h2>
+<div class="row">
+<% @items.each do |real| %>
+<div class="col-sm-3">
+<div class="thumbnail">
+<div class="caption">
+<% if real.name.present? %>
+<%= link_to image_tag(real.image_url(:big), :class => "img-responsive"), slugged_path(real.slug) %>
+
+<p><b><%=real.name%> </b>
+<span class="price"><%= number_to_currency(real.price)%></span></p>
+</div>
+</div></div>
+<% end %>
+
+<% end %>
+
+
+</div>
+
+
+</div>    
+
+
+
+<div class="relatedAccessories">
+<h2>Related Products ACCESSORIES</h2>
+<div class="row">
+<% @item_ass.each do |ass| %>
+<div class="col-sm-3">
+<div class="thumbnail">
+<div class="caption">
+<% if ass.name.present? %>
+<%= link_to image_tag(ass.image_url(:big), :class => "img-responsive"), slugged_path(ass.slug) %>
+
+<p><b><%=ass.name %></b>
+<span class="price"><%= number_to_currency(ass.price)%></span></p>
+</div>
+</div></div>
+<% end %>
+
+<% end %>
+
+
+
+</div>
+
+
+</div> 
+
 </div>   
 </div>  
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="/assets/bootstrap.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="/assets/ie10-viewport-bug-workaround.js"></script>
-    
-  
-   
-    <script src="/assets/easyResponsiveTabs.js"></script>
-    
-    <script type="text/javascript">
-   $(document).ready(function() {
-        //Horizontal Tab
-        $('#parentHorizontalTab').easyResponsiveTabs({
-            type: 'default', //Types: default, vertical, accordion
-            width: 'auto', //auto or any width like 600px
-            fit: true, // 100% fit in a container
-            tabidentify: 'hor_1', // The tab groups identifier
-            activate: function(event) { // Callback function if tab is switched
-             
-                // $name.text($tab.text());
-                // $info.show();
-            }
-        });
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="/assets/bootstrap.min.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="/assets/ie10-viewport-bug-workaround.js"></script>
 
-    });
-        </script>
 
-    
-  </body>
+
+<script src="/assets/easyResponsiveTabs.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+//Horizontal Tab
+$('#parentHorizontalTab').easyResponsiveTabs({
+type: 'default', //Types: default, vertical, accordion
+width: 'auto', //auto or any width like 600px
+fit: true, // 100% fit in a container
+tabidentify: 'hor_1', // The tab groups identifier
+activate: function(event) { // Callback function if tab is switched
+
+// $name.text($tab.text());
+// $info.show();
+}
+});
+
+});
+</script>
+
+
+</body>
 

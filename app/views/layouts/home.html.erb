@@ -1,498 +1,495 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-    <head>
-        <title>Cartmandu::.</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+<title>Cartmandu::.</title>
+<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+<%= csrf_meta_tags %>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
-        <link href="/assets/bootstrap.min.css" rel="stylesheet"> 
-         <link rel="stylesheet" type="text/css" href="/assets/layout.css" />
-        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-        <!-- <link rel="stylesheet" type="text/css" href="/assets/font-awesome.css" /> -->
-      
-        <link rel="stylesheet" href="/assets/slippry.css" type="text/css">
-         <link rel="stylesheet" href="/assets/style.css" type="text/css">
-        <link  href="/assets/brand.css" rel="stylesheet" type="text/css" media="all"> 
-        
-        <link href="/assets/responsive.css" rel="stylesheet" media="screen">
-    </head>
-    <body>
-      <header>
-        <nav id="top">
-          <div class="container">
-            <nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-    </div>
+<link href="/assets/bootstrap.min.css" rel="stylesheet"> 
+<link rel="stylesheet" type="text/css" href="/assets/layout.css" />
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+<link rel="stylesheet" href="/assets/slippry.css" type="text/css">
+<link rel="stylesheet" href="/assets/style.css" type="text/css">
+<link  href="/assets/brand.css" rel="stylesheet" type="text/css" media="all"> 
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Electronics <span class="sr-only">(current)</span></a></li>
+<link href="/assets/responsive.css" rel="stylesheet" media="screen">
+</head>
+<body>
+<header>
+<nav id="top">
+<div class="container">
+<nav class="navbar navbar-default">
+<div class="container-fluid">
 
-         <% @menus.limit(7).each do |cat| %>
-         <%#= link_to categories_show_path %>
-        <li ><%=link_to cat.name, list_items_show_path(cat.slug) if present? %></li>
-        <% end %>
-      </ul>
-      <ul id="top-links" class="nav navbar-nav navbar-right">
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">My Account<span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
- <% if current_user %>
-          <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
-          <% else %>
-          <li><%= link_to 'Log In', new_user_session_path %></li>
-            <li><%#= link_to 'Log In', admin_root_path %></li>
-            <li><%= link_to 'Sign Up', new_user_session_path %></li>
-            <% end %>
-            
-            <li class="divider"></li>
-            <li><%= link_to 'Setting', new_user_registration_path %></li>
-          </ul>
+<div class="navbar-header">
+<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+<span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+</div>
 
-        </li>
+<!-- Collect the nav links, forms, and other content for toggling -->
+<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+<ul class="nav navbar-nav">
+<li class="active"><a href="#">Electronics <span class="sr-only">(current)</span></a></li>
+
+<% @menus.limit(7).each do |cat| %>
+<%#= link_to categories_show_path %>
+<li ><%=link_to cat.name, list_items_show_path(cat.slug) if present? %></li>
+<% end %>
+</ul>
+<ul id="top-links" class="nav navbar-nav navbar-right">
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">My Account<span class="caret"></span></a>
+<ul class="dropdown-menu" role="menu">
+<% if current_user %>
+<li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+<% else %>
+<li><%= link_to 'Log In', new_user_session_path %></li>
+<li><%#= link_to 'Log In', admin_root_path %></li>
+<li><%= link_to 'Sign Up', new_user_session_path %></li>
+<% end %>
+
+<li class="divider"></li>
+<li><%= link_to 'Setting', new_user_registration_path %></li>
+</ul>
+
+</li>
 
 <% if signed_in? %>
-        <% if @wishlist_count.present?%>
-                 <li><a href="#">Wish List (<%= @wishlist_count %>)</a></li>
-        <% else %>
-                 <li><a href="#">Wish List (0)</a></li>
-        <% end %>
-        <% else %>
-        <li><a href="#">Wish List (0)</a></li>
+<% if @wishlist_count.present?%>
+<li><a href="#">Wish List (<%= @wishlist_count %>)</a></li>
+<% else %>
+<li><a href="#">Wish List (0)</a></li>
 <% end %>
-    <li> 
-                  <% if signed_in? %>
-                  <%= link_to "Checkout", orders_path %>
-                    <% else %>
-                    <%= link_to "Checkout", new_user_session_path %>
-                  <% end %>
-        </li>
+<% else %>
+<li><a href="#">Wish List (0)</a></li>
+<% end %>
+<li> 
+<% if signed_in? %>
+<%= link_to "Checkout", orders_path %>
+<% else %>
+<%= link_to "Checkout", new_user_session_path %>
+<% end %>
+</li>
 
-       
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
+
+</ul>
+</div><!-- /.navbar-collapse -->
+</div><!-- /.container-fluid -->
 </nav>
-          </div>
-        </nav>
-        <div class="container">
-          <div id="header">
-            <div class="col-xs-12">
-          <div class="row">
-            <div class="col-sm-3">
-              <div class="logo">
-                <h1><%= link_to image_tag("logo.png"), root_path %></h1>
-              </div>
-            </div>
-            <div class="col-sm-6 search-col">
-                  <!-- Search Start -->
-                   <%= form_tag('/search') do %>
-    <%= collection_select( :home, :category_id, Category.all, :id, :name, {:prompt => 'select category'}, {:class => "form-control"} ) %>
-   
-    
-                  <div id="imaginary_container"> 
-                  
-                      <div class="input-group stylish-input-group">
-
-                     <%= text_field_tag 'q','', :class=>'form-control ',:placeholder=>'Search'%>
-                          <span class="input-group-addon">
-                              <button type="submit">
-                                  <span> <i class="fa fa-search"></i></span>
-                              </button>  
-                          </span>
-                      </div>
-                       <% end -%>
-                  </div>
-
-                  <!-- Search End -->
-            </div>
-            <div class="col-sm-3">
-              <div class="nav navbar-right cart pull-right">
-              <a id="cart" href="" class="dropdown-toggle" data-toggle="dropdown" role="button">
-             <% if @cart.present? %>
-              <span><b><%= @cart.count %></b>
-              <span> item(s)<br>$0.00</span>
-              <% else %>
-              <span> item(s)<br>$0.00</span>
-               <div class="cart-info dropdown-menu pull-right" role="menu" style="visibility: visible;">
-            
-              </div>
-              <div class="empty">cart is empty!</div>
-              <% end %>
-              </span>
-            </a>
-            <div class="cart-info dropdown-menu pull-right" role="menu" style="visibility: visible;">
-                        
-                        
-              </div>
-            </div>
-            </div>
-          </div>
-          </div>
-          </div>
-        </div>      
+</div>
+</nav>
+<div class="container">
+<div id="header">
+<div class="col-xs-12">
+<div class="row">
+<div class="col-sm-3">
+<div class="logo">
+<h1><%= link_to image_tag("logo.png"), root_path %></h1>
+</div>
+</div>
+<div class="col-sm-6 search-col">
+<!-- Search Start -->
+<%= form_tag('/search') do %>
+<%= collection_select( :home, :category_id, Category.all, :id, :name, {:prompt => 'select category'}, {:class => "form-control"} ) %>
 
 
- <div class="banner">
-        <div class="container">
-          <div class="col-xs-12">
-          <div class="row">
+<div id="imaginary_container"> 
+
+<div class="input-group stylish-input-group">
+
+<%= text_field_tag 'q','', :class=>'form-control ',:placeholder=>'Search'%>
+<span class="input-group-addon">
+<button type="submit">
+  <span> <i class="fa fa-search"></i></span>
+</button>  
+</span>
+</div>
+<% end -%>
+</div>
+
+<!-- Search End -->
+</div>
+<div class="col-sm-3">
+<div class="nav navbar-right cart pull-right">
+<a id="cart" href="" class="dropdown-toggle" data-toggle="dropdown" role="button">
+<% if @cart.present? %>
+<span><b><%= @cart.count %></b>
+<span> item(s)<br>$0.00</span>
+<% else %>
+<span> item(s)<br>$0.00</span>
+<div class="cart-info dropdown-menu pull-right" role="menu" style="visibility: visible;">
+
+</div>
+<div class="empty">cart is empty!</div>
+<% end %>
+</span>
+</a>
+<div class="cart-info dropdown-menu pull-right" role="menu" style="visibility: visible;">
+
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>      
+
+
+<div class="banner">
+<div class="container">
+<div class="col-xs-12">
+<div class="row">
 
 
 
-         
-            <div class="col-md-9 col-sm-13">
-            <% if @categories[0].present? %>
-              <%= link_to image_tag(@categories[0].banner_image_url(:big), :class => "img-responsive"), list_items_show_path(@categories[0].slug)%><% end %>
-            </div>
-            <div class="col-md-3 col-sm-4">
-                <div class="banner-r">
-                       
-                        <div class="banner-s-l-t">
-                        <% if @categories[1].present? %>
-                         <%= link_to image_tag(@categories[1].banner_image_url(:thumb), :class => "img-responsive"), list_items_show_path(@categories[1].slug)%><% end %>
-                          <!-- <img src="assets/banner-right-d.jpg" alt="" class="img-responsive"> -->
-                        </div>
-                         
-                        <div class="banner-s-l-d">
-                        <% if @categories[2].present? %>
-                         <%= link_to image_tag(@categories[2].banner_image_url(:medium), :class => "img-responsive"), list_items_show_path(@categories[2].slug)%><% end %>
-                          <!-- <img src="assets/banner-right-d.jpg" alt="" class="img-responsive"> -->
-                        </div>
-                </div>
-            </div>
-            </div>
-          </div>
-          </div>
-        </div>
-      </header>
-      
-      
-      
-        <section class="main-container">
-        <!-- Hot Deal Start -->
-          <div class="hot-deal">
-          <div class="container">
-            <div class="col-xs-12">
-            <h2>Hot deals</h2>
-            </div>
-          <div class="col-xs-12">
-            <div class="row">
-            <% if @hotdeal[0].present? %>
-              <div class="col-sm-4">
-                <div class="post post1">
 
-                  <%= link_to image_tag(@hotdeal[0].image_url(:thumb), :class => "img-responsive"), slugged_path(@hotdeal[0].slug)%>
-                  <p><%=@hotdeal[0].name %>
-                  <span class="price"><%=number_to_currency(@hotdeal[0].price) %></span> </p>
-             
-               </div>
-                
-              </div>
-              <% end %> 
-              <% if @hotdeal[1].present? %>
-              <div class="col-sm-4">
-                <div class="post post2">
-                
-                  <%= link_to image_tag(@hotdeal[1].image_url(:thumb), :class => "img-responsive"), slugged_path(@hotdeal[1].slug)%>
-                  <div class="price-detail"><p><%=@hotdeal[1].name %></p>
-                  <p><span class="price"><%=number_to_currency(@hotdeal[1].price) %></span> </p>
-                  
-                  </div>
-                </div><% end %>
-                <% if @hotdeal[2].present? %>
-                <div class="post post2 post3">
-                
-                  <%= link_to image_tag(@hotdeal[2].image_url(:thumb), :class => "img-responsive"), slugged_path(@hotdeal[2].slug)%>
-                  <div class="price-detail"><p><%=@hotdeal[2].name %></p>
-                  <p><span class="price"><%=number_to_currency(@hotdeal[2].price) %></span> </p>
-                  </div>
-                  <% end %>
-                </div>
-              </div>
-              <% if @hotdeal[3].present? %>
-              <div class="col-sm-4">                
-                <div class="post post2">
-                
-                  <%= link_to image_tag(@hotdeal[3].image_url(:thumb), :class => "img-responsive"), slugged_path(@hotdeal[3].slug)%>
-                  <div class="price-detail"><p><%=@hotdeal[3].name %></p>
-                  <p><span class="price"><%=number_to_currency(@hotdeal[3].price) %></span> </p>
-                  </div>
-                </div>
-                <% end %>
-                <% if @hotdeal[4].present? %>
-                <div class="post post2 post3">
-                
-                   <%= link_to image_tag(@hotdeal[4].image_url(:thumb), :class => "img-responsive"), slugged_path(@hotdeal[4].slug)%>
-                  <div class="price-detail"><p><%=@hotdeal[4].name %></p>
-                  <p><span class="price"><%=number_to_currency(@hotdeal[4].price) %></span> </p>
-                  </div>
-                  <% end %>
-                </div>
-              </div>
-            </div>
-          </div>
-          </div>
-          </div>
-        <!-- Hot Deal End-->        
+<div class="col-md-9 col-sm-13">
+<% if @categories[0].present? %>
+<%= link_to image_tag(@categories[0].banner_image_url(:big), :class => "img-responsive"), list_items_show_path(@categories[0].slug)%><% end %>
+</div>
+<div class="col-md-3 col-sm-4">
+<div class="banner-r">
 
-        <!-- Highlight Product Start-->
-        <div class="highlight-product">
-          <div class="container">
-            <div class="col-xs-12">
-              <div class="row">
-                <div class="col-sm-3 box1">      
-                        <div class="box1-t">
-                        <% if @categories[1].present? %>
-                          <%= link_to image_tag(@categories[1].banner_image_url(:smaller), :class => "img-responsive"), list_items_show_path(@categories[1].slug)%><% end %>
-                        </div>
-                        <div class="box1-d">
-                         <% if @categories[0].present? %>
-                          <%= link_to image_tag(@categories[0].banner_image_url(:smallest), :class => "img-responsive"), list_items_show_path(@categories[0].slug)%><% end %>
-                        </div>
-                </div>
-                <div class="col-sm-6 box2"> 
-                 <% if @categories[2].present? %>
-                <%= link_to image_tag(@categories[2].banner_image_url(:biggest), :class => "img-responsive"), list_items_show_path(@categories[2].slug)%><% end %>
-                </div>
-                <div class="col-sm-3 box3"> 
-                <% if @categories[3].present? %> 
-                <%= link_to image_tag(@categories[3].banner_image_url(:bigger), :class => "img-responsive"), list_items_show_path(@categories[3].slug)%><% end %>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- Highlight Product End-->
+<div class="banner-s-l-t">
+<% if @categories[1].present? %>
+<%= link_to image_tag(@categories[1].banner_image_url(:thumb), :class => "img-responsive"), list_items_show_path(@categories[1].slug)%><% end %>
+<!-- <img src="assets/banner-right-d.jpg" alt="" class="img-responsive"> -->
+</div>
 
-        <!-- FEATURED Products start-->
-        <div class="featured-product">
-              <div class="container">
-                        <div class="col-xs-12"><h2>FEATURED Products</h2></div>
-                        <div class="col-xs-12">
-                <div class="row">
-                <% j = 0 %>
-                <% @featured.each do |feat| %>
-                <%  j += 1 %>
-                    <div class="col-sm-3 col-md-3">
-                      <div class="thumbnail">
+<div class="banner-s-l-d">
+<% if @categories[2].present? %>
+<%= link_to image_tag(@categories[2].banner_image_url(:medium), :class => "img-responsive"), list_items_show_path(@categories[2].slug)%><% end %>
+<!-- <img src="assets/banner-right-d.jpg" alt="" class="img-responsive"> -->
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</header>
 
-                        <div class="caption">
-                             <%= link_to image_tag(feat.image_url(:thumb), :class => "img-responsive"), slugged_path(feat.slug)%>
-                              <p>
-                              <b><%= feat.name %> </b>
-                              <span class="price"><%= number_to_currency(feat.price )%></span></p>
-                        </div>
-                        
-                      </div>
 
-                    </div>
-                    <% if j%4==0 %>
-                     </div>
-                    <div class="row">
 
-                    <% end %>
-                    <% end%>
-                     </div>
-                   
-                  
-               
-                </div>
-                    </div>
-            </div>
-        <!-- FEATURED Products End-->
+<section class="main-container">
+<!-- Hot Deal Start -->
+<div class="hot-deal">
+<div class="container">
+<div class="col-xs-12">
+<h2>Hot deals</h2>
+</div>
+<div class="col-xs-12">
+<div class="row">
+<% if @hotdeal[0].present? %>
+<div class="col-sm-4">
+<div class="post post1">
 
-        <!-- Our Brands Start-->
-        <div class="brand">
-          <div class="container">
-            <div class="col-xs-12">
-      <div class="title"><h2><span>Our brands</span></h2></div>
-        <div id="w">    
-    <nav class="slidernav">
-      <div id="navbtns" class="clearfix">
-        <div class="arrow-brand">
-        <a href="#" class="previous"><i class="fa fa-angle-left"></i></a>
-        <a href="#" class="next"><i class="fa fa-angle-right"></i></a>
-      </div>
-      </div>
-    </nav>
-    
-    <div class="crsl-items" data-navigation="navbtns">
-      <div class="crsl-wrap"> 
-      <% @brands.each do |b| %>
-        <div class="crsl-item">
-          <div class="thumbnail">
-         
-             <%= link_to image_tag(b.icon_url(:icon)), list_brand_items_show_path(b.slug) if present? %>
-          </div>
-        </div><!-- post #1 -->
-        <% end%>
-        
-      </div><!-- @end .crsl-wrap -->
-    </div><!-- @end .crsl-items -->
-    
-  </div><!-- @end #w -->
-  <!-- Brand Part End -->
+<%= link_to image_tag(@hotdeal[0].image_url(:thumb), :class => "img-responsive"), slugged_path(@hotdeal[0].slug)%>
+<p><%=@hotdeal[0].name %>
+<span class="price"><%=number_to_currency(@hotdeal[0].price) %></span> </p>
+
+</div>
+
+</div>
+<% end %> 
+<% if @hotdeal[1].present? %>
+<div class="col-sm-4">
+<div class="post post2">
+
+<%= link_to image_tag(@hotdeal[1].image_url(:thumb), :class => "img-responsive"), slugged_path(@hotdeal[1].slug)%>
+<div class="price-detail"><p><%=@hotdeal[1].name %></p>
+<p><span class="price"><%=number_to_currency(@hotdeal[1].price) %></span> </p>
+
+</div>
+</div><% end %>
+<% if @hotdeal[2].present? %>
+<div class="post post2 post3">
+
+<%= link_to image_tag(@hotdeal[2].image_url(:thumb), :class => "img-responsive"), slugged_path(@hotdeal[2].slug)%>
+<div class="price-detail"><p><%=@hotdeal[2].name %></p>
+<p><span class="price"><%=number_to_currency(@hotdeal[2].price) %></span> </p>
+</div>
+<% end %>
+</div>
+</div>
+<% if @hotdeal[3].present? %>
+<div class="col-sm-4">                
+<div class="post post2">
+
+<%= link_to image_tag(@hotdeal[3].image_url(:thumb), :class => "img-responsive"), slugged_path(@hotdeal[3].slug)%>
+<div class="price-detail"><p><%=@hotdeal[3].name %></p>
+<p><span class="price"><%=number_to_currency(@hotdeal[3].price) %></span> </p>
+</div>
+</div>
+<% end %>
+<% if @hotdeal[4].present? %>
+<div class="post post2 post3">
+
+<%= link_to image_tag(@hotdeal[4].image_url(:thumb), :class => "img-responsive"), slugged_path(@hotdeal[4].slug)%>
+<div class="price-detail"><p><%=@hotdeal[4].name %></p>
+<p><span class="price"><%=number_to_currency(@hotdeal[4].price) %></span> </p>
+</div>
+<% end %>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Hot Deal End-->        
+
+<!-- Highlight Product Start-->
+<div class="highlight-product">
+<div class="container">
+<div class="col-xs-12">
+<div class="row">
+<div class="col-sm-3 box1">      
+<div class="box1-t">
+<% if @categories[1].present? %>
+<%= link_to image_tag(@categories[1].banner_image_url(:smaller), :class => "img-responsive"), list_items_show_path(@categories[1].slug)%><% end %>
+</div>
+<div class="box1-d">
+<% if @categories[0].present? %>
+<%= link_to image_tag(@categories[0].banner_image_url(:smallest), :class => "img-responsive"), list_items_show_path(@categories[0].slug)%><% end %>
+</div>
+</div>
+<div class="col-sm-6 box2"> 
+<% if @categories[2].present? %>
+<%= link_to image_tag(@categories[2].banner_image_url(:biggest), :class => "img-responsive"), list_items_show_path(@categories[2].slug)%><% end %>
+</div>
+<div class="col-sm-3 box3"> 
+<% if @categories[3].present? %> 
+<%= link_to image_tag(@categories[3].banner_image_url(:bigger), :class => "img-responsive"), list_items_show_path(@categories[3].slug)%><% end %>
+</div>
+</div>
+</div>
+</div>
+<!-- Highlight Product End-->
+
+<!-- FEATURED Products start-->
+<div class="featured-product">
+<div class="container">
+<div class="col-xs-12"><h2>FEATURED Products</h2></div>
+<div class="col-xs-12">
+<div class="row">
+<% j = 0 %>
+<% @featured.each do |feat| %>
+<%  j += 1 %>
+<div class="col-sm-3 col-md-3">
+<div class="thumbnail">
+
+<div class="caption">
+<%= link_to image_tag(feat.image_url(:thumb), :class => "img-responsive"), slugged_path(feat.slug)%>
+<p>
+<b><%= feat.name %> </b>
+<span class="price"><%= number_to_currency(feat.price )%></span></p>
+</div>
+
+</div>
+
+</div>
+<% if j%4==0 %>
+</div>
+<div class="row">
+
+<% end %>
+<% end%>
+</div>
+
+
+
+</div>
+</div>
+</div>
+<!-- FEATURED Products End-->
+
+<!-- Our Brands Start-->
+<div class="brand">
+<div class="container">
+<div class="col-xs-12">
+<div class="title"><h2><span>Our brands</span></h2></div>
+<div id="w">    
+<nav class="slidernav">
+<div id="navbtns" class="clearfix">
+<div class="arrow-brand">
+<a href="#" class="previous"><i class="fa fa-angle-left"></i></a>
+<a href="#" class="next"><i class="fa fa-angle-right"></i></a>
+</div>
+</div>
+</nav>
+
+<div class="crsl-items" data-navigation="navbtns">
+<div class="crsl-wrap"> 
+<% @brands.each do |b| %>
+<div class="crsl-item">
+<div class="thumbnail">
+
+<%= link_to image_tag(b.icon_url(:icon)), list_brand_items_show_path(b.slug) if present? %>
+</div>
+</div><!-- post #1 -->
+<% end%>
+
+</div><!-- @end .crsl-wrap -->
+</div><!-- @end .crsl-items -->
+
+</div><!-- @end #w -->
+<!-- Brand Part End -->
 </div>
 </div>
 </section>
 <!-- Footer Part Start -->
 <footer class="footer">
 <div class="footer-top">
-  <div class="container">
-    <div class="col-xs-12">
-      <div class="row">
+<div class="container">
+<div class="col-xs-12">
+<div class="row">
 
-        <div class="col-md-1">
-        <h2>Share: </h2>
-        </div>
-        <div class="col-md-6">
-          <ul>
+<div class="col-md-1">
+<h2>Share: </h2>
+</div>
+<div class="col-md-6">
+<ul>
 
-            <li>
-            <i class="fa fa-facebook-square"></i>
-            <%= link_to "Facebook", "http://www.facebook.com/sharer.php?u="+ request.original_url , :target => "_blank"%>
-            </li>
-            <li>
-            <i class="fa fa-twitter-square"></i>
-            <%= link_to "Twitter", "http://twitter.com/share?url="+ request.original_url , :target => "_blank" %>
-            </li>
-            <li>
-            <i class="fa fa-pinterest-square"></i>
-            <%= link_to "Pinterest", "javascript:void((function()%7Bvar%20e=document.createElement('script');e.setAttribute('type','text/javascript');e.setAttribute('charset','UTF-8');e.setAttribute('src','http://assets.pinterest.com/js/pinmarklet.js?r='+Math.random()*99999999);document.body.appendChild(e)%7D)());" %>
-             </li>
-            <li>
-            <i class="fa fa-linkedin-square"></i>
-            <%= link_to "Linkedin", "http://www.linkedin.com/shareArticle?mini=true&url="+ request.original_url , :target => "_blank" %>
-            </li>
-          </ul>
-        </div>
-        <div class="col-md-5"></div>
-      </div>
-    </div>
-  </div>
+<li>
+<i class="fa fa-facebook-square"></i>
+<%= link_to "Facebook", "http://www.facebook.com/sharer.php?u="+ request.original_url , :target => "_blank"%>
+</li>
+<li>
+<i class="fa fa-twitter-square"></i>
+<%= link_to "Twitter", "http://twitter.com/share?url="+ request.original_url , :target => "_blank" %>
+</li>
+<li>
+<i class="fa fa-pinterest-square"></i>
+<%= link_to "Pinterest", "javascript:void((function()%7Bvar%20e=document.createElement('script');e.setAttribute('type','text/javascript');e.setAttribute('charset','UTF-8');e.setAttribute('src','http://assets.pinterest.com/js/pinmarklet.js?r='+Math.random()*99999999);document.body.appendChild(e)%7D)());" %>
+</li>
+<li>
+<i class="fa fa-linkedin-square"></i>
+<%= link_to "Linkedin", "http://www.linkedin.com/shareArticle?mini=true&url="+ request.original_url , :target => "_blank" %>
+</li>
+</ul>
+</div>
+<div class="col-md-5"></div>
+</div>
+</div>
+</div>
 </div>
 
 <div class="footer-bottom inner-bottom-sm">
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12 col-sm-6 col-md-3">
-                    <div class="module-heading outer-bottom-xs">
-                        <h4 class="module-title">category</h4>
-                    </div><!-- /.module-heading -->
- 
-                          
-                    <div class="module-body">
-                        <ul class="list-unstyled">
-                     <% @footer_menus.limit(3).offset(0).each do |f| %>
+<div class="container">
+<div class="row">
+<div class="col-xs-12 col-sm-6 col-md-3">
+<div class="module-heading outer-bottom-xs">
+<h4 class="module-title">category</h4>
+</div><!-- /.module-heading -->
 
-        <li><%= link_to f.title, contact_show_path(f.slug) %></li>
-        <% end %>
-                        </ul>
-                    </div><!-- /.module-body -->
-                </div><!-- /.col -->
 
-                <div class="col-xs-12 col-sm-6 col-md-3">
-                    <div class="module-heading outer-bottom-xs">
-                        <h4 class="module-title">my account</h4>
-                    </div><!-- /.module-heading -->
+<div class="module-body">
+<ul class="list-unstyled">
+<% @footer_menus.limit(3).offset(0).each do |f| %>
 
-                    <div class="module-body">
-                        <ul class="list-unstyled">
-                            <% @footer_menus.limit(3).offset(4).each do |f| %>
+<li><%= link_to f.title, contact_show_path(f.slug) %></li>
+<% end %>
+</ul>
+</div><!-- /.module-body -->
+</div><!-- /.col -->
 
-        <li><%= link_to f.title, contact_show_path(f.slug) %></li>
-        <% end %>
-                        </ul>
-                    </div><!-- /.module-body -->
-                </div><!-- /.col -->
+<div class="col-xs-12 col-sm-6 col-md-3">
+<div class="module-heading outer-bottom-xs">
+<h4 class="module-title">my account</h4>
+</div><!-- /.module-heading -->
 
-                <div class="col-xs-12 col-sm-6 col-md-3">
-                    <div class="module-heading outer-bottom-xs">
-                        <h4 class="module-title">our services</h4>
-                    </div><!-- /.module-heading -->
+<div class="module-body">
+<ul class="list-unstyled">
+<% @footer_menus.limit(3).offset(4).each do |f| %>
 
-                    <div class="module-body">
-                        <ul class="list-unstyled">
-                             <% @footer_menus.limit(3).offset(0).each do |f| %>
+<li><%= link_to f.title, contact_show_path(f.slug) %></li>
+<% end %>
+</ul>
+</div><!-- /.module-body -->
+</div><!-- /.col -->
 
-        <li><%= link_to f.title, contact_show_path(f.slug) %></li>
-        <% end %>
-                        </ul>
-                    </div><!-- /.module-body -->
-                </div><!-- /.col -->
+<div class="col-xs-12 col-sm-6 col-md-3">
+<div class="module-heading outer-bottom-xs">
+<h4 class="module-title">our services</h4>
+</div><!-- /.module-heading -->
 
-                <div class="col-xs-12 col-sm-6 col-md-3">
-                    <div class="module-heading outer-bottom-xs">
-                        <h4 class="module-title">help &amp; support</h4>
-                    </div><!-- /.module-heading -->
+<div class="module-body">
+<ul class="list-unstyled">
+<% @footer_menus.limit(3).offset(0).each do |f| %>
 
-                    <div class="module-body">
-                        <ul class="list-unstyled">
-                            <% @footer_menus.limit(3).offset(0).each do |f| %>
+<li><%= link_to f.title, contact_show_path(f.slug) %></li>
+<% end %>
+</ul>
+</div><!-- /.module-body -->
+</div><!-- /.col -->
 
-        <li><%= link_to f.title, contact_show_path(f.slug) %></li>
-        <% end %>
-                        </ul>
-                    </div><!-- /.module-body -->
-                </div>
-            </div>
-        </div>
-    </div>
+<div class="col-xs-12 col-sm-6 col-md-3">
+<div class="module-heading outer-bottom-xs">
+<h4 class="module-title">help &amp; support</h4>
+</div><!-- /.module-heading -->
 
-    <div class="copyright-bar">
-        <div class="container">
-            <div class="col-xs-12 col-sm-6 no-padding">
-                <div class="copyright">
-                   Copyright © 2015
-                   <%= link_to "Cartmandu", root_path %>
-                    - All rights Reserved
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-6 no-padding">
-                <div class="clearfix payment-methods">
-                    <ul>
-                        <li><%= image_tag("1.png") %></li>
-                        <li><%= image_tag("2.png") %></li>
-                        <li><%= image_tag("3.png") %></li>
-                        <li><%= image_tag("4.png") %></li>
-                        <li><%= image_tag("5.png") %></li>
-                    </ul>
-                </div><!-- /.payment-methods -->
-            </div>
-        </div>
-    </div>
+<div class="module-body">
+<ul class="list-unstyled">
+<% @footer_menus.limit(3).offset(0).each do |f| %>
+
+<li><%= link_to f.title, contact_show_path(f.slug) %></li>
+<% end %>
+</ul>
+</div><!-- /.module-body -->
+</div>
+</div>
+</div>
+</div>
+
+<div class="copyright-bar">
+<div class="container">
+<div class="col-xs-12 col-sm-6 no-padding">
+<div class="copyright">
+Copyright © 2015
+<%= link_to "Cartmandu", root_path %>
+- All rights Reserved
+</div>
+</div>
+<div class="col-xs-12 col-sm-6 no-padding">
+<div class="clearfix payment-methods">
+<ul>
+<li><%= image_tag("1.png") %></li>
+<li><%= image_tag("2.png") %></li>
+<li><%= image_tag("3.png") %></li>
+<li><%= image_tag("4.png") %></li>
+<li><%= image_tag("5.png") %></li>
+</ul>
+</div><!-- /.payment-methods -->
+</div>
+</div>
+</div>
 </footer>
 <!-- Footer Part End -->
 <script src="assets/bootstrap.min.js"></script>
 
 <script src="assets/slippry.js"></script>
 <script type="text/javascript" src="assets/responsiveCarousel.min.js"></script> 
-      <script type="text/javascript">
-      $(function(){
-        $('.crsl-items').carousel({
-          visible: 3,
-          itemMinWidth: 180,
-          itemEqualHeight: 370,
-          itemMargin: 9,
-        });
-        
-        $("a[href=#]").on('click', function(e) {
-          e.preventDefault();
-        });
-      });
-      </script>
-    </body>
+<script type="text/javascript">
+$(function(){
+$('.crsl-items').carousel({
+visible: 3,
+itemMinWidth: 180,
+itemEqualHeight: 370,
+itemMargin: 9,
+});
+
+$("a[href=#]").on('click', function(e) {
+e.preventDefault();
+});
+});
+</script>
+</body>
 </html>

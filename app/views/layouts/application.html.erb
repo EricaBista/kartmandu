@@ -1,290 +1,290 @@
 <!DOCTYPE html>
 <html>
 <head>
- <title>Cartmandu::.</title>
- <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-         <!-- Bootstrap core CSS -->
-        <link href="/assets/bootstrap.min.css" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="/assets/layout.css" />
-        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-      <!--   <link rel="stylesheet" type="text/css" href="/assets/font-awesome.css" /> -->
-       
-        <link rel="stylesheet" href="/assets/slippry.css" type="text/css">
-        <!-- Custom styles for this template -->
-         <link rel="stylesheet" href="/assets/style.css" type="text/css">
-        <link  href="/assets/brand.css" rel="stylesheet" type="text/css" media="all">
-        <link href="/assets/responsive.css" rel="stylesheet" media="screen">
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <script src="/assets/ie-emulation-modes-warning.js"></script>
-  </head>
+<title>Cartmandu::.</title>
+<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+<%= csrf_meta_tags %>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Bootstrap core CSS -->
+<link href="/assets/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/assets/layout.css" />
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+<!--   <link rel="stylesheet" type="text/css" href="/assets/font-awesome.css" /> -->
+
+<link rel="stylesheet" href="/assets/slippry.css" type="text/css">
+<!-- Custom styles for this template -->
+<link rel="stylesheet" href="/assets/style.css" type="text/css">
+<link  href="/assets/brand.css" rel="stylesheet" type="text/css" media="all">
+<link href="/assets/responsive.css" rel="stylesheet" media="screen">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+<script src="/assets/ie-emulation-modes-warning.js"></script>
+</head>
 
 
-  <body>
-  <header>
-        <nav id="top">
-          <div class="container">
-            <nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-    </div>
+<body>
+<header>
+<nav id="top">
+<div class="container">
+<nav class="navbar navbar-default">
+<div class="container-fluid">
+<!-- Brand and toggle get grouped for better mobile display -->
+<div class="navbar-header">
+<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+<span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+</div>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Electronics <span class="sr-only">(current)</span></a></li>
+<!-- Collect the nav links, forms, and other content for toggling -->
+<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+<ul class="nav navbar-nav">
+<li class="active"><a href="#">Electronics <span class="sr-only">(current)</span></a></li>
 
-         <% @menus.limit(6).each do |cat| %>
-         <%#= link_to categories_show_path %>
-        <li ><%=link_to cat.name, list_items_show_path(cat.slug) if present? %></li><% end %>
-      </ul>
-      <ul id="top-links" class="nav navbar-nav navbar-right">
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">My Account<span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-          <% if current_user %>
-          <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
-          <% else %>
-          <li><%= link_to 'Log In', new_user_session_path %></li>
-            <li><%#= link_to 'Log In', admin_root_path %></li>
-            <li><%= link_to 'Sign Up', new_user_session_path %></li>
-            <% end %>
-            
-            <li class="divider"></li>
-            <li><%= link_to 'Setting', new_user_registration_path %></li>
-          </ul>
-        </li>
+<% @menus.limit(6).each do |cat| %>
+<%#= link_to categories_show_path %>
+<li ><%=link_to cat.name, list_items_show_path(cat.slug) if present? %></li><% end %>
+</ul>
+<ul id="top-links" class="nav navbar-nav navbar-right">
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">My Account<span class="caret"></span></a>
+<ul class="dropdown-menu" role="menu">
+<% if current_user %>
+<li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+<% else %>
+<li><%= link_to 'Log In', new_user_session_path %></li>
+<li><%#= link_to 'Log In', admin_root_path %></li>
+<li><%= link_to 'Sign Up', new_user_session_path %></li>
+<% end %>
 
-       <% if signed_in? %>
-        <% if @wishlist_count.present?%>
-                 <li><a href="#">Wish List (<%= @wishlist_count %>)</a></li>
-        <% else %>
-                 <li><a href="#">Wish List (0)</a></li>
-        <% end %>
-        <% else %>
-        <li><a href="#">Wish List (0)</a></li>
-       <% end %>
+<li class="divider"></li>
+<li><%= link_to 'Setting', new_user_registration_path %></li>
+</ul>
+</li>
 
-        <li> 
-                  <% if signed_in? %>
-                   <%= link_to "Checkout", orders_path %>
-                    <% else %>
-                    <%= link_to "Checkout", new_user_session_path %>
-                  <% end %>
-        </li>
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
+<% if signed_in? %>
+<% if @wishlist_count.present?%>
+<li><a href="#">Wish List (<%= @wishlist_count %>)</a></li>
+<% else %>
+<li><a href="#">Wish List (0)</a></li>
+<% end %>
+<% else %>
+<li><a href="#">Wish List (0)</a></li>
+<% end %>
+
+<li> 
+<% if signed_in? %>
+<%= link_to "Checkout", orders_path %>
+<% else %>
+<%= link_to "Checkout", new_user_session_path %>
+<% end %>
+</li>
+</ul>
+</div><!-- /.navbar-collapse -->
+</div><!-- /.container-fluid -->
 </nav>
-          </div>
-        </nav>
-        <div class="container">
-          <div id="header">
-            <div class="col-xs-12">
-          <div class="row">
-            <div class="col-sm-3">
-              <div class="logo">
-                <h1><%= link_to image_tag("logo.png"), root_path %></h1>
-              </div>
-            </div>
-            <div class="col-sm-6 search-col">
-                  <!-- Search Start -->
-                  <%= form_tag('/search') do %>
-    <%= collection_select( :home, :category_id, Category.all, :id, :name, {:prompt => 'select category'}, {:class => "form-control"}  ) %>
-     
-                <div id="imaginary_container"> 
-                  
-                      <div class="input-group stylish-input-group">
+</div>
+</nav>
+<div class="container">
+<div id="header">
+<div class="col-xs-12">
+<div class="row">
+<div class="col-sm-3">
+<div class="logo">
+<h1><%= link_to image_tag("logo.png"), root_path %></h1>
+</div>
+</div>
+<div class="col-sm-6 search-col">
+<!-- Search Start -->
+<%= form_tag('/search') do %>
+<%= collection_select( :home, :category_id, Category.all, :id, :name, {:prompt => 'select category'}, {:class => "form-control"}  ) %>
 
-                     <%= text_field_tag 'q','', :class=>'form-control ',:placeholder=>'Search'%>
-                          <span class="input-group-addon">
-                              <button type="submit">
-                                  <span> <i class="fa fa-search"></i></span>
-                              </button>  
-                          </span>
-                      </div>
-                       <% end -%>
-                  </div>
+<div id="imaginary_container"> 
 
-                  <!-- Search End -->
-            </div>
-            <div class="col-sm-3">
-              <div class="nav navbar-right cart pull-right">
-              <a id="cart" href="" class="dropdown-toggle" data-toggle="dropdown" role="button">
-            <% if @cart.present? %>
-              <span><b><%= @cart.count %></b>
-              <span> item(s)<br>$0.00</span>
-              <% else %>
-              <span> item(s)<br>$0.00</span>
-               <div class="cart-info dropdown-menu pull-right" role="menu" style="visibility: visible;">
-            
-              </div>
-              <div class="empty">cart is empty!</div>
-              <% end %>
-              </span>
-            </a>
-           
-            </div>
-            </div>
-          </div>
-          </div>
-          </div>
-        </div>        
-  
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+<div class="input-group stylish-input-group">
+
+<%= text_field_tag 'q','', :class=>'form-control ',:placeholder=>'Search'%>
+<span class="input-group-addon">
+<button type="submit">
+<span> <i class="fa fa-search"></i></span>
+</button>  
+</span>
+</div>
+<% end -%>
+</div>
+
+<!-- Search End -->
+</div>
+<div class="col-sm-3">
+<div class="nav navbar-right cart pull-right">
+<a id="cart" href="" class="dropdown-toggle" data-toggle="dropdown" role="button">
+<% if @cart.present? %>
+<span><b><%= @cart.count %></b>
+<span> item(s)<br>$0.00</span>
+<% else %>
+<span> item(s)<br>$0.00</span>
+<div class="cart-info dropdown-menu pull-right" role="menu" style="visibility: visible;">
+
+</div>
+<div class="empty">cart is empty!</div>
+<% end %>
+</span>
+</a>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>        
+
+<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+<%= csrf_meta_tags %>
 </head>
 <body>
 
 <%= yield %>
- 
+
 <footer class="footer">
 <div class="footer-top">
-  <div class="container">
-    <div class="col-xs-12">
-      <div class="row">
+<div class="container">
+<div class="col-xs-12">
+<div class="row">
 
-        <div class="col-md-1">
-        <h2>Share: </h2>
-        </div>
-        <div class="col-md-6">
-          <ul>
+<div class="col-md-1">
+<h2>Share: </h2>
+</div>
+<div class="col-md-6">
+<ul>
 
-            <li><i class="fa fa-facebook-square"></i><%= link_to "Facebook", "http://www.facebook.com/sharer.php?u="+ request.original_url , :target => "_blank"%></li>
-            <li><i class="fa fa-twitter-square"></i><%= link_to "Twitter", "http://twitter.com/share?url="+ request.original_url , :target => "_blank" %></li>
-            <li><i class="fa fa-pinterest-square"></i><%= link_to "Pinterest", "javascript:void((function()%7Bvar%20e=document.createElement('script');e.setAttribute('type','text/javascript');e.setAttribute('charset','UTF-8');e.setAttribute('src','http://assets.pinterest.com/js/pinmarklet.js?r='+Math.random()*99999999);document.body.appendChild(e)%7D)());" %> </li>
-            <li><i class="fa fa-linkedin-square"></i><%= link_to "Linkedin", "http://www.linkedin.com/shareArticle?mini=true&url="+ request.original_url , :target => "_blank" %></li>
-          </ul>
-        </div>
-        <div class="col-md-5"></div>
-      </div>
-    </div>
-  </div>
+<li><i class="fa fa-facebook-square"></i><%= link_to "Facebook", "http://www.facebook.com/sharer.php?u="+ request.original_url , :target => "_blank"%></li>
+<li><i class="fa fa-twitter-square"></i><%= link_to "Twitter", "http://twitter.com/share?url="+ request.original_url , :target => "_blank" %></li>
+<li><i class="fa fa-pinterest-square"></i><%= link_to "Pinterest", "javascript:void((function()%7Bvar%20e=document.createElement('script');e.setAttribute('type','text/javascript');e.setAttribute('charset','UTF-8');e.setAttribute('src','http://assets.pinterest.com/js/pinmarklet.js?r='+Math.random()*99999999);document.body.appendChild(e)%7D)());" %> </li>
+<li><i class="fa fa-linkedin-square"></i><%= link_to "Linkedin", "http://www.linkedin.com/shareArticle?mini=true&url="+ request.original_url , :target => "_blank" %></li>
+</ul>
+</div>
+<div class="col-md-5"></div>
+</div>
+</div>
+</div>
 </div>
 
 <div class="footer-bottom inner-bottom-sm">
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12 col-sm-6 col-md-3">
-                    <div class="module-heading outer-bottom-xs">
-                        <h4 class="module-title">category</h4>
-                    </div><!-- /.module-heading -->
+<div class="container">
+<div class="row">
+<div class="col-xs-12 col-sm-6 col-md-3">
+<div class="module-heading outer-bottom-xs">
+<h4 class="module-title">category</h4>
+</div><!-- /.module-heading -->
 
-                    <div class="module-body">
-                        <ul class="list-unstyled">
-                             <% @footer_menus.limit(3).offset(0).each do |f| %>
+<div class="module-body">
+<ul class="list-unstyled">
+<% @footer_menus.limit(3).offset(0).each do |f| %>
 
-        <li><%= link_to f.title, contact_show_path(f.slug) %></li>
-        <% end %>
-                        </ul>
-                    </div><!-- /.module-body -->
-                </div><!-- /.col -->
+<li><%= link_to f.title, contact_show_path(f.slug) %></li>
+<% end %>
+</ul>
+</div><!-- /.module-body -->
+</div><!-- /.col -->
 
-                <div class="col-xs-12 col-sm-6 col-md-3">
-                    <div class="module-heading outer-bottom-xs">
-                        <h4 class="module-title">my account</h4>
-                    </div><!-- /.module-heading -->
+<div class="col-xs-12 col-sm-6 col-md-3">
+<div class="module-heading outer-bottom-xs">
+<h4 class="module-title">my account</h4>
+</div><!-- /.module-heading -->
 
-                    <div class="module-body">
-                        <ul class="list-unstyled">
-                            <% @footer_menus.limit(3).offset(4).each do |f| %>
+<div class="module-body">
+<ul class="list-unstyled">
+<% @footer_menus.limit(3).offset(4).each do |f| %>
 
-        <li><%= link_to f.title, contact_show_path(f.slug) %></li>
-        <% end %>
-                        </ul>
-                    </div><!-- /.module-body -->
-                </div><!-- /.col -->
+<li><%= link_to f.title, contact_show_path(f.slug) %></li>
+<% end %>
+</ul>
+</div><!-- /.module-body -->
+</div><!-- /.col -->
 
-                <div class="col-xs-12 col-sm-6 col-md-3">
-                    <div class="module-heading outer-bottom-xs">
-                        <h4 class="module-title">our services</h4>
-                    </div><!-- /.module-heading -->
+<div class="col-xs-12 col-sm-6 col-md-3">
+<div class="module-heading outer-bottom-xs">
+<h4 class="module-title">our services</h4>
+</div><!-- /.module-heading -->
 
-                    <div class="module-body">
-                        <ul class="list-unstyled">
-                         <% @footer_menus.limit(3).offset(0).each do |f| %>
+<div class="module-body">
+<ul class="list-unstyled">
+<% @footer_menus.limit(3).offset(0).each do |f| %>
 
-        <li><%= link_to f.title, contact_show_path(f.slug) %></li>
-        <% end %>
-                        </ul>
-                    </div><!-- /.module-body -->
-                </div><!-- /.col -->
+<li><%= link_to f.title, contact_show_path(f.slug) %></li>
+<% end %>
+</ul>
+</div><!-- /.module-body -->
+</div><!-- /.col -->
 
-                <div class="col-xs-12 col-sm-6 col-md-3">
-                    <div class="module-heading outer-bottom-xs">
-                        <h4 class="module-title">help &amp; support</h4>
-                    </div><!-- /.module-heading -->
+<div class="col-xs-12 col-sm-6 col-md-3">
+<div class="module-heading outer-bottom-xs">
+<h4 class="module-title">help &amp; support</h4>
+</div><!-- /.module-heading -->
 
-                    <div class="module-body">
-                        <ul class="list-unstyled">
-                            <% @footer_menus.limit(3).offset(0).each do |f| %>
+<div class="module-body">
+<ul class="list-unstyled">
+<% @footer_menus.limit(3).offset(0).each do |f| %>
 
-        <li><%= link_to f.title, contact_show_path(f.slug) %></li>
-        <% end %>
-                        </ul>
-                    </div><!-- /.module-body -->
-                </div>
-            </div>
-        </div>
-    </div>
+<li><%= link_to f.title, contact_show_path(f.slug) %></li>
+<% end %>
+</ul>
+</div><!-- /.module-body -->
+</div>
+</div>
+</div>
+</div>
 
-    <div class="copyright-bar">
-        <div class="container">
-            <div class="col-xs-12 col-sm-6 no-padding">
-                <div class="copyright">
-                   Copyright © 2015
-                     <%= link_to "Cartmandu", root_path %>
-                    - All rights Reserved
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-6 no-padding">
-                <div class="clearfix payment-methods">
-                    <ul>
-                        <li><%= image_tag("1.png") %></li>
-                        <li><%= image_tag("2.png") %></li>
-                        <li><%= image_tag("3.png") %></li>
-                        <li><%= image_tag("4.png") %></li>
-                        <li><%= image_tag("5.png") %></li>
-                    </ul>
-                </div><!-- /.payment-methods -->
-            </div>
-        </div>
-    </div>
+<div class="copyright-bar">
+<div class="container">
+<div class="col-xs-12 col-sm-6 no-padding">
+<div class="copyright">
+Copyright © 2015
+<%= link_to "Cartmandu", root_path %>
+- All rights Reserved
+</div>
+</div>
+<div class="col-xs-12 col-sm-6 no-padding">
+<div class="clearfix payment-methods">
+<ul>
+<li><%= image_tag("1.png") %></li>
+<li><%= image_tag("2.png") %></li>
+<li><%= image_tag("3.png") %></li>
+<li><%= image_tag("4.png") %></li>
+<li><%= image_tag("5.png") %></li>
+</ul>
+</div><!-- /.payment-methods -->
+</div>
+</div>
+</div>
 </footer>
 <!-- Footer Part End -->
 
 <script src="/assets/bootstrap.min.js"></script>
 <script src="/assets/slippry.js"></script>
 <script type="text/javascript" src="/assets/responsiveCarousel.min.js"></script> 
-      <script type="text/javascript">
-      $(function(){
-        $('.crsl-items').carousel({
-          visible: 3,
-          itemMinWidth: 180,
-          itemEqualHeight: 370,
-          itemMargin: 9,
-        });
-        
-        $("a[href=#]").on('click', function(e) {
-          e.preventDefault();
-        });
-      });
-      </script>
+<script type="text/javascript">
+$(function(){
+$('.crsl-items').carousel({
+visible: 3,
+itemMinWidth: 180,
+itemEqualHeight: 370,
+itemMargin: 9,
+});
+
+$("a[href=#]").on('click', function(e) {
+e.preventDefault();
+});
+});
+</script>
 
 
 </body>

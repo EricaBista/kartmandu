@@ -1,112 +1,112 @@
 
-  <div class="container">
-	<div class="row">
-    
-				<div class="col-sm-2"></div>
-                
-                
-                
-                <div class="col-sm-8">
-                <!-- <div class="signinLogo"><img class="img-responsive" src="/assets/signinLogo.jpg"></div>
-                 -->
-                <br />
-                <br />
-                 <br />
-                <br />
+<div class="container">
+<div class="row">
 
-                <div class="buyForm">
-                <h2>Welcome Guest, please enter your contact information.</h2>
-                
-                
-                <form>
-                
-                <div class="row">
-                
-                			<div class="col-sm-6">
-                            
-                            <div class="form-group">
-                            Email Address
-                            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                          	</div>
-                            
-                            <div class="form-group">
-                            Confirm Email Address
-                            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="">
-                          	</div>
-                        
-                         	<div class="form-group">
-                            Mobile number
-                            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter your mobile number">
-                          	</div>
-                          
-                           	<div class="form-group">
-                            First Name
-                            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter your first name">
-                          	</div>
-                        
-                        
-                        	<div class="form-group">
-                            Last Name
-                            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter your last name">
-                          	</div>
-                            
-                           </div>
-                            
-                            
-                            <div class="col-sm-6">
-                            
-                            <div class="form-group">
-                            Pincode
-                            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter your pincode">
-                          	</div>
-                        
-                         	<div class="form-group">
-                            Shipping Address
-                            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter your shippingaddress">
-                          	</div>
-                          
-                           	<div class="form-group">
-                            City
-                            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter your city">
-                          	</div>
-                        
-                            
-                            <div class="form-group">
-                            Country
-                            <select class="form-control">
-                              <option>Country1</option>
-                            	</select>
-                          	</div>
-                            
-                           </div>
-               
-                </div>
-                
-                <div class="staySignText"><p>Your privacy is important to us onlinestore does not rent or sell your personal information to third parties without your consent.To learn more, read our privacy policy</p></div>
+<div class="col-sm-2"></div>
 
-               <% 
-                    @cartmodel = Cart.find_by_id(@cart_session)
-                %>
-                 <%= link_to "Proceed", @cartmodel.paypal_url(items_url,payment_notifications_url), :class => "btn btn-info" %>
 
-                <!-- <button type="submit" class="btn btn-info">Proceed</button>  -->
-                </form>
-                </div>
-                </div>
-                
-                
-                <div class="col-sm-2"></div>
-	
-	
-    
-  </div>  	
-   </div> 
-    
- 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="/assets/bootstrap.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="/assets/ie10-viewport-bug-workaround.js"></script>
+
+<div class="col-sm-8">
+<!-- <div class="signinLogo"><img class="img-responsive" src="/assets/signinLogo.jpg"></div>
+-->
+<br />
+<br />
+<br />
+<br />
+
+<div class="buyForm">
+<h2>Welcome Guest, please enter your contact information.</h2>
+
+
+<form>
+
+<div class="row">
+
+<div class="col-sm-6">
+
+<div class="form-group">
+Email Address
+<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+</div>
+
+<div class="form-group">
+Confirm Email Address
+<input type="email" class="form-control" id="exampleInputEmail1" placeholder="">
+</div>
+
+<div class="form-group">
+Mobile number
+<input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter your mobile number">
+</div>
+
+<div class="form-group">
+First Name
+<input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter your first name">
+</div>
+
+
+<div class="form-group">
+Last Name
+<input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter your last name">
+</div>
+
+</div>
+
+
+<div class="col-sm-6">
+
+<div class="form-group">
+Pincode
+<input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter your pincode">
+</div>
+
+<div class="form-group">
+Shipping Address
+<input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter your shippingaddress">
+</div>
+
+<div class="form-group">
+City
+<input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter your city">
+</div>
+
+
+<div class="form-group">
+Country
+<select class="form-control">
+<option>Country1</option>
+</select>
+</div>
+
+</div>
+
+</div>
+
+<div class="staySignText"><p>Your privacy is important to us onlinestore does not rent or sell your personal information to third parties without your consent.To learn more, read our privacy policy</p></div>
+
+<% 
+@cartmodel = Cart.find_by_id(@cart_session)
+%>
+<%= link_to "Proceed", @cartmodel.paypal_url(items_url,payment_notifications_url), :class => "btn btn-info" %>
+
+<!-- <button type="submit" class="btn btn-info">Proceed</button>  -->
+</form>
+</div>
+</div>
+
+
+<div class="col-sm-2"></div>
+
+
+
+</div>  	
+</div> 
+
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="/assets/bootstrap.min.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="/assets/ie10-viewport-bug-workaround.js"></script>
 
