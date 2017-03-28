@@ -40,7 +40,6 @@ ActiveAdmin.register Item do
     end
   end
 
-
   form do |f|
     f.inputs "Item" do
       f.input :category, :collection => Category.all.map{ |category| [category.name, category.id] },:prompt => true
