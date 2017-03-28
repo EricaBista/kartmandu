@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  
-  
-  
+
+  root 'home#index'
+
   resources :payment_notifications
   resources :lines_items
   resources :orders
@@ -13,9 +13,6 @@ Rails.application.routes.draw do
   resources :brands
   resources :items
   resources :categories
-  
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
 
   get '/cart' => 'cart#index'
   get '/cart/clear' => 'cart#clearCart'
@@ -27,24 +24,10 @@ Rails.application.routes.draw do
   get 'list/:slug', :controller => "brands", :action => "list_brand_items", :as =>'list_brand_items_show'
   get 'cms/:slug', :controller => "contacts", :action => "cms", :as => 'contact_show'
   get '/order/checkout', :controller => "orders", :action => "express_checkout", :as => 'express_checkout'
-  
-  # You can have the root of your site routed with "root"
 
-  root 'home#index'
-
-  # Example of regular route:
-  #   get 'products/:id' => 'catalog#view'
-
-  # Example of named route that can be invoked with purchase_url(id: product.id)
-  #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
-
-  # Example resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
-
-
-devise_scope :admin_user do
-    get '/admin/logout', :to => 'active_admin/devise/sessions#destroy'
-end
+  devise_scope :admin_user do
+      get '/admin/logout', :to => 'active_admin/devise/sessions#destroy'
+  end
 
 
   # Example resource route with options:
